@@ -1,0 +1,5654 @@
+{
+ "meta": {
+  "slug": "director-birthplaces",
+  "page": "https://maps.tristanhotham.com/director-birthplaces/",
+  "repo": "https://github.com/Tristan-Hotham/director-birthplaces",
+  "doi": "10.5281/zenodo.23847840",
+  "blog": "https://blog.tristanhotham.com/2026/10/31/director-birthplaces/",
+  "retrieved": "2026",
+  "notable": 20
+ },
+ "source": {
+  "n_rows": 82886,
+  "n_blank_rows": 91,
+  "n": 78729,
+  "n_films": 264652,
+  "n_links": 282877,
+  "n_bp": 43632,
+  "bp_pct": 55.4,
+  "n_iso": 43619,
+  "iso_pct": 55.4,
+  "n_pt": 41753,
+  "pt_pct": 53.0,
+  "n_country_bp": 1770,
+  "n_multi_bp": 367,
+  "n_iso_point": 43483,
+  "n_iso_wd": 136,
+  "agree_pct": 99.3,
+  "n_agree_checked": 43349,
+  "n_dob": 52615,
+  "n_debut": 74541,
+  "debut_pct": 94.7,
+  "n_gender": 71115,
+  "gender_pct": 90.3,
+  "n_w": 12995,
+  "n_m": 58057,
+  "n_o": 63,
+  "n_u": 7614,
+  "n_nolabel": 978,
+  "n_notable": 3835,
+  "median_sl": 1,
+  "n_main": 76520,
+  "n_areas": 413,
+  "n_in_area": 22896,
+  "n_places": 11190,
+  "n_countries": 188,
+  "notable_bp_pct": 99.5,
+  "sl1_bp_pct": 25.2,
+  "in_area_pct": 54.8
+ },
+ "countries": {
+  "top": [
+   {
+    "iso": "USA",
+    "name": "United States",
+    "n": 7243,
+    "pct": 16.6,
+    "notable": 1430,
+    "notable_pct": 37.5,
+    "w_pct": 14.8,
+    "per_m": 22.1
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 3262,
+    "pct": 7.5,
+    "notable": 127,
+    "notable_pct": 3.3,
+    "w_pct": 23.3,
+    "per_m": 39.2
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "n": 2715,
+    "pct": 6.2,
+    "notable": 353,
+    "notable_pct": 9.3,
+    "w_pct": 18.5,
+    "per_m": 40.5
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "n": 2293,
+    "pct": 5.3,
+    "notable": 167,
+    "notable_pct": 4.4,
+    "w_pct": 9.3,
+    "per_m": 38.0
+   },
+   {
+    "iso": "IND",
+    "name": "India",
+    "n": 2285,
+    "pct": 5.2,
+    "notable": 159,
+    "notable_pct": 4.2,
+    "w_pct": 8.2,
+    "per_m": 1.7
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 1851,
+    "pct": 4.2,
+    "notable": 290,
+    "notable_pct": 7.6,
+    "w_pct": 11.4,
+    "per_m": 27.7
+   },
+   {
+    "iso": "ESP",
+    "name": "Spain",
+    "n": 1443,
+    "pct": 3.3,
+    "notable": 68,
+    "notable_pct": 1.8,
+    "w_pct": 19.4,
+    "per_m": 30.7
+   },
+   {
+    "iso": "JPN",
+    "name": "Japan",
+    "n": 1384,
+    "pct": 3.2,
+    "notable": 76,
+    "notable_pct": 2.0,
+    "w_pct": 8.5,
+    "per_m": 11.0
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "n": 1300,
+    "pct": 3.0,
+    "notable": 111,
+    "notable_pct": 2.9,
+    "w_pct": 13.9,
+    "per_m": 9.0
+   },
+   {
+    "iso": "CZE",
+    "name": "Czech Republic",
+    "n": 1208,
+    "pct": 2.8,
+    "notable": 34,
+    "notable_pct": 0.9,
+    "w_pct": 14.6,
+    "per_m": 113.2
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "n": 1173,
+    "pct": 2.7,
+    "notable": 74,
+    "notable_pct": 1.9,
+    "w_pct": 26.7,
+    "per_m": 31.2
+   },
+   {
+    "iso": "IRN",
+    "name": "Iran",
+    "n": 829,
+    "pct": 1.9,
+    "notable": 25,
+    "notable_pct": 0.7,
+    "w_pct": 9.3,
+    "per_m": 10.0
+   },
+   {
+    "iso": "POL",
+    "name": "Poland",
+    "n": 790,
+    "pct": 1.8,
+    "notable": 47,
+    "notable_pct": 1.2,
+    "w_pct": 16.6,
+    "per_m": 20.8
+   },
+   {
+    "iso": "SWE",
+    "name": "Sweden",
+    "n": 724,
+    "pct": 1.7,
+    "notable": 50,
+    "notable_pct": 1.3,
+    "w_pct": 20.9,
+    "per_m": 70.4
+   },
+   {
+    "iso": "DNK",
+    "name": "Denmark",
+    "n": 658,
+    "pct": 1.5,
+    "notable": 32,
+    "notable_pct": 0.8,
+    "w_pct": 19.5,
+    "per_m": 113.1
+   },
+   {
+    "iso": "ARG",
+    "name": "Argentina",
+    "n": 615,
+    "pct": 1.4,
+    "notable": 24,
+    "notable_pct": 0.6,
+    "w_pct": 17.2,
+    "per_m": 13.7
+   },
+   {
+    "iso": "UKR",
+    "name": "Ukraine",
+    "n": 566,
+    "pct": 1.3,
+    "notable": 46,
+    "notable_pct": 1.2,
+    "w_pct": 13.3,
+    "per_m": 12.8
+   },
+   {
+    "iso": "BRA",
+    "name": "Brazil",
+    "n": 562,
+    "pct": 1.3,
+    "notable": 22,
+    "notable_pct": 0.6,
+    "w_pct": 16.6,
+    "per_m": 2.7
+   },
+   {
+    "iso": "AUT",
+    "name": "Austria",
+    "n": 553,
+    "pct": 1.3,
+    "notable": 32,
+    "notable_pct": 0.8,
+    "w_pct": 17.0,
+    "per_m": 62.3
+   },
+   {
+    "iso": "KOR",
+    "name": "South Korea",
+    "n": 550,
+    "pct": 1.3,
+    "notable": 34,
+    "notable_pct": 0.9,
+    "w_pct": 17.3,
+    "per_m": 10.6
+   },
+   {
+    "iso": "CHE",
+    "name": "Switzerland",
+    "n": 490,
+    "pct": 1.1,
+    "notable": 12,
+    "notable_pct": 0.3,
+    "w_pct": 26.1,
+    "per_m": 57.1
+   },
+   {
+    "iso": "CHN",
+    "name": "China",
+    "n": 457,
+    "pct": 1.0,
+    "notable": 42,
+    "notable_pct": 1.1,
+    "w_pct": 16.4,
+    "per_m": 0.3
+   },
+   {
+    "iso": "TUR",
+    "name": "Turkey",
+    "n": 446,
+    "pct": 1.0,
+    "notable": 24,
+    "notable_pct": 0.6,
+    "w_pct": 14.8,
+    "per_m": 5.3
+   },
+   {
+    "iso": "NLD",
+    "name": "Netherlands",
+    "n": 441,
+    "pct": 1.0,
+    "notable": 18,
+    "notable_pct": 0.5,
+    "w_pct": 24.5,
+    "per_m": 25.4
+   },
+   {
+    "iso": "ISR",
+    "name": "Israel",
+    "n": 435,
+    "pct": 1.0,
+    "notable": 18,
+    "notable_pct": 0.5,
+    "w_pct": 22.9,
+    "per_m": 48.0
+   },
+   {
+    "iso": "AUS",
+    "name": "Australia",
+    "n": 421,
+    "pct": 1.0,
+    "notable": 46,
+    "notable_pct": 1.2,
+    "w_pct": 19.0,
+    "per_m": 16.6
+   },
+   {
+    "iso": "HUN",
+    "name": "Hungary",
+    "n": 408,
+    "pct": 0.9,
+    "notable": 35,
+    "notable_pct": 0.9,
+    "w_pct": 11.8,
+    "per_m": 41.8
+   },
+   {
+    "iso": "FIN",
+    "name": "Finland",
+    "n": 373,
+    "pct": 0.9,
+    "notable": 8,
+    "notable_pct": 0.2,
+    "w_pct": 22.3,
+    "per_m": 67.6
+   },
+   {
+    "iso": "MEX",
+    "name": "Mexico",
+    "n": 364,
+    "pct": 0.8,
+    "notable": 21,
+    "notable_pct": 0.6,
+    "w_pct": 17.9,
+    "per_m": 2.9
+   },
+   {
+    "iso": "BEL",
+    "name": "Belgium",
+    "n": 359,
+    "pct": 0.8,
+    "notable": 22,
+    "notable_pct": 0.6,
+    "w_pct": 13.4,
+    "per_m": 31.3
+   }
+  ],
+  "top_notable": [
+   {
+    "iso": "USA",
+    "name": "United States",
+    "n": 1430,
+    "pct": 37.5
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "n": 353,
+    "pct": 9.3
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 290,
+    "pct": 7.6
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "n": 167,
+    "pct": 4.4
+   },
+   {
+    "iso": "IND",
+    "name": "India",
+    "n": 159,
+    "pct": 4.2
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 127,
+    "pct": 3.3
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "n": 111,
+    "pct": 2.9
+   },
+   {
+    "iso": "JPN",
+    "name": "Japan",
+    "n": 76,
+    "pct": 2.0
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "n": 74,
+    "pct": 1.9
+   },
+   {
+    "iso": "ESP",
+    "name": "Spain",
+    "n": 68,
+    "pct": 1.8
+   },
+   {
+    "iso": "SWE",
+    "name": "Sweden",
+    "n": 50,
+    "pct": 1.3
+   },
+   {
+    "iso": "POL",
+    "name": "Poland",
+    "n": 47,
+    "pct": 1.2
+   },
+   {
+    "iso": "UKR",
+    "name": "Ukraine",
+    "n": 46,
+    "pct": 1.2
+   },
+   {
+    "iso": "AUS",
+    "name": "Australia",
+    "n": 46,
+    "pct": 1.2
+   },
+   {
+    "iso": "CHN",
+    "name": "China",
+    "n": 42,
+    "pct": 1.1
+   },
+   {
+    "iso": "HUN",
+    "name": "Hungary",
+    "n": 35,
+    "pct": 0.9
+   },
+   {
+    "iso": "KOR",
+    "name": "South Korea",
+    "n": 34,
+    "pct": 0.9
+   },
+   {
+    "iso": "CZE",
+    "name": "Czech Republic",
+    "n": 34,
+    "pct": 0.9
+   },
+   {
+    "iso": "AUT",
+    "name": "Austria",
+    "n": 32,
+    "pct": 0.8
+   },
+   {
+    "iso": "DNK",
+    "name": "Denmark",
+    "n": 32,
+    "pct": 0.8
+   }
+  ],
+  "n_notable_iso": 3814,
+  "us_pct": 16.6,
+  "us_notable_pct": 37.5,
+  "top5_pct": 40.8,
+  "by_cont": [
+   {
+    "cont": "Europe",
+    "n": 22077,
+    "pct": 50.6
+   },
+   {
+    "cont": "North America",
+    "n": 8984,
+    "pct": 20.6
+   },
+   {
+    "cont": "Asia",
+    "n": 8880,
+    "pct": 20.4
+   },
+   {
+    "cont": "South America",
+    "n": 1921,
+    "pct": 4.4
+   },
+   {
+    "cont": "Africa",
+    "n": 1227,
+    "pct": 2.8
+   },
+   {
+    "cont": "Oceania",
+    "n": 530,
+    "pct": 1.2
+   }
+  ],
+  "europe_pct": 50.6,
+  "africa_pct": 2.8,
+  "africa_n": 1227
+ },
+ "places": {
+  "top": [
+   {
+    "q": "Q60",
+    "name": "New York City",
+    "iso": "USA",
+    "n": 847
+   },
+   {
+    "q": "Q220",
+    "name": "Rome",
+    "iso": "ITA",
+    "n": 626
+   },
+   {
+    "q": "Q84",
+    "name": "London",
+    "iso": "GBR",
+    "n": 508
+   },
+   {
+    "q": "Q1085",
+    "name": "Prague",
+    "iso": "CZE",
+    "n": 486
+   },
+   {
+    "q": "Q90",
+    "name": "Paris",
+    "iso": "FRA",
+    "n": 458
+   },
+   {
+    "q": "Q649",
+    "name": "Moscow",
+    "iso": "RUS",
+    "n": 435
+   },
+   {
+    "q": "Q65",
+    "name": "Los Angeles",
+    "iso": "USA",
+    "n": 433
+   },
+   {
+    "q": "Q3616",
+    "name": "Tehran",
+    "iso": "IRN",
+    "n": 431
+   },
+   {
+    "q": "Q64",
+    "name": "Berlin",
+    "iso": "DEU",
+    "n": 399
+   },
+   {
+    "q": "Q1486",
+    "name": "Buenos Aires",
+    "iso": "ARG",
+    "n": 394
+   },
+   {
+    "q": "Q1741",
+    "name": "Vienna",
+    "iso": "AUT",
+    "n": 298
+   },
+   {
+    "q": "Q2807",
+    "name": "Madrid",
+    "iso": "ESP",
+    "n": 281
+   },
+   {
+    "q": "Q1781",
+    "name": "Budapest",
+    "iso": "HUN",
+    "n": 279
+   },
+   {
+    "q": "Q1492",
+    "name": "Barcelona",
+    "iso": "ESP",
+    "n": 279
+   },
+   {
+    "q": "Q1748",
+    "name": "Copenhagen",
+    "iso": "DNK",
+    "n": 272
+   },
+   {
+    "q": "Q1726",
+    "name": "Munich",
+    "iso": "DEU",
+    "n": 266
+   },
+   {
+    "q": "Q1297",
+    "name": "Chicago",
+    "iso": "USA",
+    "n": 259
+   },
+   {
+    "q": "Q340",
+    "name": "Montreal",
+    "iso": "CAN",
+    "n": 234
+   },
+   {
+    "q": "Q1489",
+    "name": "Mexico City",
+    "iso": "MEX",
+    "n": 218
+   },
+   {
+    "q": "Q18419",
+    "name": "Brooklyn",
+    "iso": "USA",
+    "n": 211
+   },
+   {
+    "q": "Q1156",
+    "name": "Mumbai",
+    "iso": "IND",
+    "n": 205
+   },
+   {
+    "q": "Q270",
+    "name": "Warsaw",
+    "iso": "POL",
+    "n": 195
+   },
+   {
+    "q": "Q1490",
+    "name": "Tokyo",
+    "iso": "JPN",
+    "n": 189
+   },
+   {
+    "q": "Q656",
+    "name": "Saint Petersburg",
+    "iso": "RUS",
+    "n": 181
+   },
+   {
+    "q": "Q172",
+    "name": "Toronto",
+    "iso": "CAN",
+    "n": 179
+   }
+  ]
+ },
+ "areas": {
+  "top": [
+   {
+    "i": 1,
+    "name": "New York",
+    "iso": "USA",
+    "n": 1469,
+    "pop": 19040000,
+    "per100k": 7.7,
+    "notable": 321,
+    "w_pct": 13.4,
+    "places": 91
+   },
+   {
+    "i": 19,
+    "name": "Paris",
+    "iso": "FRA",
+    "n": 1368,
+    "pop": 9904000,
+    "per100k": 13.8,
+    "notable": 205,
+    "w_pct": 19.1,
+    "places": 140
+   },
+   {
+    "i": 25,
+    "name": "London",
+    "iso": "GBR",
+    "n": 756,
+    "pop": 8567000,
+    "per100k": 8.8,
+    "notable": 127,
+    "w_pct": 13.2,
+    "places": 133
+   },
+   {
+    "i": 10,
+    "name": "Los Angeles",
+    "iso": "USA",
+    "n": 642,
+    "pop": 12500000,
+    "per100k": 5.1,
+    "notable": 142,
+    "w_pct": 19.8,
+    "places": 38
+   },
+   {
+    "i": 97,
+    "name": "Rome",
+    "iso": "ITA",
+    "n": 636,
+    "pop": 3339000,
+    "per100k": 19.0,
+    "notable": 55,
+    "w_pct": 9.9,
+    "places": 9
+   },
+   {
+    "i": 396,
+    "name": "Prague",
+    "iso": "CZE",
+    "n": 524,
+    "pop": 1162000,
+    "per100k": 45.1,
+    "notable": 12,
+    "w_pct": 17.0,
+    "places": 23
+   },
+   {
+    "i": 95,
+    "name": "Berlin",
+    "iso": "DEU",
+    "n": 485,
+    "pop": 3406000,
+    "per100k": 14.2,
+    "notable": 25,
+    "w_pct": 24.1,
+    "places": 32
+   },
+   {
+    "i": 17,
+    "name": "Moscow",
+    "iso": "RUS",
+    "n": 446,
+    "pop": 10452000,
+    "per100k": 4.3,
+    "notable": 38,
+    "w_pct": 15.3,
+    "places": 10
+   },
+   {
+    "i": 27,
+    "name": "Tehran",
+    "iso": "IRN",
+    "n": 444,
+    "pop": 7873000,
+    "per100k": 5.6,
+    "notable": 15,
+    "w_pct": 11.3,
+    "places": 7
+   },
+   {
+    "i": 9,
+    "name": "Buenos Aires",
+    "iso": "ARG",
+    "n": 432,
+    "pop": 12795000,
+    "per100k": 3.4,
+    "notable": 16,
+    "w_pct": 19.1,
+    "places": 29
+   },
+   {
+    "i": 434,
+    "name": "Copenhagen",
+    "iso": "DNK",
+    "n": 408,
+    "pop": 1085000,
+    "per100k": 37.6,
+    "notable": 25,
+    "w_pct": 20.6,
+    "places": 44
+   },
+   {
+    "i": 0,
+    "name": "Tokyo",
+    "iso": "JPN",
+    "n": 393,
+    "pop": 35676000,
+    "per100k": 1.1,
+    "notable": 22,
+    "w_pct": 9.0,
+    "places": 60
+   },
+   {
+    "i": 52,
+    "name": "Barcelona",
+    "iso": "ESP",
+    "n": 334,
+    "pop": 4920000,
+    "per100k": 6.8,
+    "notable": 13,
+    "w_pct": 22.2,
+    "places": 24
+   },
+   {
+    "i": 164,
+    "name": "Vienna",
+    "iso": "AUT",
+    "n": 314,
+    "pop": 2400000,
+    "per100k": 13.1,
+    "notable": 23,
+    "w_pct": 12.7,
+    "places": 9
+   },
+   {
+    "i": 23,
+    "name": "Chicago",
+    "iso": "USA",
+    "n": 300,
+    "pop": 8990000,
+    "per100k": 3.3,
+    "notable": 68,
+    "w_pct": 14.4,
+    "places": 16
+   },
+   {
+    "i": 365,
+    "name": "Munich",
+    "iso": "DEU",
+    "n": 294,
+    "pop": 1275000,
+    "per100k": 23.1,
+    "notable": 14,
+    "w_pct": 29.9,
+    "places": 13
+   },
+   {
+    "i": 255,
+    "name": "Budapest",
+    "iso": "HUN",
+    "n": 291,
+    "pop": 1679000,
+    "per100k": 17.3,
+    "notable": 22,
+    "w_pct": 12.4,
+    "places": 10
+   },
+   {
+    "i": 44,
+    "name": "Madrid",
+    "iso": "ESP",
+    "n": 287,
+    "pop": 5567000,
+    "per100k": 5.2,
+    "notable": 20,
+    "w_pct": 16.4,
+    "places": 7
+   },
+   {
+    "i": 368,
+    "name": "Stockholm",
+    "iso": "SWE",
+    "n": 279,
+    "pop": 1264000,
+    "per100k": 22.1,
+    "notable": 22,
+    "w_pct": 23.7,
+    "places": 66
+   },
+   {
+    "i": 83,
+    "name": "Montreal",
+    "iso": "CAN",
+    "n": 259,
+    "pop": 3678000,
+    "per100k": 7.0,
+    "notable": 9,
+    "w_pct": 27.0,
+    "places": 15
+   },
+   {
+    "i": 93,
+    "name": "San Francisco",
+    "iso": "USA",
+    "n": 231,
+    "pop": 3450000,
+    "per100k": 6.7,
+    "notable": 43,
+    "w_pct": 19.1,
+    "places": 15
+   },
+   {
+    "i": 2,
+    "name": "Mexico City",
+    "iso": "MEX",
+    "n": 221,
+    "pop": 19028000,
+    "per100k": 1.2,
+    "notable": 15,
+    "w_pct": 19.5,
+    "places": 4
+   },
+   {
+    "i": 3,
+    "name": "Mumbai",
+    "iso": "IND",
+    "n": 215,
+    "pop": 18978000,
+    "per100k": 1.1,
+    "notable": 37,
+    "w_pct": 15.3,
+    "places": 9
+   },
+   {
+    "i": 246,
+    "name": "Warsaw",
+    "iso": "POL",
+    "n": 203,
+    "pop": 1707000,
+    "per100k": 11.9,
+    "notable": 10,
+    "w_pct": 14.3,
+    "places": 7
+   },
+   {
+    "i": 45,
+    "name": "Philadelphia",
+    "iso": "USA",
+    "n": 202,
+    "pop": 5492000,
+    "per100k": 3.7,
+    "notable": 34,
+    "w_pct": 17.4,
+    "places": 24
+   },
+   {
+    "i": 48,
+    "name": "Toronto",
+    "iso": "CAN",
+    "n": 193,
+    "pop": 5213000,
+    "per100k": 3.7,
+    "notable": 22,
+    "w_pct": 19.7,
+    "places": 7
+   },
+   {
+    "i": 20,
+    "name": "Seoul",
+    "iso": "KOR",
+    "n": 190,
+    "pop": 9796000,
+    "per100k": 1.9,
+    "notable": 20,
+    "w_pct": 17.4,
+    "places": 15
+   },
+   {
+    "i": 232,
+    "name": "Hamburg",
+    "iso": "DEU",
+    "n": 186,
+    "pop": 1757000,
+    "per100k": 10.6,
+    "notable": 6,
+    "w_pct": 20.4,
+    "places": 15
+   },
+   {
+    "i": 58,
+    "name": "St. Petersburg",
+    "iso": "RUS",
+    "n": 183,
+    "pop": 4553000,
+    "per100k": 4.0,
+    "notable": 17,
+    "w_pct": 15.3,
+    "places": 3
+   },
+   {
+    "i": 177,
+    "name": "Naples",
+    "iso": "ITA",
+    "n": 182,
+    "pop": 2250000,
+    "per100k": 8.1,
+    "notable": 10,
+    "w_pct": 6.6,
+    "places": 21
+   }
+  ],
+  "per_capita": [
+   {
+    "i": 396,
+    "name": "Prague",
+    "iso": "CZE",
+    "n": 524,
+    "pop": 1162000,
+    "per100k": 45.1,
+    "notable": 12,
+    "w_pct": 17.0,
+    "places": 23
+   },
+   {
+    "i": 434,
+    "name": "Copenhagen",
+    "iso": "DNK",
+    "n": 408,
+    "pop": 1085000,
+    "per100k": 37.6,
+    "notable": 25,
+    "w_pct": 20.6,
+    "places": 44
+   },
+   {
+    "i": 365,
+    "name": "Munich",
+    "iso": "DEU",
+    "n": 294,
+    "pop": 1275000,
+    "per100k": 23.1,
+    "notable": 14,
+    "w_pct": 29.9,
+    "places": 13
+   },
+   {
+    "i": 368,
+    "name": "Stockholm",
+    "iso": "SWE",
+    "n": 279,
+    "pop": 1264000,
+    "per100k": 22.1,
+    "notable": 22,
+    "w_pct": 23.7,
+    "places": 66
+   },
+   {
+    "i": 97,
+    "name": "Rome",
+    "iso": "ITA",
+    "n": 636,
+    "pop": 3339000,
+    "per100k": 19.0,
+    "notable": 55,
+    "w_pct": 9.9,
+    "places": 9
+   },
+   {
+    "i": 255,
+    "name": "Budapest",
+    "iso": "HUN",
+    "n": 291,
+    "pop": 1679000,
+    "per100k": 17.3,
+    "notable": 22,
+    "w_pct": 12.4,
+    "places": 10
+   },
+   {
+    "i": 455,
+    "name": "Amsterdam",
+    "iso": "NLD",
+    "n": 165,
+    "pop": 1031000,
+    "per100k": 16.0,
+    "notable": 8,
+    "w_pct": 32.1,
+    "places": 24
+   },
+   {
+    "i": 473,
+    "name": "Cologne",
+    "iso": "DEU",
+    "n": 147,
+    "pop": 1004000,
+    "per100k": 14.6,
+    "notable": 4,
+    "w_pct": 26.5,
+    "places": 12
+   },
+   {
+    "i": 95,
+    "name": "Berlin",
+    "iso": "DEU",
+    "n": 485,
+    "pop": 3406000,
+    "per100k": 14.2,
+    "notable": 25,
+    "w_pct": 24.1,
+    "places": 32
+   },
+   {
+    "i": 19,
+    "name": "Paris",
+    "iso": "FRA",
+    "n": 1368,
+    "pop": 9904000,
+    "per100k": 13.8,
+    "notable": 205,
+    "w_pct": 19.1,
+    "places": 140
+   },
+   {
+    "i": 164,
+    "name": "Vienna",
+    "iso": "AUT",
+    "n": 314,
+    "pop": 2400000,
+    "per100k": 13.1,
+    "notable": 23,
+    "w_pct": 12.7,
+    "places": 9
+   },
+   {
+    "i": 415,
+    "name": "Helsinki",
+    "iso": "FIN",
+    "n": 136,
+    "pop": 1115000,
+    "per100k": 12.2,
+    "notable": 4,
+    "w_pct": 24.3,
+    "places": 7
+   },
+   {
+    "i": 418,
+    "name": "Zürich",
+    "iso": "CHE",
+    "n": 134,
+    "pop": 1108000,
+    "per100k": 12.1,
+    "notable": 1,
+    "w_pct": 24.6,
+    "places": 13
+   },
+   {
+    "i": 246,
+    "name": "Warsaw",
+    "iso": "POL",
+    "n": 203,
+    "pop": 1707000,
+    "per100k": 11.9,
+    "notable": 10,
+    "w_pct": 14.3,
+    "places": 7
+   },
+   {
+    "i": 427,
+    "name": "Belgrade",
+    "iso": "SRB",
+    "n": 125,
+    "pop": 1099000,
+    "per100k": 11.4,
+    "notable": 8,
+    "w_pct": 8.9,
+    "places": 8
+   },
+   {
+    "i": 232,
+    "name": "Hamburg",
+    "iso": "DEU",
+    "n": 186,
+    "pop": 1757000,
+    "per100k": 10.6,
+    "notable": 6,
+    "w_pct": 20.4,
+    "places": 15
+   },
+   {
+    "i": 424,
+    "name": "Tbilisi",
+    "iso": "GEO",
+    "n": 112,
+    "pop": 1100000,
+    "per100k": 10.2,
+    "notable": 13,
+    "w_pct": 20.5,
+    "places": 3
+   },
+   {
+    "i": 239,
+    "name": "Brussels",
+    "iso": "BEL",
+    "n": 161,
+    "pop": 1743000,
+    "per100k": 9.2,
+    "notable": 14,
+    "w_pct": 18.6,
+    "places": 28
+   },
+   {
+    "i": 25,
+    "name": "London",
+    "iso": "GBR",
+    "n": 756,
+    "pop": 8567000,
+    "per100k": 8.8,
+    "notable": 127,
+    "w_pct": 13.2,
+    "places": 133
+   },
+   {
+    "i": 391,
+    "name": "Sofia",
+    "iso": "BGR",
+    "n": 98,
+    "pop": 1185000,
+    "per100k": 8.3,
+    "notable": 0,
+    "w_pct": 21.4,
+    "places": 4
+   }
+  ],
+  "per_capita_min_n": 50,
+  "top_notable": [
+   {
+    "name": "New York",
+    "iso": "USA",
+    "n": 321
+   },
+   {
+    "name": "Paris",
+    "iso": "FRA",
+    "n": 205
+   },
+   {
+    "name": "Los Angeles",
+    "iso": "USA",
+    "n": 142
+   },
+   {
+    "name": "London",
+    "iso": "GBR",
+    "n": 127
+   },
+   {
+    "name": "Chicago",
+    "iso": "USA",
+    "n": 68
+   },
+   {
+    "name": "Rome",
+    "iso": "ITA",
+    "n": 55
+   },
+   {
+    "name": "San Francisco",
+    "iso": "USA",
+    "n": 43
+   },
+   {
+    "name": "Moscow",
+    "iso": "RUS",
+    "n": 38
+   },
+   {
+    "name": "Mumbai",
+    "iso": "IND",
+    "n": 37
+   },
+   {
+    "name": "Philadelphia",
+    "iso": "USA",
+    "n": 34
+   },
+   {
+    "name": "Boston",
+    "iso": "USA",
+    "n": 29
+   },
+   {
+    "name": "Copenhagen",
+    "iso": "DNK",
+    "n": 25
+   },
+   {
+    "name": "Berlin",
+    "iso": "DEU",
+    "n": 25
+   },
+   {
+    "name": "Washington",
+    "iso": "USA",
+    "n": 23
+   },
+   {
+    "name": "Vienna",
+    "iso": "AUT",
+    "n": 23
+   }
+  ],
+  "n_big": 481,
+  "n_with": 413,
+  "top10_pct": 17.2,
+  "tehran": {
+   "i": 27,
+   "name": "Tehran",
+   "iso": "IRN",
+   "n": 444,
+   "pop": 7873000,
+   "per100k": 5.6,
+   "notable": 15,
+   "w_pct": 11.3,
+   "places": 7
+  },
+  "tokyo": {
+   "i": 0,
+   "name": "Tokyo",
+   "iso": "JPN",
+   "n": 393,
+   "pop": 35676000,
+   "per100k": 1.1,
+   "notable": 22,
+   "w_pct": 9.0,
+   "places": 60
+  },
+  "newyork": {
+   "i": 1,
+   "name": "New York",
+   "iso": "USA",
+   "n": 1469,
+   "pop": 19040000,
+   "per100k": 7.7,
+   "notable": 321,
+   "w_pct": 13.4,
+   "places": 91
+  },
+  "mumbai": {
+   "i": 3,
+   "name": "Mumbai",
+   "iso": "IND",
+   "n": 215,
+   "pop": 18978000,
+   "per100k": 1.1,
+   "notable": 37,
+   "w_pct": 15.3,
+   "places": 9
+  },
+  "kolkata": {
+   "i": 7,
+   "name": "Kolkata",
+   "iso": "IND",
+   "n": 141,
+   "pop": 14787000,
+   "per100k": 1.0,
+   "notable": 10,
+   "w_pct": 9.9,
+   "places": 10
+  },
+  "big_per": [
+   {
+    "i": 11,
+    "name": "Karachi",
+    "iso": "PAK",
+    "n": 41,
+    "pop": 12130000,
+    "per100k": 0.3,
+    "notable": 4,
+    "w_pct": 15.0,
+    "places": 2
+   },
+   {
+    "i": 8,
+    "name": "Dhaka",
+    "iso": "BGD",
+    "n": 32,
+    "pop": 12797394,
+    "per100k": 0.3,
+    "notable": 2,
+    "w_pct": 22.6,
+    "places": 4
+   },
+   {
+    "i": 6,
+    "name": "Shanghai",
+    "iso": "CHN",
+    "n": 60,
+    "pop": 14987000,
+    "per100k": 0.4,
+    "notable": 7,
+    "w_pct": 10.2,
+    "places": 2
+   },
+   {
+    "i": 5,
+    "name": "Delhi",
+    "iso": "IND",
+    "n": 71,
+    "pop": 15926000,
+    "per100k": 0.4,
+    "notable": 10,
+    "w_pct": 22.5,
+    "places": 6
+   },
+   {
+    "i": 15,
+    "name": "Beijing",
+    "iso": "CHN",
+    "n": 57,
+    "pop": 11106000,
+    "per100k": 0.5,
+    "notable": 13,
+    "w_pct": 31.6,
+    "places": 1
+   },
+   {
+    "i": 16,
+    "name": "Manila",
+    "iso": "PHL",
+    "n": 72,
+    "pop": 11100000,
+    "per100k": 0.6,
+    "notable": 4,
+    "w_pct": 9.7,
+    "places": 11
+   },
+   {
+    "i": 4,
+    "name": "São Paulo",
+    "iso": "BRA",
+    "n": 151,
+    "pop": 18845000,
+    "per100k": 0.8,
+    "notable": 4,
+    "w_pct": 21.3,
+    "places": 3
+   },
+   {
+    "i": 7,
+    "name": "Kolkata",
+    "iso": "IND",
+    "n": 141,
+    "pop": 14787000,
+    "per100k": 1.0,
+    "notable": 10,
+    "w_pct": 9.9,
+    "places": 10
+   },
+   {
+    "i": 12,
+    "name": "Cairo",
+    "iso": "EGY",
+    "n": 127,
+    "pop": 11893000,
+    "per100k": 1.1,
+    "notable": 3,
+    "w_pct": 8.7,
+    "places": 10
+   },
+   {
+    "i": 0,
+    "name": "Tokyo",
+    "iso": "JPN",
+    "n": 393,
+    "pop": 35676000,
+    "per100k": 1.1,
+    "notable": 22,
+    "w_pct": 9.0,
+    "places": 60
+   },
+   {
+    "i": 3,
+    "name": "Mumbai",
+    "iso": "IND",
+    "n": 215,
+    "pop": 18978000,
+    "per100k": 1.1,
+    "notable": 37,
+    "w_pct": 15.3,
+    "places": 9
+   },
+   {
+    "i": 2,
+    "name": "Mexico City",
+    "iso": "MEX",
+    "n": 221,
+    "pop": 19028000,
+    "per100k": 1.2,
+    "notable": 15,
+    "w_pct": 19.5,
+    "places": 4
+   },
+   {
+    "i": 14,
+    "name": "Ōsaka",
+    "iso": "JPN",
+    "n": 135,
+    "pop": 11294000,
+    "per100k": 1.2,
+    "notable": 4,
+    "w_pct": 9.6,
+    "places": 27
+   },
+   {
+    "i": 13,
+    "name": "Rio de Janeiro",
+    "iso": "BRA",
+    "n": 150,
+    "pop": 11748000,
+    "per100k": 1.3,
+    "notable": 11,
+    "w_pct": 19.3,
+    "places": 8
+   },
+   {
+    "i": 18,
+    "name": "Istanbul",
+    "iso": "TUR",
+    "n": 160,
+    "pop": 10061000,
+    "per100k": 1.6,
+    "notable": 7,
+    "w_pct": 12.5,
+    "places": 6
+   },
+   {
+    "i": 9,
+    "name": "Buenos Aires",
+    "iso": "ARG",
+    "n": 432,
+    "pop": 12795000,
+    "per100k": 3.4,
+    "notable": 16,
+    "w_pct": 19.1,
+    "places": 29
+   },
+   {
+    "i": 17,
+    "name": "Moscow",
+    "iso": "RUS",
+    "n": 446,
+    "pop": 10452000,
+    "per100k": 4.3,
+    "notable": 38,
+    "w_pct": 15.3,
+    "places": 10
+   },
+   {
+    "i": 10,
+    "name": "Los Angeles",
+    "iso": "USA",
+    "n": 642,
+    "pop": 12500000,
+    "per100k": 5.1,
+    "notable": 142,
+    "w_pct": 19.8,
+    "places": 38
+   },
+   {
+    "i": 1,
+    "name": "New York",
+    "iso": "USA",
+    "n": 1469,
+    "pop": 19040000,
+    "per100k": 7.7,
+    "notable": 321,
+    "w_pct": 13.4,
+    "places": 91
+   }
+  ]
+ },
+ "decades": {
+  "rows": [
+   {
+    "dec": 1900,
+    "n": 129,
+    "n_all": 159,
+    "bp_pct": 81.1,
+    "Europe": 105,
+    "North America": 20,
+    "Asia": 3,
+    "South America": 0,
+    "Africa": 0,
+    "Oceania": 1,
+    "Europe_pct": 81.4,
+    "North America_pct": 15.5,
+    "Asia_pct": 2.3,
+    "South America_pct": 0.0,
+    "Africa_pct": 0.0,
+    "Oceania_pct": 0.8,
+    "c": {
+     "USA": 17,
+     "FRA": 38,
+     "DEU": 3,
+     "ITA": 12,
+     "GBR": 17,
+     "RUS": 2,
+     "IND": 0,
+     "JPN": 1,
+     "IRN": 0,
+     "KOR": 0,
+     "NGA": 0,
+     "TUR": 0,
+     "CHN": 0,
+     "ESP": 6,
+     "BRA": 0,
+     "MEX": 1,
+     "ARG": 0,
+     "EGY": 0,
+     "PHL": 0,
+     "CZE": 2
+    },
+    "c_pct": {
+     "USA": 13.2,
+     "FRA": 29.5,
+     "DEU": 2.3,
+     "ITA": 9.3,
+     "GBR": 13.2,
+     "RUS": 1.6,
+     "IND": 0.0,
+     "JPN": 0.8,
+     "IRN": 0.0,
+     "KOR": 0.0,
+     "NGA": 0.0,
+     "TUR": 0.0,
+     "CHN": 0.0,
+     "ESP": 4.7,
+     "BRA": 0.0,
+     "MEX": 0.8,
+     "ARG": 0.0,
+     "EGY": 0.0,
+     "PHL": 0.0,
+     "CZE": 1.6
+    },
+    "top": [
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 38,
+      "pct": 29.5
+     },
+     {
+      "iso": "GBR",
+      "name": "United Kingdom",
+      "n": 17,
+      "pct": 13.2
+     },
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 17,
+      "pct": 13.2
+     },
+     {
+      "iso": "ITA",
+      "name": "Italy",
+      "n": 12,
+      "pct": 9.3
+     },
+     {
+      "iso": "ESP",
+      "name": "Spain",
+      "n": 6,
+      "pct": 4.7
+     }
+    ]
+   },
+   {
+    "dec": 1910,
+    "n": 1089,
+    "n_all": 1264,
+    "bp_pct": 86.2,
+    "Europe": 650,
+    "North America": 393,
+    "Asia": 17,
+    "South America": 11,
+    "Africa": 2,
+    "Oceania": 16,
+    "Europe_pct": 59.7,
+    "North America_pct": 36.1,
+    "Asia_pct": 1.6,
+    "South America_pct": 1.0,
+    "Africa_pct": 0.2,
+    "Oceania_pct": 1.5,
+    "c": {
+     "USA": 369,
+     "FRA": 59,
+     "DEU": 102,
+     "ITA": 88,
+     "GBR": 81,
+     "RUS": 23,
+     "IND": 3,
+     "JPN": 4,
+     "IRN": 0,
+     "KOR": 0,
+     "NGA": 0,
+     "TUR": 5,
+     "CHN": 2,
+     "ESP": 13,
+     "BRA": 1,
+     "MEX": 4,
+     "ARG": 8,
+     "EGY": 0,
+     "PHL": 1,
+     "CZE": 25
+    },
+    "c_pct": {
+     "USA": 33.9,
+     "FRA": 5.4,
+     "DEU": 9.4,
+     "ITA": 8.1,
+     "GBR": 7.4,
+     "RUS": 2.1,
+     "IND": 0.3,
+     "JPN": 0.4,
+     "IRN": 0.0,
+     "KOR": 0.0,
+     "NGA": 0.0,
+     "TUR": 0.5,
+     "CHN": 0.2,
+     "ESP": 1.2,
+     "BRA": 0.1,
+     "MEX": 0.4,
+     "ARG": 0.7,
+     "EGY": 0.0,
+     "PHL": 0.1,
+     "CZE": 2.3
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 369,
+      "pct": 33.9
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 102,
+      "pct": 9.4
+     },
+     {
+      "iso": "ITA",
+      "name": "Italy",
+      "n": 88,
+      "pct": 8.1
+     },
+     {
+      "iso": "GBR",
+      "name": "United Kingdom",
+      "n": 81,
+      "pct": 7.4
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 59,
+      "pct": 5.4
+     }
+    ]
+   },
+   {
+    "dec": 1920,
+    "n": 1079,
+    "n_all": 1317,
+    "bp_pct": 81.9,
+    "Europe": 638,
+    "North America": 294,
+    "Asia": 96,
+    "South America": 30,
+    "Africa": 8,
+    "Oceania": 13,
+    "Europe_pct": 59.1,
+    "North America_pct": 27.2,
+    "Asia_pct": 8.9,
+    "South America_pct": 2.8,
+    "Africa_pct": 0.7,
+    "Oceania_pct": 1.2,
+    "c": {
+     "USA": 273,
+     "FRA": 81,
+     "DEU": 87,
+     "ITA": 40,
+     "GBR": 59,
+     "RUS": 67,
+     "IND": 17,
+     "JPN": 31,
+     "IRN": 0,
+     "KOR": 2,
+     "NGA": 0,
+     "TUR": 6,
+     "CHN": 13,
+     "ESP": 28,
+     "BRA": 10,
+     "MEX": 6,
+     "ARG": 5,
+     "EGY": 5,
+     "PHL": 0,
+     "CZE": 26
+    },
+    "c_pct": {
+     "USA": 25.3,
+     "FRA": 7.5,
+     "DEU": 8.1,
+     "ITA": 3.7,
+     "GBR": 5.5,
+     "RUS": 6.2,
+     "IND": 1.6,
+     "JPN": 2.9,
+     "IRN": 0.0,
+     "KOR": 0.2,
+     "NGA": 0.0,
+     "TUR": 0.6,
+     "CHN": 1.2,
+     "ESP": 2.6,
+     "BRA": 0.9,
+     "MEX": 0.6,
+     "ARG": 0.5,
+     "EGY": 0.5,
+     "PHL": 0.0,
+     "CZE": 2.4
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 273,
+      "pct": 25.3
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 87,
+      "pct": 8.1
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 81,
+      "pct": 7.5
+     },
+     {
+      "iso": "RUS",
+      "name": "Russia",
+      "n": 67,
+      "pct": 6.2
+     },
+     {
+      "iso": "GBR",
+      "name": "United Kingdom",
+      "n": 59,
+      "pct": 5.5
+     }
+    ]
+   },
+   {
+    "dec": 1930,
+    "n": 1293,
+    "n_all": 1564,
+    "bp_pct": 82.7,
+    "Europe": 783,
+    "North America": 275,
+    "Asia": 163,
+    "South America": 48,
+    "Africa": 17,
+    "Oceania": 7,
+    "Europe_pct": 60.6,
+    "North America_pct": 21.3,
+    "Asia_pct": 12.6,
+    "South America_pct": 3.7,
+    "Africa_pct": 1.3,
+    "Oceania_pct": 0.5,
+    "c": {
+     "USA": 247,
+     "FRA": 138,
+     "DEU": 107,
+     "ITA": 57,
+     "GBR": 83,
+     "RUS": 62,
+     "IND": 54,
+     "JPN": 47,
+     "IRN": 3,
+     "KOR": 1,
+     "NGA": 0,
+     "TUR": 7,
+     "CHN": 17,
+     "ESP": 36,
+     "BRA": 7,
+     "MEX": 18,
+     "ARG": 36,
+     "EGY": 13,
+     "PHL": 1,
+     "CZE": 25
+    },
+    "c_pct": {
+     "USA": 19.1,
+     "FRA": 10.7,
+     "DEU": 8.3,
+     "ITA": 4.4,
+     "GBR": 6.4,
+     "RUS": 4.8,
+     "IND": 4.2,
+     "JPN": 3.6,
+     "IRN": 0.2,
+     "KOR": 0.1,
+     "NGA": 0.0,
+     "TUR": 0.5,
+     "CHN": 1.3,
+     "ESP": 2.8,
+     "BRA": 0.5,
+     "MEX": 1.4,
+     "ARG": 2.8,
+     "EGY": 1.0,
+     "PHL": 0.1,
+     "CZE": 1.9
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 247,
+      "pct": 19.1
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 138,
+      "pct": 10.7
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 107,
+      "pct": 8.3
+     },
+     {
+      "iso": "GBR",
+      "name": "United Kingdom",
+      "n": 83,
+      "pct": 6.4
+     },
+     {
+      "iso": "RUS",
+      "name": "Russia",
+      "n": 62,
+      "pct": 4.8
+     }
+    ]
+   },
+   {
+    "dec": 1940,
+    "n": 1114,
+    "n_all": 1388,
+    "bp_pct": 80.3,
+    "Europe": 667,
+    "North America": 230,
+    "Asia": 156,
+    "South America": 29,
+    "Africa": 27,
+    "Oceania": 5,
+    "Europe_pct": 59.9,
+    "North America_pct": 20.6,
+    "Asia_pct": 14.0,
+    "South America_pct": 2.6,
+    "Africa_pct": 2.4,
+    "Oceania_pct": 0.4,
+    "c": {
+     "USA": 188,
+     "FRA": 79,
+     "DEU": 60,
+     "ITA": 97,
+     "GBR": 84,
+     "RUS": 33,
+     "IND": 49,
+     "JPN": 19,
+     "IRN": 2,
+     "KOR": 3,
+     "NGA": 0,
+     "TUR": 17,
+     "CHN": 12,
+     "ESP": 31,
+     "BRA": 5,
+     "MEX": 26,
+     "ARG": 17,
+     "EGY": 19,
+     "PHL": 8,
+     "CZE": 26
+    },
+    "c_pct": {
+     "USA": 16.9,
+     "FRA": 7.1,
+     "DEU": 5.4,
+     "ITA": 8.7,
+     "GBR": 7.5,
+     "RUS": 3.0,
+     "IND": 4.4,
+     "JPN": 1.7,
+     "IRN": 0.2,
+     "KOR": 0.3,
+     "NGA": 0.0,
+     "TUR": 1.5,
+     "CHN": 1.1,
+     "ESP": 2.8,
+     "BRA": 0.4,
+     "MEX": 2.3,
+     "ARG": 1.5,
+     "EGY": 1.7,
+     "PHL": 0.7,
+     "CZE": 2.3
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 188,
+      "pct": 16.9
+     },
+     {
+      "iso": "ITA",
+      "name": "Italy",
+      "n": 97,
+      "pct": 8.7
+     },
+     {
+      "iso": "GBR",
+      "name": "United Kingdom",
+      "n": 84,
+      "pct": 7.5
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 79,
+      "pct": 7.1
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 60,
+      "pct": 5.4
+     }
+    ]
+   },
+   {
+    "dec": 1950,
+    "n": 1909,
+    "n_all": 2413,
+    "bp_pct": 79.1,
+    "Europe": 1155,
+    "North America": 298,
+    "Asia": 355,
+    "South America": 58,
+    "Africa": 29,
+    "Oceania": 14,
+    "Europe_pct": 60.5,
+    "North America_pct": 15.6,
+    "Asia_pct": 18.6,
+    "South America_pct": 3.0,
+    "Africa_pct": 1.5,
+    "Oceania_pct": 0.7,
+    "c": {
+     "USA": 253,
+     "FRA": 145,
+     "DEU": 138,
+     "ITA": 160,
+     "GBR": 75,
+     "RUS": 105,
+     "IND": 84,
+     "JPN": 65,
+     "IRN": 26,
+     "KOR": 10,
+     "NGA": 1,
+     "TUR": 37,
+     "CHN": 29,
+     "ESP": 47,
+     "BRA": 26,
+     "MEX": 14,
+     "ARG": 18,
+     "EGY": 13,
+     "PHL": 3,
+     "CZE": 39
+    },
+    "c_pct": {
+     "USA": 13.3,
+     "FRA": 7.6,
+     "DEU": 7.2,
+     "ITA": 8.4,
+     "GBR": 3.9,
+     "RUS": 5.5,
+     "IND": 4.4,
+     "JPN": 3.4,
+     "IRN": 1.4,
+     "KOR": 0.5,
+     "NGA": 0.1,
+     "TUR": 1.9,
+     "CHN": 1.5,
+     "ESP": 2.5,
+     "BRA": 1.4,
+     "MEX": 0.7,
+     "ARG": 0.9,
+     "EGY": 0.7,
+     "PHL": 0.2,
+     "CZE": 2.0
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 253,
+      "pct": 13.3
+     },
+     {
+      "iso": "ITA",
+      "name": "Italy",
+      "n": 160,
+      "pct": 8.4
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 145,
+      "pct": 7.6
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 138,
+      "pct": 7.2
+     },
+     {
+      "iso": "RUS",
+      "name": "Russia",
+      "n": 105,
+      "pct": 5.5
+     }
+    ]
+   },
+   {
+    "dec": 1960,
+    "n": 2930,
+    "n_all": 3707,
+    "bp_pct": 79.0,
+    "Europe": 1728,
+    "North America": 463,
+    "Asia": 537,
+    "South America": 103,
+    "Africa": 86,
+    "Oceania": 13,
+    "Europe_pct": 59.0,
+    "North America_pct": 15.8,
+    "Asia_pct": 18.3,
+    "South America_pct": 3.5,
+    "Africa_pct": 2.9,
+    "Oceania_pct": 0.4,
+    "c": {
+     "USA": 367,
+     "FRA": 215,
+     "DEU": 161,
+     "ITA": 258,
+     "GBR": 105,
+     "RUS": 159,
+     "IND": 102,
+     "JPN": 97,
+     "IRN": 71,
+     "KOR": 17,
+     "NGA": 0,
+     "TUR": 39,
+     "CHN": 26,
+     "ESP": 82,
+     "BRA": 42,
+     "MEX": 24,
+     "ARG": 40,
+     "EGY": 21,
+     "PHL": 5,
+     "CZE": 51
+    },
+    "c_pct": {
+     "USA": 12.5,
+     "FRA": 7.3,
+     "DEU": 5.5,
+     "ITA": 8.8,
+     "GBR": 3.6,
+     "RUS": 5.4,
+     "IND": 3.5,
+     "JPN": 3.3,
+     "IRN": 2.4,
+     "KOR": 0.6,
+     "NGA": 0.0,
+     "TUR": 1.3,
+     "CHN": 0.9,
+     "ESP": 2.8,
+     "BRA": 1.4,
+     "MEX": 0.8,
+     "ARG": 1.4,
+     "EGY": 0.7,
+     "PHL": 0.2,
+     "CZE": 1.7
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 367,
+      "pct": 12.5
+     },
+     {
+      "iso": "ITA",
+      "name": "Italy",
+      "n": 258,
+      "pct": 8.8
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 215,
+      "pct": 7.3
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 161,
+      "pct": 5.5
+     },
+     {
+      "iso": "RUS",
+      "name": "Russia",
+      "n": 159,
+      "pct": 5.4
+     }
+    ]
+   },
+   {
+    "dec": 1970,
+    "n": 3402,
+    "n_all": 4873,
+    "bp_pct": 69.8,
+    "Europe": 1750,
+    "North America": 632,
+    "Asia": 690,
+    "South America": 160,
+    "Africa": 120,
+    "Oceania": 50,
+    "Europe_pct": 51.4,
+    "North America_pct": 18.6,
+    "Asia_pct": 20.3,
+    "South America_pct": 4.7,
+    "Africa_pct": 3.5,
+    "Oceania_pct": 1.5,
+    "c": {
+     "USA": 504,
+     "FRA": 247,
+     "DEU": 155,
+     "ITA": 212,
+     "GBR": 151,
+     "RUS": 111,
+     "IND": 181,
+     "JPN": 68,
+     "IRN": 66,
+     "KOR": 23,
+     "NGA": 4,
+     "TUR": 30,
+     "CHN": 44,
+     "ESP": 84,
+     "BRA": 72,
+     "MEX": 30,
+     "ARG": 54,
+     "EGY": 22,
+     "PHL": 12,
+     "CZE": 32
+    },
+    "c_pct": {
+     "USA": 14.8,
+     "FRA": 7.3,
+     "DEU": 4.6,
+     "ITA": 6.2,
+     "GBR": 4.4,
+     "RUS": 3.3,
+     "IND": 5.3,
+     "JPN": 2.0,
+     "IRN": 1.9,
+     "KOR": 0.7,
+     "NGA": 0.1,
+     "TUR": 0.9,
+     "CHN": 1.3,
+     "ESP": 2.5,
+     "BRA": 2.1,
+     "MEX": 0.9,
+     "ARG": 1.6,
+     "EGY": 0.6,
+     "PHL": 0.4,
+     "CZE": 0.9
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 504,
+      "pct": 14.8
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 247,
+      "pct": 7.3
+     },
+     {
+      "iso": "ITA",
+      "name": "Italy",
+      "n": 212,
+      "pct": 6.2
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "n": 181,
+      "pct": 5.3
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 155,
+      "pct": 4.6
+     }
+    ]
+   },
+   {
+    "dec": 1980,
+    "n": 3834,
+    "n_all": 6126,
+    "bp_pct": 62.6,
+    "Europe": 1886,
+    "North America": 774,
+    "Asia": 844,
+    "South America": 151,
+    "Africa": 106,
+    "Oceania": 73,
+    "Europe_pct": 49.2,
+    "North America_pct": 20.2,
+    "Asia_pct": 22.0,
+    "South America_pct": 3.9,
+    "Africa_pct": 2.8,
+    "Oceania_pct": 1.9,
+    "c": {
+     "USA": 619,
+     "FRA": 215,
+     "DEU": 282,
+     "ITA": 207,
+     "GBR": 152,
+     "RUS": 134,
+     "IND": 217,
+     "JPN": 119,
+     "IRN": 112,
+     "KOR": 27,
+     "NGA": 3,
+     "TUR": 24,
+     "CHN": 68,
+     "ESP": 93,
+     "BRA": 60,
+     "MEX": 31,
+     "ARG": 46,
+     "EGY": 21,
+     "PHL": 12,
+     "CZE": 41
+    },
+    "c_pct": {
+     "USA": 16.1,
+     "FRA": 5.6,
+     "DEU": 7.4,
+     "ITA": 5.4,
+     "GBR": 4.0,
+     "RUS": 3.5,
+     "IND": 5.7,
+     "JPN": 3.1,
+     "IRN": 2.9,
+     "KOR": 0.7,
+     "NGA": 0.1,
+     "TUR": 0.6,
+     "CHN": 1.8,
+     "ESP": 2.4,
+     "BRA": 1.6,
+     "MEX": 0.8,
+     "ARG": 1.2,
+     "EGY": 0.5,
+     "PHL": 0.3,
+     "CZE": 1.1
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 619,
+      "pct": 16.1
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 282,
+      "pct": 7.4
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "n": 217,
+      "pct": 5.7
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 215,
+      "pct": 5.6
+     },
+     {
+      "iso": "ITA",
+      "name": "Italy",
+      "n": 207,
+      "pct": 5.4
+     }
+    ]
+   },
+   {
+    "dec": 1990,
+    "n": 4602,
+    "n_all": 7673,
+    "bp_pct": 60.0,
+    "Europe": 2194,
+    "North America": 1106,
+    "Asia": 938,
+    "South America": 177,
+    "Africa": 123,
+    "Oceania": 64,
+    "Europe_pct": 47.7,
+    "North America_pct": 24.0,
+    "Asia_pct": 20.4,
+    "South America_pct": 3.8,
+    "Africa_pct": 2.7,
+    "Oceania_pct": 1.4,
+    "c": {
+     "USA": 924,
+     "FRA": 278,
+     "DEU": 295,
+     "ITA": 238,
+     "GBR": 210,
+     "RUS": 111,
+     "IND": 241,
+     "JPN": 141,
+     "IRN": 102,
+     "KOR": 62,
+     "NGA": 11,
+     "TUR": 42,
+     "CHN": 38,
+     "ESP": 129,
+     "BRA": 42,
+     "MEX": 26,
+     "ARG": 71,
+     "EGY": 11,
+     "PHL": 17,
+     "CZE": 129
+    },
+    "c_pct": {
+     "USA": 20.1,
+     "FRA": 6.0,
+     "DEU": 6.4,
+     "ITA": 5.2,
+     "GBR": 4.6,
+     "RUS": 2.4,
+     "IND": 5.2,
+     "JPN": 3.1,
+     "IRN": 2.2,
+     "KOR": 1.3,
+     "NGA": 0.2,
+     "TUR": 0.9,
+     "CHN": 0.8,
+     "ESP": 2.8,
+     "BRA": 0.9,
+     "MEX": 0.6,
+     "ARG": 1.5,
+     "EGY": 0.2,
+     "PHL": 0.4,
+     "CZE": 2.8
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 924,
+      "pct": 20.1
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 295,
+      "pct": 6.4
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 278,
+      "pct": 6.0
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "n": 241,
+      "pct": 5.2
+     },
+     {
+      "iso": "ITA",
+      "name": "Italy",
+      "n": 238,
+      "pct": 5.2
+     }
+    ]
+   },
+   {
+    "dec": 2000,
+    "n": 8425,
+    "n_all": 15389,
+    "bp_pct": 54.7,
+    "Europe": 3847,
+    "North America": 1859,
+    "Asia": 1941,
+    "South America": 403,
+    "Africa": 276,
+    "Oceania": 99,
+    "Europe_pct": 45.7,
+    "North America_pct": 22.1,
+    "Asia_pct": 23.0,
+    "South America_pct": 4.8,
+    "Africa_pct": 3.3,
+    "Oceania_pct": 1.2,
+    "c": {
+     "USA": 1494,
+     "FRA": 489,
+     "DEU": 688,
+     "ITA": 343,
+     "GBR": 323,
+     "RUS": 188,
+     "IND": 454,
+     "JPN": 358,
+     "IRN": 153,
+     "KOR": 183,
+     "NGA": 31,
+     "TUR": 94,
+     "CHN": 73,
+     "ESP": 302,
+     "BRA": 120,
+     "MEX": 63,
+     "ARG": 131,
+     "EGY": 42,
+     "PHL": 33,
+     "CZE": 166
+    },
+    "c_pct": {
+     "USA": 17.7,
+     "FRA": 5.8,
+     "DEU": 8.2,
+     "ITA": 4.1,
+     "GBR": 3.8,
+     "RUS": 2.2,
+     "IND": 5.4,
+     "JPN": 4.2,
+     "IRN": 1.8,
+     "KOR": 2.2,
+     "NGA": 0.4,
+     "TUR": 1.1,
+     "CHN": 0.9,
+     "ESP": 3.6,
+     "BRA": 1.4,
+     "MEX": 0.7,
+     "ARG": 1.6,
+     "EGY": 0.5,
+     "PHL": 0.4,
+     "CZE": 2.0
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 1494,
+      "pct": 17.7
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 688,
+      "pct": 8.2
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 489,
+      "pct": 5.8
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "n": 454,
+      "pct": 5.4
+     },
+     {
+      "iso": "JPN",
+      "name": "Japan",
+      "n": 358,
+      "pct": 4.2
+     }
+    ]
+   },
+   {
+    "dec": 2010,
+    "n": 9207,
+    "n_all": 21635,
+    "bp_pct": 42.6,
+    "Europe": 4221,
+    "North America": 1813,
+    "Asia": 2214,
+    "South America": 529,
+    "Africa": 300,
+    "Oceania": 130,
+    "Europe_pct": 45.8,
+    "North America_pct": 19.7,
+    "Asia_pct": 24.0,
+    "South America_pct": 5.7,
+    "Africa_pct": 3.3,
+    "Oceania_pct": 1.4,
+    "c": {
+     "USA": 1373,
+     "FRA": 490,
+     "DEU": 830,
+     "ITA": 404,
+     "GBR": 342,
+     "RUS": 193,
+     "IND": 706,
+     "JPN": 268,
+     "IRN": 185,
+     "KOR": 159,
+     "NGA": 65,
+     "TUR": 115,
+     "CHN": 90,
+     "ESP": 355,
+     "BRA": 127,
+     "MEX": 78,
+     "ARG": 137,
+     "EGY": 31,
+     "PHL": 29,
+     "CZE": 193
+    },
+    "c_pct": {
+     "USA": 14.9,
+     "FRA": 5.3,
+     "DEU": 9.0,
+     "ITA": 4.4,
+     "GBR": 3.7,
+     "RUS": 2.1,
+     "IND": 7.7,
+     "JPN": 2.9,
+     "IRN": 2.0,
+     "KOR": 1.7,
+     "NGA": 0.7,
+     "TUR": 1.2,
+     "CHN": 1.0,
+     "ESP": 3.9,
+     "BRA": 1.4,
+     "MEX": 0.8,
+     "ARG": 1.5,
+     "EGY": 0.3,
+     "PHL": 0.3,
+     "CZE": 2.1
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 1373,
+      "pct": 14.9
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 830,
+      "pct": 9.0
+     },
+     {
+      "iso": "IND",
+      "name": "India",
+      "n": 706,
+      "pct": 7.7
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 490,
+      "pct": 5.3
+     },
+     {
+      "iso": "ITA",
+      "name": "Italy",
+      "n": 404,
+      "pct": 4.4
+     }
+    ]
+   },
+   {
+    "dec": 2020,
+    "n": 2941,
+    "n_all": 7033,
+    "bp_pct": 41.8,
+    "Europe": 1540,
+    "North America": 527,
+    "Asia": 560,
+    "South America": 188,
+    "Africa": 93,
+    "Oceania": 33,
+    "Europe_pct": 52.4,
+    "North America_pct": 17.9,
+    "Asia_pct": 19.0,
+    "South America_pct": 6.4,
+    "Africa_pct": 3.2,
+    "Oceania_pct": 1.1,
+    "c": {
+     "USA": 395,
+     "FRA": 179,
+     "DEU": 231,
+     "ITA": 121,
+     "GBR": 109,
+     "RUS": 67,
+     "IND": 79,
+     "JPN": 106,
+     "IRN": 47,
+     "KOR": 43,
+     "NGA": 18,
+     "TUR": 22,
+     "CHN": 34,
+     "ESP": 220,
+     "BRA": 31,
+     "MEX": 38,
+     "ARG": 46,
+     "EGY": 6,
+     "PHL": 7,
+     "CZE": 145
+    },
+    "c_pct": {
+     "USA": 13.4,
+     "FRA": 6.1,
+     "DEU": 7.9,
+     "ITA": 4.1,
+     "GBR": 3.7,
+     "RUS": 2.3,
+     "IND": 2.7,
+     "JPN": 3.6,
+     "IRN": 1.6,
+     "KOR": 1.5,
+     "NGA": 0.6,
+     "TUR": 0.7,
+     "CHN": 1.2,
+     "ESP": 7.5,
+     "BRA": 1.1,
+     "MEX": 1.3,
+     "ARG": 1.6,
+     "EGY": 0.2,
+     "PHL": 0.2,
+     "CZE": 4.9
+    },
+    "top": [
+     {
+      "iso": "USA",
+      "name": "United States",
+      "n": 395,
+      "pct": 13.4
+     },
+     {
+      "iso": "DEU",
+      "name": "Germany",
+      "n": 231,
+      "pct": 7.9
+     },
+     {
+      "iso": "ESP",
+      "name": "Spain",
+      "n": 220,
+      "pct": 7.5
+     },
+     {
+      "iso": "FRA",
+      "name": "France",
+      "n": 179,
+      "pct": 6.1
+     },
+     {
+      "iso": "CZE",
+      "name": "Czech Republic",
+      "n": 145,
+      "pct": 4.9
+     }
+    ]
+   }
+  ],
+  "n_early": 6613,
+  "n_late": 20573,
+  "rise": [
+   {
+    "iso": "ISR",
+    "name": "Israel",
+    "early_pct": 0.0,
+    "late_pct": 1.4,
+    "late_n": 291,
+    "ratio": 46.8
+   },
+   {
+    "iso": "KOR",
+    "name": "South Korea",
+    "early_pct": 0.2,
+    "late_pct": 1.9,
+    "late_n": 385,
+    "ratio": 7.7
+   },
+   {
+    "iso": "PER",
+    "name": "Peru",
+    "early_pct": 0.1,
+    "late_pct": 0.8,
+    "late_n": 168,
+    "ratio": 6.0
+   },
+   {
+    "iso": "IRN",
+    "name": "Iran",
+    "early_pct": 0.5,
+    "late_pct": 1.9,
+    "late_n": 385,
+    "ratio": 4.0
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "early_pct": 1.3,
+    "late_pct": 3.1,
+    "late_n": 639,
+    "ratio": 2.4
+   },
+   {
+    "iso": "CHE",
+    "name": "Switzerland",
+    "early_pct": 0.6,
+    "late_pct": 1.3,
+    "late_n": 275,
+    "ratio": 2.3
+   },
+   {
+    "iso": "IND",
+    "name": "India",
+    "early_pct": 3.1,
+    "late_pct": 6.0,
+    "late_n": 1239,
+    "ratio": 1.9
+   },
+   {
+    "iso": "ESP",
+    "name": "Spain",
+    "early_pct": 2.4,
+    "late_pct": 4.3,
+    "late_n": 877,
+    "ratio": 1.8
+   },
+   {
+    "iso": "BRA",
+    "name": "Brazil",
+    "early_pct": 0.7,
+    "late_pct": 1.4,
+    "late_n": 278,
+    "ratio": 1.8
+   },
+   {
+    "iso": "IDN",
+    "name": "Indonesia",
+    "early_pct": 0.4,
+    "late_pct": 0.8,
+    "late_n": 156,
+    "ratio": 1.8
+   },
+   {
+    "iso": "AUS",
+    "name": "Australia",
+    "early_pct": 0.7,
+    "late_pct": 1.0,
+    "late_n": 202,
+    "ratio": 1.5
+   },
+   {
+    "iso": "NLD",
+    "name": "Netherlands",
+    "early_pct": 0.7,
+    "late_pct": 1.1,
+    "late_n": 233,
+    "ratio": 1.5
+   }
+  ],
+  "fall": [
+   {
+    "iso": "UKR",
+    "name": "Ukraine",
+    "early_pct": 2.3,
+    "late_pct": 0.9
+   },
+   {
+    "iso": "DNK",
+    "name": "Denmark",
+    "early_pct": 2.5,
+    "late_pct": 1.0
+   },
+   {
+    "iso": "AUT",
+    "name": "Austria",
+    "early_pct": 2.4,
+    "late_pct": 1.0
+   },
+   {
+    "iso": "SWE",
+    "name": "Sweden",
+    "early_pct": 2.9,
+    "late_pct": 1.4
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "early_pct": 4.4,
+    "late_pct": 2.2
+   },
+   {
+    "iso": "POL",
+    "name": "Poland",
+    "early_pct": 2.5,
+    "late_pct": 1.3
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "early_pct": 6.9,
+    "late_pct": 4.2
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "early_pct": 6.0,
+    "late_pct": 3.8
+   }
+  ],
+  "eu_na_early_pct": 83.3,
+  "eu_na_late_pct": 67.1,
+  "asia_early_pct": 11.9,
+  "asia_late_pct": 22.9,
+  "africa_early_pct": 1.3,
+  "africa_late_pct": 3.3,
+  "eu_early_pct": 60.5,
+  "eu_late_pct": 46.7,
+  "us_early_pct": 20.4,
+  "us_late_pct": 15.9,
+  "ind": {
+   "early_pct": 3.1,
+   "late_pct": 6.0,
+   "late_n": 1239,
+   "early_n": 207
+  },
+  "irn": {
+   "early_pct": 0.5,
+   "late_pct": 1.9,
+   "late_n": 385,
+   "early_n": 31
+  },
+  "kor": {
+   "early_pct": 0.2,
+   "late_pct": 1.9,
+   "late_n": 385,
+   "early_n": 16
+  },
+  "nga": {
+   "early_pct": 0.0,
+   "late_pct": 0.6,
+   "late_n": 114,
+   "early_n": 1
+  },
+  "tur": {
+   "early_pct": 1.1,
+   "late_pct": 1.1,
+   "late_n": 231,
+   "early_n": 72
+  },
+  "chn": {
+   "early_pct": 1.1,
+   "late_pct": 1.0,
+   "late_n": 197,
+   "early_n": 73
+  },
+  "usa": {
+   "early_pct": 20.4,
+   "late_pct": 15.9,
+   "late_n": 3262,
+   "early_n": 1347
+  },
+  "fra": {
+   "early_pct": 8.2,
+   "late_pct": 5.6,
+   "late_n": 1158,
+   "early_n": 540
+  },
+  "ita": {
+   "early_pct": 6.9,
+   "late_pct": 4.2,
+   "late_n": 868,
+   "early_n": 454
+  },
+  "deu": {
+   "early_pct": 7.5,
+   "late_pct": 8.5,
+   "late_n": 1749,
+   "early_n": 497
+  },
+  "rus": {
+   "early_pct": 4.4,
+   "late_pct": 2.2,
+   "late_n": 448,
+   "early_n": 292
+  },
+  "gbr": {
+   "early_pct": 6.0,
+   "late_pct": 3.8,
+   "late_n": 774,
+   "early_n": 399
+  }
+ },
+ "coverage": {
+  "by_film_country": [
+   {
+    "iso": "USA",
+    "name": "United States",
+    "n": 16751,
+    "bp_pct": 50.5,
+    "g_pct": 87.0
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 5371,
+    "bp_pct": 71.8,
+    "g_pct": 98.2
+   },
+   {
+    "iso": "IND",
+    "name": "India",
+    "n": 4694,
+    "bp_pct": 49.0,
+    "g_pct": 81.3
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "n": 4553,
+    "bp_pct": 65.8,
+    "g_pct": 96.6
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "n": 3700,
+    "bp_pct": 31.4,
+    "g_pct": 92.6
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 3207,
+    "bp_pct": 48.2,
+    "g_pct": 85.0
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "n": 2687,
+    "bp_pct": 81.6,
+    "g_pct": 96.0
+   },
+   {
+    "iso": "DNK",
+    "name": "Denmark",
+    "n": 2350,
+    "bp_pct": 31.7,
+    "g_pct": 99.5
+   },
+   {
+    "iso": "CZE",
+    "name": "Czech Republic",
+    "n": 2343,
+    "bp_pct": 54.1,
+    "g_pct": 98.0
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "n": 2219,
+    "bp_pct": 83.7,
+    "g_pct": 95.9
+   },
+   {
+    "iso": "ESP",
+    "name": "Spain",
+    "n": 1994,
+    "bp_pct": 68.6,
+    "g_pct": 92.3
+   },
+   {
+    "iso": "JPN",
+    "name": "Japan",
+    "n": 1874,
+    "bp_pct": 73.1,
+    "g_pct": 95.9
+   },
+   {
+    "iso": "KOR",
+    "name": "South Korea",
+    "n": 1502,
+    "bp_pct": 36.6,
+    "g_pct": 87.2
+   },
+   {
+    "iso": "ARG",
+    "name": "Argentina",
+    "n": 1388,
+    "bp_pct": 43.7,
+    "g_pct": 67.8
+   },
+   {
+    "iso": "AUS",
+    "name": "Australia",
+    "n": 1300,
+    "bp_pct": 34.2,
+    "g_pct": 72.0
+   },
+   {
+    "iso": "SWE",
+    "name": "Sweden",
+    "n": 1076,
+    "bp_pct": 66.5,
+    "g_pct": 95.0
+   },
+   {
+    "iso": "IRN",
+    "name": "Iran",
+    "n": 895,
+    "bp_pct": 80.9,
+    "g_pct": 96.9
+   },
+   {
+    "iso": "BRA",
+    "name": "Brazil",
+    "n": 872,
+    "bp_pct": 65.1,
+    "g_pct": 91.9
+   },
+   {
+    "iso": "CHN",
+    "name": "China",
+    "n": 840,
+    "bp_pct": 38.7,
+    "g_pct": 84.5
+   },
+   {
+    "iso": "POL",
+    "name": "Poland",
+    "n": 754,
+    "bp_pct": 80.2,
+    "g_pct": 97.5
+   },
+   {
+    "iso": "PER",
+    "name": "Peru",
+    "n": 737,
+    "bp_pct": 28.8,
+    "g_pct": 99.7
+   },
+   {
+    "iso": "NLD",
+    "name": "Netherlands",
+    "n": 737,
+    "bp_pct": 57.5,
+    "g_pct": 90.9
+   },
+   {
+    "iso": "MEX",
+    "name": "Mexico",
+    "n": 693,
+    "bp_pct": 55.0,
+    "g_pct": 85.0
+   },
+   {
+    "iso": "BEL",
+    "name": "Belgium",
+    "n": 658,
+    "bp_pct": 49.8,
+    "g_pct": 93.3
+   },
+   {
+    "iso": "FIN",
+    "name": "Finland",
+    "n": 646,
+    "bp_pct": 61.6,
+    "g_pct": 96.9
+   },
+   {
+    "iso": "ISR",
+    "name": "Israel",
+    "n": 596,
+    "bp_pct": 72.0,
+    "g_pct": 95.6
+   },
+   {
+    "iso": "HKG",
+    "name": "Hong Kong",
+    "n": 567,
+    "bp_pct": 45.7,
+    "g_pct": 87.8
+   },
+   {
+    "iso": "TUR",
+    "name": "Turkey",
+    "n": 560,
+    "bp_pct": 65.0,
+    "g_pct": 96.1
+   },
+   {
+    "iso": "AUT",
+    "name": "Austria",
+    "n": 536,
+    "bp_pct": 79.1,
+    "g_pct": 96.5
+   },
+   {
+    "iso": "NOR",
+    "name": "Norway",
+    "n": 511,
+    "bp_pct": 55.6,
+    "g_pct": 96.3
+   },
+   {
+    "iso": "CHE",
+    "name": "Switzerland",
+    "n": 510,
+    "bp_pct": 70.6,
+    "g_pct": 96.1
+   },
+   {
+    "iso": "UKR",
+    "name": "Ukraine",
+    "n": 449,
+    "bp_pct": 44.5,
+    "g_pct": 53.5
+   },
+   {
+    "iso": "SRB",
+    "name": "Serbia",
+    "n": 426,
+    "bp_pct": 72.1,
+    "g_pct": 88.7
+   },
+   {
+    "iso": "IDN",
+    "name": "Indonesia",
+    "n": 393,
+    "bp_pct": 70.5,
+    "g_pct": 93.1
+   },
+   {
+    "iso": "EGY",
+    "name": "Egypt",
+    "n": 380,
+    "bp_pct": 45.3,
+    "g_pct": 96.3
+   },
+   {
+    "iso": "HUN",
+    "name": "Hungary",
+    "n": 379,
+    "bp_pct": 88.4,
+    "g_pct": 97.9
+   },
+   {
+    "iso": "NGA",
+    "name": "Nigeria",
+    "n": 372,
+    "bp_pct": 33.1,
+    "g_pct": 83.3
+   }
+  ],
+  "nga": {
+   "iso": "NGA",
+   "name": "Nigeria",
+   "n": 372,
+   "bp_pct": 33.1,
+   "g_pct": 83.3
+  },
+  "by_dec": [
+   {
+    "dec": 1900,
+    "bp_pct": 81.1,
+    "n_all": 159
+   },
+   {
+    "dec": 1910,
+    "bp_pct": 86.2,
+    "n_all": 1264
+   },
+   {
+    "dec": 1920,
+    "bp_pct": 81.9,
+    "n_all": 1317
+   },
+   {
+    "dec": 1930,
+    "bp_pct": 82.7,
+    "n_all": 1564
+   },
+   {
+    "dec": 1940,
+    "bp_pct": 80.3,
+    "n_all": 1388
+   },
+   {
+    "dec": 1950,
+    "bp_pct": 79.1,
+    "n_all": 2413
+   },
+   {
+    "dec": 1960,
+    "bp_pct": 79.0,
+    "n_all": 3707
+   },
+   {
+    "dec": 1970,
+    "bp_pct": 69.8,
+    "n_all": 4873
+   },
+   {
+    "dec": 1980,
+    "bp_pct": 62.6,
+    "n_all": 6126
+   },
+   {
+    "dec": 1990,
+    "bp_pct": 60.0,
+    "n_all": 7673
+   },
+   {
+    "dec": 2000,
+    "bp_pct": 54.7,
+    "n_all": 15389
+   },
+   {
+    "dec": 2010,
+    "bp_pct": 42.6,
+    "n_all": 21635
+   },
+   {
+    "dec": 2020,
+    "bp_pct": 41.8,
+    "n_all": 7033
+   }
+  ],
+  "nga_n": 372,
+  "nga_bp_pct": 33.1,
+  "usa_bp_pct": 50.5,
+  "ind_bp_pct": 49.0,
+  "nga_late_n": 238,
+  "film_country_late": [
+   {
+    "iso": "IND",
+    "early": 393,
+    "late": 2661
+   },
+   {
+    "iso": "NGA",
+    "early": 2,
+    "late": 238
+   },
+   {
+    "iso": "KOR",
+    "early": 42,
+    "late": 1146
+   },
+   {
+    "iso": "IRN",
+    "early": 40,
+    "late": 401
+   },
+   {
+    "iso": "USA",
+    "early": 1899,
+    "late": 9712
+   }
+  ]
+ },
+ "migration": {
+  "n": 42950,
+  "n_abroad": 6412,
+  "pct": 14.9,
+  "notable_pct": 19.3,
+  "flows": [
+   {
+    "from": "GBR",
+    "to": "USA",
+    "from_name": "United Kingdom",
+    "to_name": "United States",
+    "n": 416
+   },
+   {
+    "from": "CAN",
+    "to": "USA",
+    "from_name": "Canada",
+    "to_name": "United States",
+    "n": 232
+   },
+   {
+    "from": "AUT",
+    "to": "DEU",
+    "from_name": "Austria",
+    "to_name": "Germany",
+    "n": 124
+   },
+   {
+    "from": "POL",
+    "to": "DEU",
+    "from_name": "Poland",
+    "to_name": "Germany",
+    "n": 117
+   },
+   {
+    "from": "DEU",
+    "to": "USA",
+    "from_name": "Germany",
+    "to_name": "United States",
+    "n": 92
+   },
+   {
+    "from": "CHN",
+    "to": "HKG",
+    "from_name": "China",
+    "to_name": "Hong Kong",
+    "n": 90
+   },
+   {
+    "from": "USA",
+    "to": "GBR",
+    "from_name": "United States",
+    "to_name": "United Kingdom",
+    "n": 82
+   },
+   {
+    "from": "FRA",
+    "to": "USA",
+    "from_name": "France",
+    "to_name": "United States",
+    "n": 77
+   },
+   {
+    "from": "DZA",
+    "to": "FRA",
+    "from_name": "Algeria",
+    "to_name": "France",
+    "n": 72
+   },
+   {
+    "from": "USA",
+    "to": "CAN",
+    "from_name": "United States",
+    "to_name": "Canada",
+    "n": 66
+   },
+   {
+    "from": "CHE",
+    "to": "DEU",
+    "from_name": "Switzerland",
+    "to_name": "Germany",
+    "n": 66
+   },
+   {
+    "from": "AUS",
+    "to": "USA",
+    "from_name": "Australia",
+    "to_name": "United States",
+    "n": 62
+   },
+   {
+    "from": "CZE",
+    "to": "DEU",
+    "from_name": "Czech Republic",
+    "to_name": "Germany",
+    "n": 47
+   },
+   {
+    "from": "SVK",
+    "to": "CZE",
+    "from_name": "Slovakia",
+    "to_name": "Czech Republic",
+    "n": 46
+   },
+   {
+    "from": "USA",
+    "to": "DEU",
+    "from_name": "United States",
+    "to_name": "Germany",
+    "n": 46
+   },
+   {
+    "from": "BEL",
+    "to": "FRA",
+    "from_name": "Belgium",
+    "to_name": "France",
+    "n": 46
+   },
+   {
+    "from": "GBR",
+    "to": "CAN",
+    "from_name": "United Kingdom",
+    "to_name": "Canada",
+    "n": 46
+   },
+   {
+    "from": "POL",
+    "to": "USA",
+    "from_name": "Poland",
+    "to_name": "United States",
+    "n": 41
+   },
+   {
+    "from": "PAK",
+    "to": "IND",
+    "from_name": "Pakistan",
+    "to_name": "India",
+    "n": 40
+   },
+   {
+    "from": "GBR",
+    "to": "AUS",
+    "from_name": "United Kingdom",
+    "to_name": "Australia",
+    "n": 40
+   },
+   {
+    "from": "TUR",
+    "to": "DEU",
+    "from_name": "Turkey",
+    "to_name": "Germany",
+    "n": 38
+   },
+   {
+    "from": "RUS",
+    "to": "DEU",
+    "from_name": "Russia",
+    "to_name": "Germany",
+    "n": 38
+   },
+   {
+    "from": "ITA",
+    "to": "USA",
+    "from_name": "Italy",
+    "to_name": "United States",
+    "n": 36
+   },
+   {
+    "from": "ISR",
+    "to": "USA",
+    "from_name": "Israel",
+    "to_name": "United States",
+    "n": 36
+   },
+   {
+    "from": "MEX",
+    "to": "USA",
+    "from_name": "Mexico",
+    "to_name": "United States",
+    "n": 33
+   },
+   {
+    "from": "MAR",
+    "to": "FRA",
+    "from_name": "Morocco",
+    "to_name": "France",
+    "n": 33
+   },
+   {
+    "from": "DEU",
+    "to": "AUT",
+    "from_name": "Germany",
+    "to_name": "Austria",
+    "n": 33
+   },
+   {
+    "from": "FRA",
+    "to": "DEU",
+    "from_name": "France",
+    "to_name": "Germany",
+    "n": 32
+   },
+   {
+    "from": "RUS",
+    "to": "USA",
+    "from_name": "Russia",
+    "to_name": "United States",
+    "n": 32
+   },
+   {
+    "from": "ITA",
+    "to": "DEU",
+    "from_name": "Italy",
+    "to_name": "Germany",
+    "n": 30
+   }
+  ],
+  "flows_notable": [
+   {
+    "from": "GBR",
+    "to": "USA",
+    "from_name": "United Kingdom",
+    "to_name": "United States",
+    "n": 92
+   },
+   {
+    "from": "CAN",
+    "to": "USA",
+    "from_name": "Canada",
+    "to_name": "United States",
+    "n": 41
+   },
+   {
+    "from": "FRA",
+    "to": "USA",
+    "from_name": "France",
+    "to_name": "United States",
+    "n": 16
+   },
+   {
+    "from": "AUS",
+    "to": "USA",
+    "from_name": "Australia",
+    "to_name": "United States",
+    "n": 16
+   },
+   {
+    "from": "DEU",
+    "to": "USA",
+    "from_name": "Germany",
+    "to_name": "United States",
+    "n": 16
+   },
+   {
+    "from": "CHN",
+    "to": "HKG",
+    "from_name": "China",
+    "to_name": "Hong Kong",
+    "n": 14
+   },
+   {
+    "from": "PAK",
+    "to": "IND",
+    "from_name": "Pakistan",
+    "to_name": "India",
+    "n": 14
+   },
+   {
+    "from": "USA",
+    "to": "GBR",
+    "from_name": "United States",
+    "to_name": "United Kingdom",
+    "n": 13
+   },
+   {
+    "from": "HUN",
+    "to": "USA",
+    "from_name": "Hungary",
+    "to_name": "United States",
+    "n": 11
+   },
+   {
+    "from": "USA",
+    "to": "CAN",
+    "from_name": "United States",
+    "to_name": "Canada",
+    "n": 10
+   },
+   {
+    "from": "ITA",
+    "to": "USA",
+    "from_name": "Italy",
+    "to_name": "United States",
+    "n": 10
+   },
+   {
+    "from": "POL",
+    "to": "USA",
+    "from_name": "Poland",
+    "to_name": "United States",
+    "n": 10
+   },
+   {
+    "from": "DZA",
+    "to": "FRA",
+    "from_name": "Algeria",
+    "to_name": "France",
+    "n": 9
+   },
+   {
+    "from": "AUT",
+    "to": "DEU",
+    "from_name": "Austria",
+    "to_name": "Germany",
+    "n": 9
+   },
+   {
+    "from": "MEX",
+    "to": "USA",
+    "from_name": "Mexico",
+    "to_name": "United States",
+    "n": 8
+   }
+  ],
+  "dest": [
+   {
+    "iso": "USA",
+    "name": "United States",
+    "n": 1708,
+    "pct": 26.6
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 840,
+    "pct": 13.1
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "n": 590,
+    "pct": 9.2
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 342,
+    "pct": 5.3
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "n": 296,
+    "pct": 4.6
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "n": 139,
+    "pct": 2.2
+   },
+   {
+    "iso": "AUS",
+    "name": "Australia",
+    "n": 133,
+    "pct": 2.1
+   },
+   {
+    "iso": "HKG",
+    "name": "Hong Kong",
+    "n": 124,
+    "pct": 1.9
+   },
+   {
+    "iso": "DNK",
+    "name": "Denmark",
+    "n": 123,
+    "pct": 1.9
+   },
+   {
+    "iso": "CZE",
+    "name": "Czech Republic",
+    "n": 119,
+    "pct": 1.9
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "n": 111,
+    "pct": 1.7
+   },
+   {
+    "iso": "ISR",
+    "name": "Israel",
+    "n": 107,
+    "pct": 1.7
+   }
+  ],
+  "orig": [
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 624
+   },
+   {
+    "iso": "USA",
+    "name": "United States",
+    "n": 411
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "n": 290
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 282
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "n": 264
+   },
+   {
+    "iso": "POL",
+    "name": "Poland",
+    "n": 230
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "n": 205
+   },
+   {
+    "iso": "AUT",
+    "name": "Austria",
+    "n": 194
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "n": 185
+   },
+   {
+    "iso": "CHN",
+    "name": "China",
+    "n": 166
+   },
+   {
+    "iso": "CHE",
+    "name": "Switzerland",
+    "n": 155
+   },
+   {
+    "iso": "UKR",
+    "name": "Ukraine",
+    "n": 132
+   }
+  ],
+  "us_n": 8455,
+  "us_abroad": 1708,
+  "us_pct": 20.2,
+  "us_by_dec": [
+   {
+    "dec": 1900,
+    "n": 26,
+    "abroad": 11,
+    "pct": 42.3
+   },
+   {
+    "dec": 1910,
+    "n": 454,
+    "abroad": 96,
+    "pct": 21.1
+   },
+   {
+    "dec": 1920,
+    "n": 339,
+    "abroad": 75,
+    "pct": 22.1
+   },
+   {
+    "dec": 1930,
+    "n": 306,
+    "abroad": 73,
+    "pct": 23.9
+   },
+   {
+    "dec": 1940,
+    "n": 222,
+    "abroad": 41,
+    "pct": 18.5
+   },
+   {
+    "dec": 1950,
+    "n": 292,
+    "abroad": 49,
+    "pct": 16.8
+   },
+   {
+    "dec": 1960,
+    "n": 391,
+    "abroad": 55,
+    "pct": 14.1
+   },
+   {
+    "dec": 1970,
+    "n": 563,
+    "abroad": 97,
+    "pct": 17.2
+   },
+   {
+    "dec": 1980,
+    "n": 744,
+    "abroad": 159,
+    "pct": 21.4
+   },
+   {
+    "dec": 1990,
+    "n": 1066,
+    "abroad": 184,
+    "pct": 17.3
+   },
+   {
+    "dec": 2000,
+    "n": 1755,
+    "abroad": 363,
+    "pct": 20.7
+   },
+   {
+    "dec": 2010,
+    "n": 1631,
+    "abroad": 363,
+    "pct": 22.3
+   },
+   {
+    "dec": 2020,
+    "n": 470,
+    "abroad": 105,
+    "pct": 22.3
+   }
+  ],
+  "us_notable_pct": 19.9,
+  "us_notable_n": 1705,
+  "us_sources": [
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 416
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "n": 232
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 92
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "n": 77
+   },
+   {
+    "iso": "AUS",
+    "name": "Australia",
+    "n": 62
+   },
+   {
+    "iso": "POL",
+    "name": "Poland",
+    "n": 41
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "n": 36
+   },
+   {
+    "iso": "ISR",
+    "name": "Israel",
+    "n": 36
+   },
+   {
+    "iso": "MEX",
+    "name": "Mexico",
+    "n": 33
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "n": 32
+   },
+   {
+    "iso": "HUN",
+    "name": "Hungary",
+    "n": 29
+   },
+   {
+    "iso": "IRL",
+    "name": "Ireland",
+    "n": 25
+   }
+  ],
+  "emigrant": [
+   {
+    "iso": "SVK",
+    "name": "Slovakia",
+    "n": 190,
+    "abroad": 70,
+    "pct": 36.8,
+    "top_dest": "Czech Republic"
+   },
+   {
+    "iso": "CHN",
+    "name": "China",
+    "n": 452,
+    "abroad": 166,
+    "pct": 36.7,
+    "top_dest": "Hong Kong"
+   },
+   {
+    "iso": "AUT",
+    "name": "Austria",
+    "n": 543,
+    "abroad": 194,
+    "pct": 35.7,
+    "top_dest": "Germany"
+   },
+   {
+    "iso": "CHE",
+    "name": "Switzerland",
+    "n": 453,
+    "abroad": 155,
+    "pct": 34.2,
+    "top_dest": "Germany"
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 1828,
+    "abroad": 624,
+    "pct": 34.1,
+    "top_dest": "United States"
+   },
+   {
+    "iso": "ROU",
+    "name": "Romania",
+    "n": 251,
+    "abroad": 80,
+    "pct": 31.9,
+    "top_dest": "Germany"
+   },
+   {
+    "iso": "CHL",
+    "name": "Chile",
+    "n": 163,
+    "abroad": 49,
+    "pct": 30.1,
+    "top_dest": "United States"
+   },
+   {
+    "iso": "POL",
+    "name": "Poland",
+    "n": 779,
+    "abroad": 230,
+    "pct": 29.5,
+    "top_dest": "Germany"
+   },
+   {
+    "iso": "BEL",
+    "name": "Belgium",
+    "n": 355,
+    "abroad": 99,
+    "pct": 27.9,
+    "top_dest": "France"
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "n": 1156,
+    "abroad": 290,
+    "pct": 25.1,
+    "top_dest": "United States"
+   },
+   {
+    "iso": "EGY",
+    "name": "Egypt",
+    "n": 208,
+    "abroad": 52,
+    "pct": 25.0,
+    "top_dest": "France"
+   },
+   {
+    "iso": "AUS",
+    "name": "Australia",
+    "n": 414,
+    "abroad": 103,
+    "pct": 24.9,
+    "top_dest": "United States"
+   },
+   {
+    "iso": "HUN",
+    "name": "Hungary",
+    "n": 401,
+    "abroad": 98,
+    "pct": 24.4,
+    "top_dest": "United States"
+   },
+   {
+    "iso": "ISR",
+    "name": "Israel",
+    "n": 426,
+    "abroad": 104,
+    "pct": 24.4,
+    "top_dest": "United States"
+   },
+   {
+    "iso": "UKR",
+    "name": "Ukraine",
+    "n": 560,
+    "abroad": 132,
+    "pct": 23.6,
+    "top_dest": "Russia"
+   }
+  ],
+  "by_dec": [
+   {
+    "dec": 1900,
+    "n": 124,
+    "pct": 24.2
+   },
+   {
+    "dec": 1910,
+    "n": 1080,
+    "pct": 18.4
+   },
+   {
+    "dec": 1920,
+    "n": 1068,
+    "pct": 20.5
+   },
+   {
+    "dec": 1930,
+    "n": 1287,
+    "pct": 18.5
+   },
+   {
+    "dec": 1940,
+    "n": 1103,
+    "pct": 15.3
+   },
+   {
+    "dec": 1950,
+    "n": 1898,
+    "pct": 14.1
+   },
+   {
+    "dec": 1960,
+    "n": 2909,
+    "pct": 14.2
+   },
+   {
+    "dec": 1970,
+    "n": 3375,
+    "pct": 16.1
+   },
+   {
+    "dec": 1980,
+    "n": 3805,
+    "pct": 15.0
+   },
+   {
+    "dec": 1990,
+    "n": 4560,
+    "pct": 14.1
+   },
+   {
+    "dec": 2000,
+    "n": 8348,
+    "pct": 14.5
+   },
+   {
+    "dec": 2010,
+    "n": 9042,
+    "pct": 14.4
+   },
+   {
+    "dec": 2020,
+    "n": 2893,
+    "pct": 13.9
+   }
+  ],
+  "us_famous": [
+   {
+    "n": "Charlie Chaplin",
+    "q": "Q882",
+    "iso": "GBR",
+    "sl": 263,
+    "debut": 1914
+   },
+   {
+    "n": "Paul McCartney",
+    "q": "Q2599",
+    "iso": "GBR",
+    "sl": 149,
+    "debut": 1980
+   },
+   {
+    "n": "Natalie Portman",
+    "q": "Q37876",
+    "iso": "ISR",
+    "sl": 138,
+    "debut": 2008
+   },
+   {
+    "n": "James Cameron",
+    "q": "Q42574",
+    "iso": "CAN",
+    "sl": 119,
+    "debut": 1981
+   },
+   {
+    "n": "Mary Pickford",
+    "q": "Q104109",
+    "iso": "CAN",
+    "sl": 102,
+    "debut": 1924
+   },
+   {
+    "n": "Harry Houdini",
+    "q": "Q131545",
+    "iso": "HUN",
+    "sl": 96,
+    "debut": 1921
+   },
+   {
+    "n": "Jean-Claude Van Damme",
+    "q": "Q308840",
+    "iso": "BEL",
+    "sl": 95,
+    "debut": 1996
+   },
+   {
+    "n": "David Attenborough",
+    "q": "Q183337",
+    "iso": "GBR",
+    "sl": 94,
+    "debut": 2001
+   },
+   {
+    "n": "Ridley Scott",
+    "q": "Q56005",
+    "iso": "GBR",
+    "sl": 94,
+    "debut": 1977
+   },
+   {
+    "n": "Marcel Duchamp",
+    "q": "Q5912",
+    "iso": "FRA",
+    "sl": 91,
+    "debut": 1957
+   },
+   {
+    "n": "Ryan Gosling",
+    "q": "Q193815",
+    "iso": "CAN",
+    "sl": 90,
+    "debut": 2014
+   },
+   {
+    "n": "Mike Myers",
+    "q": "Q185724",
+    "iso": "CAN",
+    "sl": 88,
+    "debut": 2013
+   },
+   {
+    "n": "Miloš Forman",
+    "q": "Q51525",
+    "iso": "CZE",
+    "sl": 88,
+    "debut": 1958
+   },
+   {
+    "n": "Frank Capra",
+    "q": "Q51492",
+    "iso": "ITA",
+    "sl": 84,
+    "debut": 1922
+   },
+   {
+    "n": "Anthony Quinn",
+    "q": "Q83484",
+    "iso": "MEX",
+    "sl": 84,
+    "debut": 1958
+   },
+   {
+    "n": "Ang Lee",
+    "q": "Q160726",
+    "iso": "TWN",
+    "sl": 83,
+    "debut": 1980
+   },
+   {
+    "n": "Sia",
+    "q": "Q181484",
+    "iso": "AUS",
+    "sl": 81,
+    "debut": 2021
+   },
+   {
+    "n": "Elia Kazan",
+    "q": "Q72717",
+    "iso": "TUR",
+    "sl": 81,
+    "debut": 1937
+   },
+   {
+    "n": "",
+    "q": "Q16297",
+    "iso": "CAN",
+    "sl": 80,
+    "debut": 1989
+   },
+   {
+    "n": "Billy Wilder",
+    "q": "Q51547",
+    "iso": "POL",
+    "sl": 80,
+    "debut": 1934
+   },
+   {
+    "n": "Neil Young",
+    "q": "Q633",
+    "iso": "CAN",
+    "sl": 80,
+    "debut": 1973
+   },
+   {
+    "n": "Christoph Waltz",
+    "q": "Q76819",
+    "iso": "AUT",
+    "sl": 80,
+    "debut": 2019
+   },
+   {
+    "n": "Richard Attenborough",
+    "q": "Q51506",
+    "iso": "GBR",
+    "sl": 79,
+    "debut": 1969
+   },
+   {
+    "n": "Errol Flynn",
+    "q": "Q93188",
+    "iso": "AUS",
+    "sl": 78,
+    "debut": 1952
+   }
+  ],
+  "us_1930": {
+   "dec": 1930,
+   "n": 306,
+   "abroad": 73,
+   "pct": 23.9
+  },
+  "austria": {
+   "iso": "AUT",
+   "name": "Austria",
+   "n": 543,
+   "abroad": 194,
+   "pct": 35.7,
+   "top_dest": "Germany"
+  },
+  "us_2010": {
+   "dec": 2010,
+   "n": 1631,
+   "abroad": 363,
+   "pct": 22.3
+  }
+ },
+ "women": {
+  "pct": 18.3,
+  "notable_pct": 17.5,
+  "by_dec": [
+   {
+    "dec": 1900,
+    "n": 151,
+    "w": 2,
+    "pct": 1.3,
+    "n_notable": 27,
+    "pct_notable": 3.7
+   },
+   {
+    "dec": 1910,
+    "n": 1249,
+    "w": 46,
+    "pct": 3.7,
+    "n_notable": 127,
+    "pct_notable": 9.4
+   },
+   {
+    "dec": 1920,
+    "n": 1273,
+    "w": 40,
+    "pct": 3.1,
+    "n_notable": 134,
+    "pct_notable": 7.5
+   },
+   {
+    "dec": 1930,
+    "n": 1510,
+    "w": 48,
+    "pct": 3.2,
+    "n_notable": 145,
+    "pct_notable": 4.8
+   },
+   {
+    "dec": 1940,
+    "n": 1324,
+    "w": 57,
+    "pct": 4.3,
+    "n_notable": 137,
+    "pct_notable": 7.3
+   },
+   {
+    "dec": 1950,
+    "n": 2275,
+    "w": 100,
+    "pct": 4.4,
+    "n_notable": 233,
+    "pct_notable": 4.7
+   },
+   {
+    "dec": 1960,
+    "n": 3518,
+    "w": 159,
+    "pct": 4.5,
+    "n_notable": 319,
+    "pct_notable": 4.4
+   },
+   {
+    "dec": 1970,
+    "n": 4503,
+    "w": 411,
+    "pct": 9.1,
+    "n_notable": 346,
+    "pct_notable": 13.6
+   },
+   {
+    "dec": 1980,
+    "n": 5552,
+    "w": 706,
+    "pct": 12.7,
+    "n_notable": 367,
+    "pct_notable": 15.3
+   },
+   {
+    "dec": 1990,
+    "n": 6880,
+    "w": 1139,
+    "pct": 16.6,
+    "n_notable": 522,
+    "pct_notable": 14.6
+   },
+   {
+    "dec": 2000,
+    "n": 13695,
+    "w": 2571,
+    "pct": 18.8,
+    "n_notable": 669,
+    "pct_notable": 23.6
+   },
+   {
+    "dec": 2010,
+    "n": 18828,
+    "w": 4535,
+    "pct": 24.1,
+    "n_notable": 520,
+    "pct_notable": 31.0
+   },
+   {
+    "dec": 2020,
+    "n": 6426,
+    "w": 2056,
+    "pct": 32.0,
+    "n_notable": 196,
+    "pct_notable": 43.4
+   }
+  ],
+  "by_country": [
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "n": 1171,
+    "pct": 26.7
+   },
+   {
+    "iso": "CHE",
+    "name": "Switzerland",
+    "n": 490,
+    "pct": 26.1
+   },
+   {
+    "iso": "NLD",
+    "name": "Netherlands",
+    "n": 441,
+    "pct": 24.5
+   },
+   {
+    "iso": "PER",
+    "name": "Peru",
+    "n": 211,
+    "pct": 24.2
+   },
+   {
+    "iso": "NOR",
+    "name": "Norway",
+    "n": 270,
+    "pct": 23.7
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 3261,
+    "pct": 23.3
+   },
+   {
+    "iso": "ISR",
+    "name": "Israel",
+    "n": 433,
+    "pct": 22.9
+   },
+   {
+    "iso": "FIN",
+    "name": "Finland",
+    "n": 373,
+    "pct": 22.3
+   },
+   {
+    "iso": "PRT",
+    "name": "Portugal",
+    "n": 179,
+    "pct": 21.2
+   },
+   {
+    "iso": "SWE",
+    "name": "Sweden",
+    "n": 723,
+    "pct": 20.9
+   },
+   {
+    "iso": "DNK",
+    "name": "Denmark",
+    "n": 658,
+    "pct": 19.5
+   },
+   {
+    "iso": "ESP",
+    "name": "Spain",
+    "n": 1440,
+    "pct": 19.4
+   },
+   {
+    "iso": "AUS",
+    "name": "Australia",
+    "n": 420,
+    "pct": 19.0
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "n": 2714,
+    "pct": 18.5
+   },
+   {
+    "iso": "MEX",
+    "name": "Mexico",
+    "n": 364,
+    "pct": 17.9
+   },
+   {
+    "iso": "BGR",
+    "name": "Bulgaria",
+    "n": 236,
+    "pct": 17.8
+   },
+   {
+    "iso": "KOR",
+    "name": "South Korea",
+    "n": 544,
+    "pct": 17.3
+   },
+   {
+    "iso": "ARG",
+    "name": "Argentina",
+    "n": 610,
+    "pct": 17.2
+   },
+   {
+    "iso": "AUT",
+    "name": "Austria",
+    "n": 553,
+    "pct": 17.0
+   },
+   {
+    "iso": "SVK",
+    "name": "Slovakia",
+    "n": 192,
+    "pct": 16.7
+   },
+   {
+    "iso": "GEO",
+    "name": "Georgia",
+    "n": 168,
+    "pct": 16.7
+   },
+   {
+    "iso": "POL",
+    "name": "Poland",
+    "n": 790,
+    "pct": 16.6
+   },
+   {
+    "iso": "BRA",
+    "name": "Brazil",
+    "n": 561,
+    "pct": 16.6
+   },
+   {
+    "iso": "IDN",
+    "name": "Indonesia",
+    "n": 278,
+    "pct": 16.5
+   },
+   {
+    "iso": "CHN",
+    "name": "China",
+    "n": 456,
+    "pct": 16.4
+   },
+   {
+    "iso": "CHL",
+    "name": "Chile",
+    "n": 164,
+    "pct": 15.9
+   },
+   {
+    "iso": "GRC",
+    "name": "Greece",
+    "n": 189,
+    "pct": 15.3
+   },
+   {
+    "iso": "USA",
+    "name": "United States",
+    "n": 7232,
+    "pct": 14.8
+   },
+   {
+    "iso": "TUR",
+    "name": "Turkey",
+    "n": 446,
+    "pct": 14.8
+   },
+   {
+    "iso": "CZE",
+    "name": "Czech Republic",
+    "n": 1207,
+    "pct": 14.6
+   },
+   {
+    "iso": "ROU",
+    "name": "Romania",
+    "n": 257,
+    "pct": 14.0
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "n": 1299,
+    "pct": 13.9
+   },
+   {
+    "iso": "BEL",
+    "name": "Belgium",
+    "n": 359,
+    "pct": 13.4
+   },
+   {
+    "iso": "UKR",
+    "name": "Ukraine",
+    "n": 564,
+    "pct": 13.3
+   },
+   {
+    "iso": "HKG",
+    "name": "Hong Kong",
+    "n": 165,
+    "pct": 13.3
+   },
+   {
+    "iso": "HUN",
+    "name": "Hungary",
+    "n": 408,
+    "pct": 11.8
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 1845,
+    "pct": 11.4
+   },
+   {
+    "iso": "EGY",
+    "name": "Egypt",
+    "n": 213,
+    "pct": 10.3
+   },
+   {
+    "iso": "IRN",
+    "name": "Iran",
+    "n": 821,
+    "pct": 9.3
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "n": 2292,
+    "pct": 9.3
+   },
+   {
+    "iso": "SRB",
+    "name": "Serbia",
+    "n": 200,
+    "pct": 9.0
+   },
+   {
+    "iso": "JPN",
+    "name": "Japan",
+    "n": 1374,
+    "pct": 8.5
+   },
+   {
+    "iso": "IND",
+    "name": "India",
+    "n": 2274,
+    "pct": 8.2
+   },
+   {
+    "iso": "AZE",
+    "name": "Azerbaijan",
+    "n": 239,
+    "pct": 7.5
+   }
+  ],
+  "n_countries": 44,
+  "top": [
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "n": 1171,
+    "pct": 26.7
+   },
+   {
+    "iso": "CHE",
+    "name": "Switzerland",
+    "n": 490,
+    "pct": 26.1
+   },
+   {
+    "iso": "NLD",
+    "name": "Netherlands",
+    "n": 441,
+    "pct": 24.5
+   },
+   {
+    "iso": "PER",
+    "name": "Peru",
+    "n": 211,
+    "pct": 24.2
+   },
+   {
+    "iso": "NOR",
+    "name": "Norway",
+    "n": 270,
+    "pct": 23.7
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 3261,
+    "pct": 23.3
+   },
+   {
+    "iso": "ISR",
+    "name": "Israel",
+    "n": 433,
+    "pct": 22.9
+   },
+   {
+    "iso": "FIN",
+    "name": "Finland",
+    "n": 373,
+    "pct": 22.3
+   },
+   {
+    "iso": "PRT",
+    "name": "Portugal",
+    "n": 179,
+    "pct": 21.2
+   },
+   {
+    "iso": "SWE",
+    "name": "Sweden",
+    "n": 723,
+    "pct": 20.9
+   },
+   {
+    "iso": "DNK",
+    "name": "Denmark",
+    "n": 658,
+    "pct": 19.5
+   },
+   {
+    "iso": "ESP",
+    "name": "Spain",
+    "n": 1440,
+    "pct": 19.4
+   }
+  ],
+  "bottom": [
+   {
+    "iso": "HKG",
+    "name": "Hong Kong",
+    "n": 165,
+    "pct": 13.3
+   },
+   {
+    "iso": "HUN",
+    "name": "Hungary",
+    "n": 408,
+    "pct": 11.8
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 1845,
+    "pct": 11.4
+   },
+   {
+    "iso": "EGY",
+    "name": "Egypt",
+    "n": 213,
+    "pct": 10.3
+   },
+   {
+    "iso": "IRN",
+    "name": "Iran",
+    "n": 821,
+    "pct": 9.3
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "n": 2292,
+    "pct": 9.3
+   },
+   {
+    "iso": "SRB",
+    "name": "Serbia",
+    "n": 200,
+    "pct": 9.0
+   },
+   {
+    "iso": "JPN",
+    "name": "Japan",
+    "n": 1374,
+    "pct": 8.5
+   },
+   {
+    "iso": "IND",
+    "name": "India",
+    "n": 2274,
+    "pct": 8.2
+   },
+   {
+    "iso": "AZE",
+    "name": "Azerbaijan",
+    "n": 239,
+    "pct": 7.5
+   }
+  ],
+  "d1930": {
+   "dec": 1930,
+   "n": 1510,
+   "w": 48,
+   "pct": 3.2,
+   "n_notable": 145,
+   "pct_notable": 4.8
+  },
+  "d1950": {
+   "dec": 1950,
+   "n": 2275,
+   "w": 100,
+   "pct": 4.4,
+   "n_notable": 233,
+   "pct_notable": 4.7
+  },
+  "d1970": {
+   "dec": 1970,
+   "n": 4503,
+   "w": 411,
+   "pct": 9.1,
+   "n_notable": 346,
+   "pct_notable": 13.6
+  },
+  "d2010": {
+   "dec": 2010,
+   "n": 18828,
+   "w": 4535,
+   "pct": 24.1,
+   "n_notable": 520,
+   "pct_notable": 31.0
+  },
+  "d2020": {
+   "dec": 2020,
+   "n": 6426,
+   "w": 2056,
+   "pct": 32.0,
+   "n_notable": 196,
+   "pct_notable": 43.4
+  },
+  "u_pct": 9.7,
+  "o_n": 63,
+  "famous": [
+   {
+    "n": "",
+    "q": "Q19848",
+    "iso": "USA",
+    "sl": 197,
+    "debut": 2024
+   },
+   {
+    "n": "Madonna",
+    "q": "Q1744",
+    "iso": "USA",
+    "sl": 194,
+    "debut": 2008
+   },
+   {
+    "n": "Taylor Swift",
+    "q": "Q26876",
+    "iso": "USA",
+    "sl": 178,
+    "debut": null
+   },
+   {
+    "n": "",
+    "q": "Q36153",
+    "iso": "USA",
+    "sl": 176,
+    "debut": 2019
+   },
+   {
+    "n": "",
+    "q": "Q13909",
+    "iso": "USA",
+    "sl": 172,
+    "debut": 2007
+   },
+   {
+    "n": "Scarlett Johansson",
+    "q": "Q34436",
+    "iso": "USA",
+    "sl": 157,
+    "debut": 2025
+   },
+   {
+    "n": "Maya Angelou",
+    "q": "Q19526",
+    "iso": "USA",
+    "sl": 146,
+    "debut": 1998
+   },
+   {
+    "n": "Natalie Portman",
+    "q": "Q37876",
+    "iso": "ISR",
+    "sl": 138,
+    "debut": 2008
+   },
+   {
+    "n": "Kate Winslet",
+    "q": "Q202765",
+    "iso": "GBR",
+    "sl": 134,
+    "debut": 2025
+   },
+   {
+    "n": "Cate Blanchett",
+    "q": "Q80966",
+    "iso": "AUS",
+    "sl": 134,
+    "debut": 2013
+   },
+   {
+    "n": "",
+    "q": "Q29564107",
+    "iso": "USA",
+    "sl": 126,
+    "debut": 2026
+   },
+   {
+    "n": "Jennifer Lawrence",
+    "q": "Q189490",
+    "iso": "USA",
+    "sl": 121,
+    "debut": null
+   },
+   {
+    "n": "Halle Berry",
+    "q": "Q1033016",
+    "iso": "USA",
+    "sl": 120,
+    "debut": 2020
+   },
+   {
+    "n": "Penélope Cruz",
+    "q": "Q39666",
+    "iso": "ESP",
+    "sl": 120,
+    "debut": 2016
+   },
+   {
+    "n": "Jodie Foster",
+    "q": "Q41351",
+    "iso": "USA",
+    "sl": 118,
+    "debut": 1991
+   },
+   {
+    "n": "Barbra Streisand",
+    "q": "Q4636",
+    "iso": "USA",
+    "sl": 110,
+    "debut": 1983
+   },
+   {
+    "n": "Kristen Stewart",
+    "q": "Q126599",
+    "iso": "USA",
+    "sl": 103,
+    "debut": 2017
+   },
+   {
+    "n": "Helen Mirren",
+    "q": "Q349391",
+    "iso": "GBR",
+    "sl": 103,
+    "debut": 1986
+   },
+   {
+    "n": "Mary Pickford",
+    "q": "Q104109",
+    "iso": "CAN",
+    "sl": 102,
+    "debut": 1924
+   },
+   {
+    "n": "Drew Barrymore",
+    "q": "Q676094",
+    "iso": "USA",
+    "sl": 100,
+    "debut": 2009
+   }
+  ],
+  "early": [
+   {
+    "n": "Alice Guy-Blaché",
+    "q": "Q263367",
+    "iso": "FRA",
+    "debut": 1897
+   },
+   {
+    "n": "Gene Gauntier",
+    "q": "Q958743",
+    "iso": "USA",
+    "debut": 1909
+   },
+   {
+    "n": "Ebba Lindkvist",
+    "q": "Q59656562",
+    "iso": "SWE",
+    "debut": 1910
+   },
+   {
+    "n": "Caroline van Dommelen",
+    "q": "Q2614668",
+    "iso": "NLD",
+    "debut": 1911
+   },
+   {
+    "n": "Lois Weber",
+    "q": "Q462440",
+    "iso": "USA",
+    "debut": 1911
+   },
+   {
+    "n": "Anna Hoffman-Uddgren",
+    "q": "Q4767086",
+    "iso": "SWE",
+    "debut": 1911
+   },
+   {
+    "n": "Luise Fleck",
+    "q": "Q86305",
+    "iso": "AUT",
+    "debut": 1911
+   },
+   {
+    "n": "Olga Wohlbrück",
+    "q": "Q2019750",
+    "iso": "AUT",
+    "debut": 1913
+   },
+   {
+    "n": "Mabel Normand",
+    "q": "Q235918",
+    "iso": "USA",
+    "debut": 1914
+   },
+   {
+    "n": "Grace Cunard",
+    "q": "Q2757658",
+    "iso": "USA",
+    "debut": 1914
+   }
+  ],
+  "low_dec": {
+   "dec": 1920,
+   "n": 1273,
+   "w": 40,
+   "pct": 3.1,
+   "n_notable": 134,
+   "pct_notable": 7.5
+  },
+  "d1920": {
+   "dec": 1920,
+   "n": 1273,
+   "w": 40,
+   "pct": 3.1,
+   "n_notable": 134,
+   "pct_notable": 7.5
+  },
+  "min_n": 150,
+  "india": {
+   "iso": "IND",
+   "name": "India",
+   "n": 2274,
+   "pct": 8.2
+  },
+  "japan": {
+   "iso": "JPN",
+   "name": "Japan",
+   "n": 1374,
+   "pct": 8.5
+  }
+ },
+ "prolific": {
+  "top": [
+   {
+    "n": "Louis Feuillade",
+    "q": "Q951835",
+    "nf": 254,
+    "iso": "FRA",
+    "name": "France",
+    "debut": 1906,
+    "last": 1925,
+    "sl": 28,
+    "g": "m",
+    "main": "France"
+   },
+   {
+    "n": "Lau Lauritzen Sr.",
+    "q": "Q1360773",
+    "nf": 217,
+    "iso": "DNK",
+    "name": "Denmark",
+    "debut": 1914,
+    "last": 1936,
+    "sl": 13,
+    "g": "m",
+    "main": "Denmark"
+   },
+   {
+    "n": "Sam Newfield",
+    "q": "Q3470531",
+    "nf": 203,
+    "iso": "USA",
+    "name": "United States",
+    "debut": 1928,
+    "last": 1958,
+    "sl": 12,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "William Beaudine",
+    "q": "Q1365729",
+    "nf": 188,
+    "iso": "USA",
+    "name": "United States",
+    "debut": 1922,
+    "last": 1967,
+    "sl": 20,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Richard Thorpe",
+    "q": "Q216748",
+    "nf": 179,
+    "iso": "USA",
+    "name": "United States",
+    "debut": 1921,
+    "last": 1967,
+    "sl": 29,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Georges Monca",
+    "q": "Q3103214",
+    "nf": 175,
+    "iso": "FRA",
+    "name": "France",
+    "debut": 1909,
+    "last": 1937,
+    "sl": 9,
+    "g": "m",
+    "main": "France"
+   },
+   {
+    "n": "Michael Curtiz",
+    "q": "Q51491",
+    "nf": 172,
+    "iso": "HUN",
+    "name": "Hungary",
+    "debut": 1912,
+    "last": 1961,
+    "sl": 53,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Viggo Larsen",
+    "q": "Q731703",
+    "nf": 165,
+    "iso": "DNK",
+    "name": "Denmark",
+    "debut": 1906,
+    "last": 1921,
+    "sl": 22,
+    "g": "m",
+    "main": "Denmark"
+   },
+   {
+    "n": "Maurice Elvey",
+    "q": "Q565510",
+    "nf": 153,
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "debut": 1914,
+    "last": 1996,
+    "sl": 13,
+    "g": "m",
+    "main": "United Kingdom"
+   },
+   {
+    "n": "Lambert Hillyer",
+    "q": "Q542941",
+    "nf": 142,
+    "iso": "USA",
+    "name": "United States",
+    "debut": 1917,
+    "last": 1950,
+    "sl": 17,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Lesley Selander",
+    "q": "Q1804597",
+    "nf": 139,
+    "iso": "USA",
+    "name": "United States",
+    "debut": 1929,
+    "last": 1968,
+    "sl": 15,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Allan Dwan",
+    "q": "Q959677",
+    "nf": 137,
+    "iso": "CAN",
+    "name": "Canada",
+    "debut": 1912,
+    "last": 1961,
+    "sl": 25,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Raoul Walsh",
+    "q": "Q72756",
+    "nf": 135,
+    "iso": "USA",
+    "name": "United States",
+    "debut": 1913,
+    "last": 1964,
+    "sl": 39,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "J. Sasikumar",
+    "q": "Q6107074",
+    "nf": 135,
+    "iso": "IND",
+    "name": "India",
+    "debut": 1964,
+    "last": 1997,
+    "sl": 6,
+    "g": "m",
+    "main": "India"
+   },
+   {
+    "n": "Lew Landers",
+    "q": "Q3237273",
+    "nf": 132,
+    "iso": "USA",
+    "name": "United States",
+    "debut": 1934,
+    "last": 1958,
+    "sl": 15,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Phil Rosen",
+    "q": "Q374091",
+    "nf": 132,
+    "iso": "POL",
+    "name": "Poland",
+    "debut": 1915,
+    "last": 1949,
+    "sl": 14,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Ray Taylor",
+    "q": "Q3420565",
+    "nf": 131,
+    "iso": "USA",
+    "name": "United States",
+    "debut": 1926,
+    "last": 1966,
+    "sl": 8,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Frank Lloyd",
+    "q": "Q28941",
+    "nf": 129,
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "debut": 1914,
+    "last": 1973,
+    "sl": 54,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Joe D'Amato",
+    "q": "Q684569",
+    "nf": 127,
+    "iso": "ITA",
+    "name": "Italy",
+    "debut": 1972,
+    "last": 2003,
+    "sl": 30,
+    "g": "m",
+    "main": "Italy"
+   },
+   {
+    "n": "John Ford",
+    "q": "Q51114",
+    "nf": 126,
+    "iso": "USA",
+    "name": "United States",
+    "debut": 1917,
+    "last": 1976,
+    "sl": 89,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Jesús Franco",
+    "q": "Q353758",
+    "nf": 124,
+    "iso": "ESP",
+    "name": "Spain",
+    "debut": 1959,
+    "last": 2013,
+    "sl": 39,
+    "g": "m",
+    "main": "Spain"
+   },
+   {
+    "n": "Carl Boese",
+    "q": "Q71942",
+    "nf": 123,
+    "iso": "DEU",
+    "name": "Germany",
+    "debut": 1918,
+    "last": 1957,
+    "sl": 14,
+    "g": "m",
+    "main": "Germany"
+   },
+   {
+    "n": "George Archainbaud",
+    "q": "Q1268373",
+    "nf": 123,
+    "iso": "FRA",
+    "name": "France",
+    "debut": 1916,
+    "last": 1953,
+    "sl": 10,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Christy Cabanne",
+    "q": "Q1993804",
+    "nf": 120,
+    "iso": "USA",
+    "name": "United States",
+    "debut": 1912,
+    "last": 1948,
+    "sl": 17,
+    "g": "m",
+    "main": "United States"
+   },
+   {
+    "n": "Georg Jacoby",
+    "q": "Q71273",
+    "nf": 119,
+    "iso": "DEU",
+    "name": "Germany",
+    "debut": 1913,
+    "last": 1960,
+    "sl": 17,
+    "g": "m",
+    "main": "Germany"
+   }
+  ],
+  "n50": 353,
+  "n1": 41495,
+  "n1_pct": 52.7,
+  "median": 1,
+  "top_w": [
+   {
+    "n": "Alice Guy-Blaché",
+    "q": "Q263367",
+    "nf": 75,
+    "iso": "FRA",
+    "name": "France"
+   },
+   {
+    "n": "Alice O'Fredericks",
+    "q": "Q2836639",
+    "nf": 73,
+    "iso": "SWE",
+    "name": "Sweden"
+   },
+   {
+    "n": "Helena Třeštíková",
+    "q": "Q12019433",
+    "nf": 45,
+    "iso": "CZE",
+    "name": "Czech Republic"
+   },
+   {
+    "n": "Lois Weber",
+    "q": "Q462440",
+    "nf": 40,
+    "iso": "USA",
+    "name": "United States"
+   },
+   {
+    "n": "Luise Fleck",
+    "q": "Q86305",
+    "nf": 40,
+    "iso": "AUT",
+    "name": "Austria"
+   },
+   {
+    "n": "Agnès Varda",
+    "q": "Q229990",
+    "nf": 38,
+    "iso": "BEL",
+    "name": "Belgium"
+   },
+   {
+    "n": "Olga Sommerová",
+    "q": "Q12042545",
+    "nf": 32,
+    "iso": "CZE",
+    "name": "Czech Republic"
+   },
+   {
+    "n": "Chantal Akerman",
+    "q": "Q239823",
+    "nf": 32,
+    "iso": "BEL",
+    "name": "Belgium"
+   }
+  ]
+ },
+ "notable": {
+  "n": 3835,
+  "pct": 4.9,
+  "top_sl": [
+   {
+    "n": "Charlie Chaplin",
+    "q": "Q882",
+    "sl": 263,
+    "iso": "GBR",
+    "place": "Walworth"
+   },
+   {
+    "n": "Thomas Edison",
+    "q": "Q8743",
+    "sl": 254,
+    "iso": "USA",
+    "place": "Milan"
+   },
+   {
+    "n": "Rabindranath Tagore",
+    "q": "Q7241",
+    "sl": 248,
+    "iso": "IND",
+    "place": "Kolkata"
+   },
+   {
+    "n": "Walt Disney",
+    "q": "Q8704",
+    "sl": 218,
+    "iso": "USA",
+    "place": "Chicago"
+   },
+   {
+    "n": "Volodymyr Zelenskyy",
+    "q": "Q3874799",
+    "sl": 214,
+    "iso": "UKR",
+    "place": "Kryvyi Rih"
+   },
+   {
+    "n": "Gabriel García Márquez",
+    "q": "Q5878",
+    "sl": 208,
+    "iso": "COL",
+    "place": "Aracataca"
+   },
+   {
+    "n": "",
+    "q": "Q19848",
+    "sl": 197,
+    "iso": "USA",
+    "place": "Lenox Hill Hospital"
+   },
+   {
+    "n": "The Carpenters",
+    "q": "Q223495",
+    "sl": 195,
+    "iso": null,
+    "place": ""
+   },
+   {
+    "n": "Madonna",
+    "q": "Q1744",
+    "sl": 194,
+    "iso": "USA",
+    "place": "Bay City"
+   },
+   {
+    "n": "Roald Amundsen",
+    "q": "Q926",
+    "sl": 191,
+    "iso": "NOR",
+    "place": "Borge Municipality"
+   },
+   {
+    "n": "Alfred Hitchcock",
+    "q": "Q7374",
+    "sl": 189,
+    "iso": "GBR",
+    "place": "Leytonstone"
+   },
+   {
+    "n": "The Doors",
+    "q": "Q45354",
+    "sl": 187,
+    "iso": null,
+    "place": ""
+   },
+   {
+    "n": "John Lennon",
+    "q": "Q1203",
+    "sl": 186,
+    "iso": "GBR",
+    "place": "Liverpool Maternity Hospital"
+   },
+   {
+    "n": "Bob Dylan",
+    "q": "Q392",
+    "sl": 185,
+    "iso": "USA",
+    "place": "Duluth"
+   },
+   {
+    "n": "Andy Warhol",
+    "q": "Q5603",
+    "sl": 179,
+    "iso": "USA",
+    "place": "Pittsburgh"
+   }
+  ],
+  "europe_pct": 41.0,
+  "asia_pct": 13.3,
+  "africa_pct": 2.1
+ }
+}
