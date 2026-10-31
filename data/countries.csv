@@ -1,0 +1,198 @@
+iso3,country,continent,directors_born,notable_born,women_pct,worked_abroad_pct,main_film_country_directors,population_ne
+USA,United States,North America,7243,1430,14.8,5.7,16751,328239523
+DEU,Germany,Europe,3262,127,23.3,8.8,5371,83132799
+FRA,France,Europe,2715,353,18.5,9.9,4553,67059887
+ITA,Italy,Europe,2293,167,9.3,8.2,2687,60297396
+IND,India,Asia,2285,159,8.2,3.8,4694,1366417754
+GBR,United Kingdom,Europe,1851,290,11.4,34.1,3207,66834405
+ESP,Spain,Europe,1443,68,19.4,9.0,1994,47076781
+JPN,Japan,Asia,1384,76,8.5,3.9,1874,126264931
+RUS,Russia,Europe,1300,111,13.9,16.0,2219,144373535
+CZE,Czech Republic,Europe,1208,34,14.6,7.0,2343,10669709
+CAN,Canada,North America,1173,74,26.7,25.1,3700,37589262
+IRN,Iran,Asia,829,25,9.3,12.0,895,82913906
+POL,Poland,Europe,790,47,16.6,29.5,754,37970874
+SWE,Sweden,Europe,724,50,20.9,11.1,1076,10285453
+DNK,Denmark,Europe,658,32,19.5,5.3,2350,5818553
+ARG,Argentina,South America,615,24,17.2,14.1,1388,44938712
+UKR,Ukraine,Europe,566,46,13.3,23.6,449,44385155
+BRA,Brazil,South America,562,22,16.6,9.5,872,211049527
+AUT,Austria,Europe,553,32,17.0,35.7,536,8877067
+KOR,South Korea,Asia,550,34,17.3,6.4,1502,51709098
+CHE,Switzerland,Europe,490,12,26.1,34.2,510,8574832
+CHN,China,Asia,457,42,16.4,36.7,840,1397715000
+TUR,Turkey,Asia,446,24,14.8,21.0,560,83429615
+NLD,Netherlands,Europe,441,18,24.5,15.2,737,17332850
+ISR,Israel,Asia,435,18,22.9,24.4,596,9053300
+AUS,Australia,Oceania,421,46,19.0,24.9,1300,25364307
+HUN,Hungary,Europe,408,35,11.8,24.4,379,9769949
+FIN,Finland,Europe,373,8,22.3,5.9,646,5520314
+MEX,Mexico,North America,364,21,17.9,13.9,693,127575529
+BEL,Belgium,Europe,359,22,13.4,27.9,658,11484055
+IDN,Indonesia,Asia,280,3,16.5,6.5,393,270625568
+NOR,Norway,Europe,270,11,23.7,11.2,511,5347896
+ROU,Romania,Europe,257,13,14.0,31.9,257,19356544
+AZE,Azerbaijan,Asia,243,6,7.5,8.1,188,10023318
+BGR,Bulgaria,Europe,236,0,17.8,11.5,302,6975761
+EGY,Egypt,Africa,213,8,10.3,25.0,380,100388073
+PER,Peru,South America,211,5,24.2,12.3,737,32510453
+SRB,Serbia,Europe,202,11,9.0,16.4,426,6944975
+SVK,Slovakia,Europe,192,8,16.7,36.8,80,5454073
+GRC,Greece,Europe,189,6,15.3,17.1,259,10716322
+PRT,Portugal,Europe,180,7,21.2,16.1,231,10269417
+GEO,Georgia,Asia,169,16,16.7,16.0,84,3720382
+HKG,Hong Kong,Asia,165,19,13.3,17.7,567,7507400
+CHL,Chile,South America,165,7,15.9,30.1,268,18952038
+PAK,Pakistan,Asia,150,16,12.8,34.9,178,216565318
+HRV,Croatia,Europe,141,4,16.5,22.6,94,4067500
+NGA,Nigeria,Africa,140,12,25.0,12.7,372,200963599
+COL,Colombia,South America,135,6,19.3,20.1,306,50339443
+MAR,Morocco,Africa,135,6,22.2,41.8,115,36471769
+PHL,Philippines,Asia,134,6,9.8,6.9,276,108116615
+EST,Estonia,Europe,132,3,22.0,4.5,218,1326590
+ZAF,South Africa,Africa,125,11,15.2,48.4,193,58558270
+IRL,Ireland,Europe,124,12,8.9,50.8,162,4941444
+DZA,Algeria,Africa,122,12,15.6,69.4,53,43053054
+BGD,Bangladesh,Asia,120,5,10.1,21.7,186,163046161
+VNM,Vietnam,Asia,108,7,16.7,26.4,103,96462106
+TWN,Taiwan,Asia,108,6,19.4,31.5,283,23568378
+ARM,Armenia,Asia,104,5,11.5,18.1,54,2957731
+LVA,Latvia,Europe,103,4,20.4,19.4,114,1912789
+MYS,Malaysia,Asia,102,4,7.0,17.0,138,31949777
+NZL,New Zealand,Oceania,99,14,21.2,38.8,186,4917000
+URY,Uruguay,South America,99,1,22.4,27.8,116,3461734
+TUN,Tunisia,Africa,96,3,13.5,36.5,74,11694719
+SVN,Slovenia,Europe,94,0,13.8,13.1,80,2087946
+THA,Thailand,Asia,94,6,8.5,11.7,210,69625582
+BLR,Belarus,Europe,93,5,7.6,35.2,42,9466856
+BIH,Bosnia and Herzegovina,Europe,89,6,18.2,36.1,31,3301000
+LTU,Lithuania,Europe,89,7,18.0,33.3,69,2786844
+LBN,Lebanon,Asia,77,6,31.6,60.5,64,6855713
+VEN,Venezuela,South America,73,1,20.5,40.8,106,28515829
+KAZ,Kazakhstan,Asia,67,3,9.0,28.8,38,18513930
+CUB,Cuba,North America,67,2,10.4,35.8,72,11333483
+LKA,Sri Lanka,Asia,65,2,3.1,14.3,84,21803000
+UZB,Uzbekistan,Asia,58,0,8.6,17.5,25,33580650
+SGP,Singapore,Asia,56,1,12.5,41.5,58,5703569
+ALB,Albania,Europe,49,0,2.0,8.3,73,2854191
+ISL,Iceland,Europe,47,4,23.4,19.6,90,361313
+NPL,Nepal,Asia,42,0,9.5,0.0,118,28608710
+MKD,North Macedonia,Europe,41,2,7.3,20.5,25,2083459
+CMR,Cameroon,Africa,39,1,35.9,10.5,47,25876380
+SYR,Syria,Asia,37,1,21.6,48.6,46,17070135
+LUX,Luxembourg,Europe,37,3,21.6,11.4,62,619896
+IRQ,Iraq,Asia,36,1,8.3,63.6,28,39309783
+SEN,Senegal,Africa,34,5,23.5,29.0,33,16296364
+KGZ,Kyrgyzstan,Asia,27,0,11.1,11.1,17,6456900
+MMR,Myanmar,Asia,25,0,16.0,12.0,29,54045420
+COD,DR Congo,Africa,24,0,12.5,31.8,22,86790567
+MDA,Moldova,Europe,24,2,16.7,47.8,7,2657637
+BOL,Bolivia,South America,24,0,25.0,22.7,57,11513100
+KEN,Kenya,Africa,23,1,34.8,56.5,30,52573973
+TJK,Tajikistan,Asia,23,0,17.4,21.7,5,9321018
+ECU,Ecuador,South America,22,1,22.7,27.3,60,17373662
+PRK,North Korea,Asia,22,3,0.0,90.9,13,25666161
+BFA,Burkina Faso,Africa,21,2,23.8,5.0,39,20321378
+PRI,Puerto Rico,North America,21,3,14.3,76.2,15,3193694
+KOS,Kosovo,Europe,20,1,35.0,25.0,20,1794248
+MNG,Mongolia,Asia,20,0,20.0,15.0,44,3225167
+DOM,Dominican Republic,North America,19,0,,,47,10738958
+PSE,Palestine,Asia,19,2,,,50,4685306
+MNE,Montenegro,Europe,19,1,,,9,622137
+AFG,Afghanistan,Asia,18,2,,,14,38041754
+HTI,Haiti,North America,18,2,,,13,11263077
+UGA,Uganda,Africa,17,1,,,28,44269594
+CIV,Ivory Coast,Africa,17,0,,,16,25716544
+SAU,Saudi Arabia,Asia,16,2,,,26,34268528
+GHA,Ghana,Africa,16,2,,,27,30417856
+KHM,Cambodia,Asia,14,2,,,22,16486542
+MLI,Mali,Africa,14,2,,,12,19658031
+JOR,Jordan,Asia,14,1,,,16,10101694
+CRI,Costa Rica,North America,14,0,,,35,5047561
+TKM,Turkmenistan,Asia,14,0,,,1,5942089
+MDV,Maldives,Asia,13,0,,,28,530953
+ETH,Ethiopia,Africa,11,0,,,8,112078730
+PRY,Paraguay,South America,11,0,,,25,7044636
+AGO,Angola,Africa,11,0,,,6,31825295
+ZWE,Zimbabwe,Africa,11,1,,,12,14645468
+TZA,Tanzania,Africa,11,0,,,5,58005463
+BEN,Benin,Africa,10,1,,,10,11801151
+NER,Niger,Africa,10,1,,,14,23310715
+MOZ,Mozambique,Africa,10,1,,,9,30366036
+LBY,Libya,Africa,10,1,,,2,6777452
+ARE,United Arab Emirates,Asia,10,0,,,21,9770529
+GRL,Greenland,North America,10,0,,,6,56225
+JAM,Jamaica,North America,9,1,,,8,2948279
+RWA,Rwanda,Africa,9,1,,,9,12626950
+KWT,Kuwait,Asia,9,0,,,3,4207083
+CYN,Turkish Republic of Northern Cyprus,Asia,8,1,,,0,326000
+GIN,Guinea,Africa,8,0,,,8,12771246
+TTO,Trinidad and Tobago,North America,8,0,,,4,1394973
+GAB,Gabon,Africa,8,0,,,7,2172579
+MAC,Macau,Asia,8,0,,,0,640445
+SLV,El Salvador,North America,8,0,,,9,6453553
+CYP,Cyprus,Asia,7,1,,,11,1198575
+SOM,Somalia,Africa,7,1,,,1,10192317.3
+ZMB,Zambia,Africa,6,0,,,2,17861030
+BTN,Bhutan,Asia,6,1,,,8,763092
+PAN,Panama,North America,6,0,,,16,4246439
+NAM,Namibia,Africa,6,0,,,12,2494530
+ERI,Eritrea,Africa,5,1,,,1,6081196
+MRT,Mauritania,Africa,5,2,,,0,4525696
+TGO,Togo,Africa,5,0,,,11,8082366
+CUW,Curaçao,North America,5,0,,,2,157538
+MDG,Madagascar,Africa,5,0,,,9,26969307
+TCD,Chad,Africa,5,1,,,4,15946876
+GTM,Guatemala,North America,5,1,,,14,16604026
+SDN,Sudan,Africa,5,0,,,5,42813238
+COG,Republic of the Congo,Africa,5,0,,,5,5380508
+MUS,Mauritius,Africa,4,0,,,4,1265711
+FRO,Faroe Islands,Europe,4,0,,,3,48678
+CPV,Cape Verde,Africa,4,0,,,3,549935
+SUR,Suriname,South America,3,0,,,2,581363
+HND,Honduras,North America,3,0,,,12,9746117
+NIC,Nicaragua,North America,3,0,,,7,6545502
+GUM,Guam,Oceania,3,0,,,0,167294
+LBR,Liberia,Africa,3,1,,,6,4937374
+BRB,Barbados,North America,3,0,,,0,287025
+CAF,Central African Republic,Africa,3,0,,,4,4745185
+MLT,Malta,Europe,3,0,,,2,502653
+SLE,Sierra Leone,Africa,2,0,,,3,7813215
+JEY,Jersey,Europe,2,1,,,0,107800
+WSM,Samoa,Oceania,2,0,,,0,197097
+SWZ,Eswatini,Africa,2,1,,,1,1148130
+GNB,Guinea-Bissau,Africa,2,0,,,0,1920922
+LAO,Laos,Asia,2,0,,,3,7169455
+BMU,Bermuda,North America,2,1,,,0,63918
+BHS,Bahamas,North America,2,1,,,8,389482
+GNQ,Equatorial Guinea,Africa,2,0,,,3,1355986
+PNG,Papua New Guinea,Oceania,2,0,,,1,8776109
+MCO,Monaco,Europe,2,1,,,1,38964
+PYF,French Polynesia,Oceania,1,0,,,0,279287
+GMB,Gambia,Africa,1,0,,,2,2347706
+BWA,Botswana,Africa,1,0,,,2,2303697
+GUY,Guyana,South America,1,0,,,0,782766
+YEM,Yemen,Asia,1,1,,,5,29161922
+LSO,Lesotho,Africa,1,0,,,2,2125268
+VIR,United States Virgin Islands,North America,1,0,,,0,106631
+NCL,New Caledonia,Oceania,1,1,,,1,287800
+DJI,Djibouti,Africa,1,0,,,1,973560
+BRN,Brunei,Asia,1,0,,,4,433285
+AND,Andorra,Europe,1,0,,,5,77142
+MWI,Malawi,Africa,1,0,,,2,18628747
+BDI,Burundi,Africa,1,0,,,1,11530580
+GIB,Gibraltar,Europe,1,0,,,0,33701
+TLS,East Timor,Asia,1,0,,,3,1293119
+ASM,American Samoa,Oceania,1,0,,,0,55312
+SMR,San Marino,Europe,1,0,,,0,33860
+ALA,Åland,Europe,1,0,,,0,29884
+BHR,Bahrain,Asia,1,0,,,4,1641172
+COK,Cook Islands,Oceania,0,0,,,2,17459
+TON,Tonga,Oceania,0,0,,,1,104494
+SYC,Seychelles,Africa,0,0,,,1,97625
+FJI,Fiji,Oceania,0,0,,,2,889953
+LIE,Liechtenstein,Europe,0,0,,,1,38019
+VAT,Vatican City,Europe,0,0,,,3,825
+COM,Comoros,Africa,0,0,,,2,850886
+QAT,Qatar,Asia,0,0,,,3,2832067
+STP,São Tomé and Príncipe,Africa,0,0,,,2,215056

@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Where Film Directors Are From</title>
+<meta name="description" content="A world map of where {{source.n_iso|int}} film directors in Wikidata were born: cities, countries, how the map shifted by debut decade, directors who made their films in another country, and the share of women.">
+<meta property="og:title" content="Where every film director is from: {{source.n_iso|int}} birthplaces on one map">
+<meta property="og:description" content="{{source.n|int}} film directors in Wikidata, {{source.n_iso|int}} with a birth country: New York and Paris lead, Prague and Copenhagen lead per head, and women are {{women.d2020.pct|pc}} of directors who debuted in the 2020s.">
+<meta property="og:image" content="https://maps.tristanhotham.com/director-birthplaces/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/director-birthplaces/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Picture house: programme paper, velvet red, projector amber, night blue. Data colours are set in the script. */
+:root{
+  --bg:#F7F3EC; --panel:#ECE6DA; --fg:#1D1B22; --muted:#67626C; --rule:#E2DBCD; --card:#FFFCF6; --border:#CFC5B3;
+  --hot:#A3202E; --cool:#2F5D8C; --gold:#D69A1A; --plum:#6B2D6F; --land:#EAE4D7; --sea:#F2EEE6;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#16141A; --panel:#211E26; --fg:#EEE9E3; --muted:#A8A0AC; --rule:#36313C; --card:#1C1A21; --border:#4A4450;
+  --hot:#E36A78; --cool:#86A8D8; --gold:#F2C14E; --plum:#C08AC4; --land:#28252E; --sea:#1A181E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#16141A; --panel:#211E26; --fg:#EEE9E3; --muted:#A8A0AC; --rule:#36313C; --card:#1C1A21; --border:#4A4450;
+  --hot:#E36A78; --cool:#86A8D8; --gold:#F2C14E; --plum:#C08AC4; --land:#28252E; --sea:#1A181E; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:700px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1180px,calc(100vw - 32px));margin-left:calc((100% - min(1180px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--hot);color:#fff;padding:5px 8px;font-weight:500}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(44px,11vw,94px)/.9 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 .a{color:var(--hot)} h1 .b{color:var(--gold)}
+.mark{width:clamp(78px,16vw,128px);height:auto;display:block;color:var(--fg)}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:56ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(22px,4.4vw,32px)/1 var(--display);letter-spacing:-.01em}
+.stats b.h{color:var(--hot)} .stats b.c{color:var(--cool)} .stats b.g{color:var(--gold)} .stats b.p{color:var(--plum)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:290px;z-index:100001;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.controls{display:flex;gap:8px;align-items:center;margin:0 0 10px;flex-wrap:wrap}
+.scrollrow{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:2px;max-width:100%}
+.scrollrow .btn{flex:0 0 auto;white-space:nowrap}
+.ctl-l{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px;flex:0 0 auto;align-self:center}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn:focus-visible,input:focus-visible,summary:focus-visible,select:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.searchbox{position:relative;flex:1 1 260px;min-width:0}
+input[type=search]{font:400 15px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 11px;min-height:40px;width:100%}
+.suggest{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:var(--card);border:1px solid var(--border);z-index:1001;font:400 13px/1.3 var(--mono);display:none;max-height:340px;overflow:auto}
+.suggest li{padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--rule)}
+.suggest li span{color:var(--muted)}
+.suggest li[aria-selected="true"],.suggest li:hover{background:var(--panel)}
+.timebar{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:12px;align-items:center;margin:0 0 8px}
+.play{width:46px;height:46px;border-radius:50%;border:0;background:var(--hot);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.play svg{width:20px;height:20px}
+.yr{font:900 40px/1 var(--display);letter-spacing:-.02em;min-width:4.2ch;font-variant-numeric:tabular-nums}
+.yr small{display:block;font:400 11px/1.2 var(--mono);color:var(--muted);letter-spacing:.04em}
+input[type=range].slider{width:100%;accent-color:var(--hot);min-height:32px}
+.spark{height:58px;margin:0 0 10px;cursor:pointer}
+@media (max-width:600px){.yr{font-size:30px}.timebar{gap:8px;grid-template-columns:auto 1fr auto}.timebar .slider{grid-column:1/-1;order:5}}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;align-items:start}
+@media (max-width:900px){.mapgrid{grid-template-columns:1fr}}
+.side{background:var(--card);border:1px solid var(--border);padding:12px 12px 10px;font:400 13px/1.45 var(--mono);max-height:640px;overflow:auto}
+@media (max-width:900px){.side{max-height:none}}
+.side h4{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.side h4:first-child{margin-top:2px}
+.side .big{font:800 26px/1.1 var(--display);margin:2px 0 4px}
+.side .sub{color:var(--muted);font-size:12px;margin:0 0 8px}
+.side ol,.side ul{margin:4px 0 8px;padding-left:20px}
+.side li{margin:3px 0}
+.side li small,.side td small{color:var(--muted)}
+.side table{width:100%;border-collapse:collapse;margin:4px 0 6px}
+.side td{padding:4px 4px 4px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.side td.num{text-align:right;white-space:nowrap}
+.back{font:400 12px var(--mono);background:none;border:0;color:var(--muted);padding:0;cursor:pointer;text-decoration:underline;margin-bottom:6px}
+.go{cursor:pointer;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px}
+.lmap{height:600px;border:1px solid var(--border);background:var(--sea);border-radius:2px}
+@media (max-width:600px){.lmap{height:min(62vh,460px)}}
+.leaflet-container{font:400 12px/1.4 var(--mono);background:var(--sea)}
+.dotcanvas{position:absolute;left:0;top:0;pointer-events:none}
+.lyrBtn{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;font:600 12px/1 var(--mono);padding:8px 10px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.lyrBtn[aria-expanded="true"]{background:var(--fg);color:var(--bg)}
+.lyrPanel{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 12px 8px;margin-top:6px;width:250px;box-shadow:0 2px 10px rgba(0,0,0,.15);font:400 12px/1.3 var(--mono);max-height:min(70vh,520px);overflow:auto}
+.lyrPanel[hidden]{display:none}
+.lyrPanel .row{margin:0 0 9px}
+.lyrPanel label{display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:600}
+.lyrPanel input[type=range]{width:100%;accent-color:var(--fg)}
+.lyrPanel select{font:400 12px var(--mono);background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:2px;padding:2px 4px;width:100%;min-height:0}
+.lyrPanel .sub{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:11px;margin-top:3px}
+.lyrPanel .sub span{flex:0 0 58px}
+.lyrPanel .hd{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 7px;border-top:1px solid var(--rule);padding-top:9px}
+.lyrPanel .reset{font:400 11px var(--mono);color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.cityL{font:500 11px/1 var(--mono);color:var(--fg);white-space:nowrap;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg),0 0 2px var(--bg);pointer-events:none}
+.cityL i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--fg);margin-right:4px;vertical-align:1px}
+.cityL.s{font-size:10px;font-weight:400}
+.cntL{font:700 11px/1 var(--mono);color:var(--fg);white-space:nowrap;text-transform:uppercase;letter-spacing:.06em;opacity:.75;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg);pointer-events:none;text-align:center}
+.mapnote{background:color-mix(in srgb,var(--card) 92%,transparent);border:1px solid var(--border);border-radius:3px;padding:6px 9px;font:400 12px/1.35 var(--mono);max-width:min(300px,62vw);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.mapnote b{font-weight:600}
+.mapnote:empty{display:none}
+.leaflet-bar a,.leaflet-bar a:hover{background:var(--card);color:var(--fg);border-bottom-color:var(--border)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted)}
+.leaflet-control-attribution a{color:var(--fg)}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--card);color:var(--fg)}
+.leaflet-popup-content{font:400 12.5px/1.45 var(--mono);margin:10px 12px}
+.leaflet-popup-content b{font:700 15px/1.2 var(--display)}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px;align-items:center}
+.legend span{display:inline-flex;align-items:center}
+.legend i{display:inline-block;width:13px;height:13px;margin-right:6px;border-radius:2px;border:1px solid rgba(0,0,0,.15)}
+.legend i.c{border-radius:50%}
+.legend i.hx{clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);border:0;width:14px;height:15px;margin-right:0}
+.legend .ln{display:inline-block;width:22px;height:0;border-top:3px solid;margin-right:6px}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--hot);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+table.tbl{width:100%;border-collapse:collapse;font:400 13px/1.4 var(--mono)}
+table.tbl th{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 6px 6px 0;border-bottom:2px solid var(--fg)}
+table.tbl th.num,table.tbl td.num{text-align:right}
+table.tbl td{padding:6px 6px 6px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+table.tbl tr.click{cursor:pointer}
+table.tbl tr.click:hover td{background:var(--panel)}
+.tablebox{max-height:430px;overflow:auto;border:1px solid var(--border);background:var(--card);padding:0 10px}
+details{margin:14px 0}
+summary{font:500 13px/1.4 var(--mono);cursor:pointer;color:var(--fg);padding:8px 0}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a,.cta button{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px;background:none;color:var(--fg);cursor:pointer}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1002}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>Film</span><span>World, 1890s to today</span></div>
+<header class="hero">
+  <h1>Where every <span class="a">film director</span> is <span class="b">from</span></h1>
+  <svg class="mark" viewBox="0 0 120 120" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">Wikidata, the open database behind Wikipedia, knows {{source.n|int}} people who have directed a film, and where {{source.n_iso|int}} of them were born. This is their map: the cities that made directors, the slow move from Europe and America towards Asia, the directors who left home to make films somewhere else, and how long it took for women to appear.</p>
+</header>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: Wikidata; Natural Earth</div>
+
+<div class="stats">
+  <div><b class="h">{{source.n_iso|int}}</b><span>film directors with a known birth country, in {{source.n_countries|int}} countries</span></div>
+  <div><b class="g">{{areas.top.0.n|int}}</b><span>born in and around {{areas.top.0.name|raw}}, the most of any city</span></div>
+  <div><b class="c">{{migration.pct|pc}}</b><span>made their films mainly in a country other than the one they were born in</span></div>
+  <div><b class="p">{{women.d2020.pct|pc}}</b><span>of directors who debuted in the 2020s are women; in the 1920s, {{women.low_dec.pct|f1}}%</span></div>
+</div>
+
+<p class="lede">Every film has a director, and every director was born somewhere. Put those birthplaces on a map and you get a strange, lopsided picture of the world: crowded around Paris, New York, Rome and Prague, thin across Africa, and changing decade by decade as new film industries grow. It is also a picture of who has been written down. Wikidata records a birthplace for {{source.bp_pct|pc}} of its directors, almost all of the famous ones and only a quarter of those with one sitelink or none.</p>
+<p>So read the map as the open record of film, not a census of it. Drag the decade slider to see where the directors who debuted in each decade were born, filter to women, or to well-known directors only (those with {{meta.notable|int}} or more Wikipedia and other Wikimedia pages), search for a name or a city, and click a hexagon for the directors born there.</p>
+
+<h2><span class="n">01 · The map</span>{{source.n_pt|int}} birthplaces</h2>
+<div class="bleed" id="atlas">
+<div class="timebar">
+  <button class="play" id="play" aria-label="Play through the decades"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg></button>
+  <div class="yr" id="yr">All<small id="yrsub">debut decades</small></div>
+  <input type="range" class="slider" id="slider" min="0" max="12" step="1" value="12" aria-label="Debut decade">
+  <button class="btn" id="allBtn" aria-pressed="true">All decades</button>
+</div>
+<div class="spark" id="spark" title="Directors by debut decade: click to choose a decade"></div>
+<div class="controls">
+  <div class="scrollrow" id="gRow"><span class="ctl-l">Who</span><button class="btn" data-g="all" aria-pressed="true">Everyone</button><button class="btn" data-g="w" aria-pressed="false">Women</button><button class="btn" data-g="m" aria-pressed="false">Men</button></div>
+  <div class="scrollrow" id="nRow"><span class="ctl-l">Fame</span><button class="btn" data-n="0" aria-pressed="true">All directors</button><button class="btn" data-n="1" aria-pressed="false">Notable ({{meta.notable|int}}+ sitelinks)</button></div>
+</div>
+<div class="controls">
+  <div class="searchbox"><input type="search" id="q" placeholder="Search a director, a birthplace or a country" aria-label="Search a director, a birthplace or a country" autocomplete="off"><ul class="suggest" id="sug" role="listbox"></ul></div>
+</div>
+<div class="controls">
+  <div class="scrollrow" id="focusRow"><span class="ctl-l">Zoom to</span></div>
+</div>
+<div class="mapgrid">
+  <div><div id="map" class="lmap" role="application" aria-label="Map of film directors' birthplaces"></div>
+    <div class="legend" id="legend"></div></div>
+  <div class="side" id="side" aria-live="polite"></div>
+</div>
+<p class="src">Hexagons: directors born inside each hexagon, under the filters above; zoom in for single birthplaces (circles). Decade: the decade of a director's first dated film in Wikidata. Flow lines (in Map layers): directors who made most of their films in another country, from their birth country to that country. Directors whose birthplace has no coordinates, or is a whole country, are not on the map but count in the charts. Source: Wikidata (CC0). Outlines and city names: Natural Earth. Base map tiles © Esri.</p>
+</div>
+
+<h2><span class="n">02 · Cities</span>New York, Paris and the city of directors</h2>
+<p>Group every birthplace within 30 km of a big city together, so that Brooklyn counts with New York and Neuilly with Paris, and {{areas.top.0.name|raw}} comes first with {{areas.top.0.n|int}} directors, then {{areas.top.1.name|raw}} ({{areas.top.1.n|int}}), {{areas.top.2.name|raw}} ({{areas.top.2.n|int}}), {{areas.top.3.name|raw}} ({{areas.top.3.n|int}}) and {{areas.top.4.name|raw}} ({{areas.top.4.n|int}}). Just ten cities account for {{areas.top10_pct|pc}} of all directors on the map. Tehran ({{areas.tehran.n|int}}) is the first city outside Europe and the Americas, ahead of Tokyo ({{areas.tokyo.n|int}}).</p>
+<div class="figure"><p class="fig-h">Directors born in each city</p><p class="fig-sub">Birthplaces within 30 km of a Natural Earth city of a million people or more. Per head: per 100,000 people living there today, cities with {{areas.per_capita_min_n|int}} or more directors. Hover a bar.</p>
+<div class="controls"><div class="scrollrow" id="cityMode"><button class="btn" data-m="n" aria-pressed="true">Directors</button><button class="btn" data-m="p" aria-pressed="false">Per 100,000 people</button></div></div>
+<div class="chart" id="cityChart"></div></div>
+<p>Per head the order turns over. {{areas.per_capita.0.name|raw}} has {{areas.per_capita.0.per100k|f1}} directors in Wikidata for every 100,000 people who live there now, and {{areas.per_capita.1.name|raw}} {{areas.per_capita.1.per100k|f1}}, far ahead of New York ({{areas.newyork.per100k|f1}}). The giant cities of Asia barely register: Tokyo has {{areas.tokyo.per100k|f1}} and Mumbai {{areas.mumbai.per100k|f1}}. Part of that is history, since today's population is a poor guide to the city a director was born in decades ago, and part is the record: Wikidata is far fuller for some film cultures, Czech, Danish, Swedish, than for the cinemas of India or China.</p>
+
+<h2><span class="n">03 · Countries</span>One in six was born in the United States</h2>
+<p>The United States is the birthplace of {{countries.top.0.n|int}} directors, {{countries.us_pct|pc}} of everyone with a birth country, followed by Germany ({{countries.top.1.n|int}}), France ({{countries.top.2.n|int}}), Italy ({{countries.top.3.n|int}}) and India ({{countries.top.4.n|int}}). Europe as a whole accounts for {{countries.europe_pct|pc}}, Asia {{countries.by_cont.2.pct|pc}} and Africa {{countries.africa_pct|f1}}%. Switch to notable directors and the American share more than doubles, to {{countries.us_notable_pct|pc}}: fame, as Wikipedia measures it, is even more concentrated than film-making.</p>
+<div class="figure"><p class="fig-h">Directors by country of birth</p><p class="fig-sub">Present-day borders. Notable: {{meta.notable|int}} or more sitelinks ({{source.n_notable|int}} directors). Hover a bar for the share of women.</p>
+<div class="controls"><div class="scrollrow" id="ctyMode"><button class="btn" data-m="all" aria-pressed="true">All directors</button><button class="btn" data-m="nt" aria-pressed="false">Notable only</button></div></div>
+<div class="chart" id="ctyChart"></div></div>
+
+<h2><span class="n">04 · The shift</span>From Europe and America towards Asia</h2>
+<p>Sort directors by the decade of their first film and the map moves. Of directors who debuted by the 1950s, {{decades.eu_na_early_pct|pc}} were born in Europe or North America and {{decades.asia_early_pct|pc}} in Asia. Among those who debuted since 2000, Europe and North America are down to {{decades.eu_na_late_pct|pc}} and Asia is up to {{decades.asia_late_pct|pc}}. India's share doubles from {{decades.ind.early_pct|f1}}% to {{decades.ind.late_pct|f1}}%, South Korea's grows from {{decades.kor.early_pct|f1}}% to {{decades.kor.late_pct|f1}}% and Iran's from {{decades.irn.early_pct|f1}}% to {{decades.irn.late_pct|f1}}%, while the United States falls from {{decades.us_early_pct|pc}} to {{decades.us_late_pct|pc}}.</p>
+<div class="figure"><p class="fig-h">Where directors were born, by debut decade</p><p class="fig-sub">Share of directors with a birth country, by continent of birth and the decade of their first dated film. Before 1910 is pooled. Hover for numbers.</p><div class="chart" id="stackChart"></div><div class="legend" id="contLegend"></div></div>
+<div class="figure"><p class="fig-h">Rising and falling birth countries</p><p class="fig-sub">Share of each debut decade's directors born in each country, from the 1910s.</p><div class="chart" id="riseChart"></div><div class="legend" id="riseLegend"></div></div>
+<p>Nigeria is the hole in this story. Nollywood is one of the largest film industries in the world, yet only {{decades.nga.late_n|int}} directors born in Nigeria debuted since 2000 in this data ({{decades.nga.late_pct|f1}}%). Wikidata has {{coverage.nga_n|int}} directors whose films are mainly Nigerian, and a birthplace for just {{coverage.nga_bp_pct|pc}} of them. The map can only show the directors someone has written down.</p>
+
+<h2><span class="n">05 · Away from home</span>Directors who made their films abroad</h2>
+<p>For each director I took the country that produced most of their films and compared it with where they were born. {{migration.pct|pc}} of {{migration.n|int}} directors made their films mainly in another country. The biggest single flow is from the {{migration.flows.0.from_name|raw}} to the {{migration.flows.0.to_name|raw}} ({{migration.flows.0.n|int}} directors, Charlie Chaplin and Ridley Scott among them), then from {{migration.flows.1.from_name|raw}} to the {{migration.flows.1.to_name|raw}} ({{migration.flows.1.n|int}}), and from Austria and Poland to Germany. China to Hong Kong and Algeria to France follow the routes of history.</p>
+<div class="figure"><p class="fig-h">The largest flows</p><p class="fig-sub">Directors born in one country whose films are mainly from another, present-day borders. Click a bar to draw the flows on the map.</p><div class="chart" id="flowChart"></div>
+<div class="cta"><button id="showFlows">Show flows on the map</button></div></div>
+<p>Hollywood has always been a city of incomers. Of {{migration.us_n|int}} directors whose films are mainly American, {{migration.us_pct|pc}} were born abroad, and among those who debuted in the 1930s {{migration.us_1930.pct|pc}}. The share dipped after the war and has come back: {{migration.us_2010.pct|pc}} for directors who debuted in the 2010s. Small countries next to big film industries send the largest shares abroad: {{migration.emigrant.0.pct|pc}} of directors born in {{migration.emigrant.0.name|raw}} worked mainly in the {{migration.emigrant.0.top_dest|raw}}, and {{migration.austria.pct|pc}} of directors born in Austria made their films mainly abroad, most of them in Germany.</p>
+<div class="figure"><p class="fig-h">Born abroad: directors of mainly American films</p><p class="fig-sub">Share born outside the United States, by debut decade. Before 1910 left out (too few).</p><div class="chart" id="usChart"></div></div>
+
+<h2><span class="n">06 · Women</span>From {{women.low_dec.pct|f1}}% to {{women.d2020.pct|pc}}</h2>
+<p>Alice Guy-Blaché made her first film in Paris in the 1890s, and the early silent era had a handful of women directors: Lois Weber, Mabel Normand and Gene Gauntier in America, Anna Hoffman-Uddgren in Sweden, Luise Fleck in Vienna. Then the door closed. Among directors who debuted in the 1920s, {{women.d1920.pct|f1}}% were women, and the share stayed below 5% in every decade until the 1970s. It reached {{women.d1970.pct|f1}}% in the 1970s, {{women.d2010.pct|pc}} in the 2010s and {{women.d2020.pct|pc}} in the 2020s so far.</p>
+<div class="figure"><p class="fig-h">Women's share of directors, by debut decade</p><p class="fig-sub">Directors whose gender Wikidata records ({{source.gender_pct|pc}} of all). Notable: {{meta.notable|int}}+ sitelinks.</p><div class="chart" id="womenChart"></div><div class="legend" id="womenLegend"></div></div>
+<p>By birth country, across all decades, women make up the largest shares among directors born in {{women.top.0.name|raw}} ({{women.top.0.pct|pc}}), {{women.top.1.name|raw}} ({{women.top.1.pct|pc}}) and the {{women.top.2.name|raw}} ({{women.top.2.pct|pc}}), and among the smallest are India ({{women.india.pct|f1}}%) and Japan ({{women.japan.pct|f1}}%). Because these shares mix decades, a country whose directors are mostly recent looks better than one with a long film history, so the decade chart is the fairer comparison.</p>
+<div class="figure"><p class="fig-h">Women's share by country of birth</p><p class="fig-sub">Countries with {{women.min_n|int}} or more directors of known gender, all decades: the twelve highest and the eight lowest.</p><div class="chart" id="wcChart"></div></div>
+<p>Two caveats. Wikidata records gender for {{source.gender_pct|pc}} of directors, and mostly as a binary: {{women.o_n|int}} directors have another gender recorded. And the rise is partly a rise in recording: recent directors, and women among them, are more likely to have an entry at all.</p>
+
+<h2><span class="n">07 · The prolific</span>Hundreds of films each</h2>
+<p>Half of all directors in Wikidata have {{prolific.median|int}} film to their name and {{prolific.n1_pct|pc}} exactly one. At the other end, {{prolific.n50|int}} have fifty or more. The record holder is {{prolific.top.0.n|raw}}, with {{prolific.top.0.nf|int}} films from {{prolific.top.0.debut|raw}} to {{prolific.top.0.last|raw}}, most of them silent shorts, ahead of {{prolific.top.1.n|raw}} in Denmark ({{prolific.top.1.nf|int}}) and the American B-film director {{prolific.top.2.n|raw}} ({{prolific.top.2.nf|int}}). The most prolific woman is Alice Guy-Blaché ({{prolific.top_w.0.nf|int}}).</p>
+<div class="figure"><p class="fig-h">The most prolific directors in Wikidata</p><p class="fig-sub">Film items with this person as director. Click a row to see the birthplace.</p><div class="tablebox"><table class="tbl" id="proTable"></table></div></div>
+
+<h2><span class="n">08 · The gaps</span>A map of who keeps records</h2>
+<p>Notable directors almost always have a birthplace in Wikidata ({{source.notable_bp_pct|f1}}%); directors with one sitelink or none, only {{source.sl1_bp_pct|pc}}. And the gaps are not spread evenly. A director whose films are mainly Russian, Italian or Iranian usually has one; one whose films are mainly Canadian, Danish or Nigerian usually does not, because many entries came in bulk from film databases that list titles and names but not birthplaces.</p>
+<div class="figure"><p class="fig-h">Directors with a known birthplace, by main film country</p><p class="fig-sub">Countries with 350 or more directors whose films are mainly from there: the ten highest and the ten lowest.</p><div class="chart" id="covChart"></div></div>
+<p class="pull">Wikidata knows where {{areas.top.0.n|int}} directors from New York were born, and {{coverage.nga_bp_pct|pc}} of Nollywood's.</p>
+
+<h2><span class="n">09 · How I did this</span>Methods and caveats</h2>
+<p><b>Directors.</b> One query through QLever returned every Wikidata person who is the director (P57) of at least one item that is an instance of film (Q11424), with their birthplace (P19), its coordinates and country, date of birth, gender, number of sitelinks and number of films: {{source.n_rows|int}} rows for {{source.n|int}} directors. Unknown values were dropped. A second query linked {{source.n_links|int}} director credits on {{source.n_films|int}} films to their publication dates and countries of origin. Because the query asks only for directors of films, it includes actors, musicians and artists who directed one film, and a few bands credited as directors of concert films; {{source.n_nolabel|int}} directors have no English label in the extract.</p>
+<p><b>Birthplaces and countries.</b> A director's point is their birthplace's coordinates ({{source.n_pt|int}} directors, {{source.n_places|int}} distinct places). {{source.n_country_bp|int}} birthplaces are a whole country and give a country but no point. The birth country is the present-day country the point falls in (Natural Earth); it agrees with the birthplace's Wikidata country for {{source.agree_pct|pc}} of directors. So a director born in Lviv in 1900 counts as Ukrainian. City areas group birthplaces within 30 km of a Natural Earth city of a million people or more ({{source.in_area_pct|pc}} of points), and per-head figures divide by that city's present population: a rough guide only.</p>
+<p><b>Decades and countries of work.</b> A director's debut decade is that of their earliest dated film in Wikidata ({{source.debut_pct|pc}} have one), which may miss earlier shorts or television work. Their main film country is the country of origin of most of their films, splitting co-productions equally; films of the Soviet Union, Yugoslavia, Czechoslovakia, the German states and British India count for every present-day successor when deciding whether a director worked abroad, so a Ukrainian-born Soviet director is not counted as a migrant.</p>
+<p><b>Gender.</b> Women and trans women are counted as women, men and trans men as men, and other values as another gender. Shares exclude the {{women.u_pct|pc}} of directors with no gender recorded.</p>
+<p><b>What this is not.</b> It is not a census of film directors, nor a ranking of national cinemas. Coverage is uneven between countries, between decades and between famous and obscure directors, as section 08 shows. Sitelinks measure attention on Wikipedia, not talent: the most linked "directors" include Charlie Chaplin and Alfred Hitchcock, but also Thomas Edison, Madonna and Volodymyr Zelenskyy.</p>
+<details><summary>Sources and licences</summary>
+<ul>
+<li>Wikidata, via QLever (https://qlever.cs.uni-freiburg.de/wikidata), retrieved {{meta.retrieved|raw}}. CC0.</li>
+<li>Natural Earth countries and populated places, with population estimates (public domain).</li>
+<li>Base map tiles © Esri.</li>
+</ul></details>
+
+<div class="cta"><a class="p" href="https://doi.org/{{meta.doi|raw}}">Read the paper</a><a href="https://github.com/Tristan-Hotham/director-birthplaces">Data and code</a><a href="{{meta.blog|raw}}">Blog post</a></div>
+
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) Where every film director is from: the birthplaces of {{source.n_iso|int}} film directors in Wikidata. Zenodo. <a href="https://doi.org/{{meta.doi|raw}}">https://doi.org/{{meta.doi|raw}}</a></p>
+<p>Licence: derived data and text CC BY 4.0 (Wikidata is CC0), code MIT.</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const R = /*RESULTS*/;
+const SITE = /*SITE*/;
+const WORLD = /*WORLD*/;
+const CITIES = /*CITIES*/;
+const fmt = n => n == null || n === "" ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+document.addEventListener("click", hideTip);
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const redraws = [];
+function resp(box, render) { let last = 0; const go = force => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const CN = iso => (SITE.cname[iso] || iso || "unknown");
+const small = () => innerWidth < 900;
+const wdlink = (q, t) => `<a href="https://www.wikidata.org/wiki/${esc(q)}" target="_blank" rel="noopener">${esc(t || "Wikidata")}</a>`;
+const NOTABLE = R.meta.notable;
+const DECS = SITE.decs;   // 1900 means before 1910
+const decName = d => d === 1900 ? "before 1910" : d + "s";
+const decOf = y => !y ? 0 : Math.max(1900, Math.min(2020, Math.floor(y / 10) * 10));
+const GN = ["man", "woman", "another gender", "gender not recorded"];
+
+/* ---------- colours ---------- */
+const RAMP = ["#F4DDA8", "#EDBA62", "#E38D3D", "#CD5A2E", "#A3202E", "#6E1532", "#3A0F2E"];
+const RAMPD = ["#5A4A2E", "#8A6A2A", "#B8802E", "#D9663A", "#EE5A5E", "#F58FA0", "#FBD3DC"];
+const BINS = [1, 3, 10, 30, 100, 300, 1000];
+const binOf = n => { let k = 0; BINS.forEach((b, i) => { if (n >= b) k = i; }); return k; };
+const ramp = n => (isDark() ? RAMPD : RAMP)[binOf(n)];
+const CONT = [["Europe", "#2F5D8C"], ["North America", "#A3202E"], ["Asia", "#D69A1A"], ["South America", "#3E8E5E"], ["Africa", "#7A4E9E"], ["Oceania", "#2A9BA8"]];
+const CC = Object.fromEntries(CONT);
+const WCOL = "#7A3E9D", MCOL = "#2F5D8C", FLOW = "#2F5D8C";
+
+/* hero mark: a film reel whose sprocket holes are the continents' shares of directors */
+(function () {
+  const g = document.getElementById("heroMark");
+  el("circle", { cx: 60, cy: 60, r: 54, fill: "none", stroke: "currentColor", "stroke-width": 3 }, g);
+  const bc = R.countries.by_cont, tot = bc.reduce((s, c) => s + c.n, 0); let a0 = -Math.PI / 2;
+  bc.forEach(c => { const a1 = a0 + 2 * Math.PI * c.n / tot, r = 46, ri = 30;
+    const p = (a, rr) => `${(60 + rr * Math.cos(a)).toFixed(2)} ${(60 + rr * Math.sin(a)).toFixed(2)}`;
+    el("path", { d: `M${p(a0, ri)} L${p(a0, r)} A${r} ${r} 0 ${a1 - a0 > Math.PI ? 1 : 0} 1 ${p(a1, r)} L${p(a1, ri)} A${ri} ${ri} 0 ${a1 - a0 > Math.PI ? 1 : 0} 0 ${p(a0, ri)}Z`, fill: CC[c.cont], stroke: "var(--bg)", "stroke-width": 1.5 }, g); a0 = a1; });
+  el("circle", { cx: 60, cy: 60, r: 9, fill: "currentColor" }, g);
+})();
+
+/* ---------- map machinery ---------- */
+const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+const ESRI_ATT = 'Tiles &copy; Esri, HERE, Garmin, USGS, NGA, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, and the GIS user community';
+const LYDEF = { base: "plain", hills: true, hillK: 40, labels: false, labelK: 80, names: true, nameLvl: 1, cnames: true, borders: true, hex: true, hexK: 85, dots: true, flows: false, shade: false };
+const LY = { ...LYDEF };
+try { Object.assign(LY, JSON.parse(localStorage.getItem("directors_layers") || "{}")); } catch (e) {}
+const saveLY = () => { try { localStorage.setItem("directors_layers", JSON.stringify(LY)); } catch (e) {} };
+const map = L.map("map", { minZoom: 1, maxZoom: 12, maxBounds: [[-75, -200], [86, 200]], zoomSnap: .5 }).setView([32, 8], small() ? 1 : 2);
+["hills:250", "fill:400", "labels:450", "pts:600", "flows:610", "names:620"].forEach(s => { const [n, z] = s.split(":"); map.createPane(n); map.getPane(n).style.zIndex = z; });
+["hills", "labels", "names", "pts"].forEach(n => map.getPane(n).style.pointerEvents = "none");
+let base = null, hills = null, labels = null; const names = L.layerGroup(), cnames = L.layerGroup(), flowLayer = L.layerGroup();
+function setTiles() {
+  [base, labels, hills].forEach(l => { if (l) map.removeLayer(l); });
+  const t = isDark() ? "Dark" : "Light";
+  const url = LY.base === "relief" ? ESRI + "World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}" : LY.base === "satellite" ? ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}" : `${ESRI}Canvas/World_${t}_Gray_Base/MapServer/tile/{z}/{y}/{x}`;
+  base = L.tileLayer(url, { maxZoom: 16, maxNativeZoom: LY.base === "relief" ? 13 : 16, attribution: ESRI_ATT }).addTo(map);
+  hills = L.tileLayer(ESRI + "Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}", { maxZoom: 16, maxNativeZoom: 16, pane: "hills" });
+  labels = L.tileLayer(`${ESRI}Canvas/World_${t}_Gray_Reference/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 16, pane: "labels" });
+  applyLayers();
+}
+function applyLayers() {
+  if (!base) return;
+  if (LY.hills) { hills.addTo(map); hills.setOpacity(Math.min(1, .15 + LY.hillK / 120)); } else map.removeLayer(hills);
+  if (LY.labels) { labels.addTo(map); labels.setOpacity(LY.labelK / 100); } else map.removeLayer(labels);
+  if (LY.names) names.addTo(map); else map.removeLayer(names);
+  if (LY.cnames) cnames.addTo(map); else map.removeLayer(cnames);
+  if (LY.flows) flowLayer.addTo(map); else map.removeLayer(flowLayer);
+  cLayer.setStyle(cStyle); placeNames(); hexes.draw(); drawFlows();
+}
+function placeNames() {
+  names.clearLayers(); cnames.clearLayers();
+  const z = map.getZoom(), bb = map.getBounds().pad(.05); const boxes = [];
+  if (LY.names) {
+    const minPop = [[2, 8e6], [3, 3e6], [4, 1e6], [5, 4e5], [6, 1.5e5], [99, 4e4]].find(([zz]) => z < zz + (LY.nameLvl === 2 ? 1.5 : LY.nameLvl === 0 ? -1 : 0))[1] * (LY.nameLvl === 0 ? 2 : 1);
+    let n = 0;
+    for (const c of CITIES) {
+      if (c.pop < minPop || !bb.contains([c.lat, c.lon])) continue;
+      const pt = map.latLngToContainerPoint([c.lat, c.lon]), big = c.pop >= 5e6;
+      const bx = [pt.x - 4, pt.y - 8, pt.x + 10 + c.name.length * (big ? 6.9 : 6.3), pt.y + 7];
+      if (boxes.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1])) continue;
+      boxes.push(bx); L.marker([c.lat, c.lon], { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "cityL" + (big ? "" : " s"), html: `<i></i>${esc(c.name)}`, iconSize: null, iconAnchor: [3, 6] }) }).addTo(names);
+      if (++n >= 120) break;
+    }
+  }
+  if (LY.cnames && z >= 3 && z < 7) {
+    WORLD.features.forEach(f => { const g = SITE.cpos[f.properties.iso]; if (!g || !bb.contains([g[1], g[0]])) return; const nm = CN(f.properties.iso);
+      if (z < 4 && (g[2] || 0) < 2e7) return; const pt = map.latLngToContainerPoint([g[1], g[0]]), w = nm.length * 7.2;
+      const bx = [pt.x - w / 2, pt.y - 7, pt.x + w / 2, pt.y + 7]; if (boxes.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1])) return; boxes.push(bx);
+      L.marker([g[1], g[0]], { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "cntL", html: esc(nm), iconSize: [w, 14], iconAnchor: [w / 2, 7] }) }).addTo(cnames); });
+  }
+}
+(function layerControl() {
+  const Ctl = L.Control.extend({ options: { position: "topright" }, onAdd() {
+    const d = L.DomUtil.create("div"); L.DomEvent.disableClickPropagation(d); L.DomEvent.disableScrollPropagation(d);
+    d.innerHTML = `<button class="lyrBtn" aria-expanded="false">Map layers</button>
+<div class="lyrPanel" hidden>
+ <div class="row"><label style="font-weight:600">Base map</label><div class="sub"><select data-k="base" aria-label="Base map"><option value="plain">Plain grey</option><option value="relief">Shaded relief</option><option value="satellite">Satellite</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="hills"> Hills and mountains</label><div class="sub"><span>strength</span><input type="range" data-k="hillK" min="10" max="100" step="5" aria-label="Hill shading strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="labels"> Map labels</label><div class="sub"><span>strength</span><input type="range" data-k="labelK" min="20" max="100" step="5" aria-label="Map label strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="names"> Bold city names</label><div class="sub"><span>how many</span><select data-k="nameLvl" aria-label="How many city names"><option value="0">Biggest only</option><option value="1">Some</option><option value="2">Lots</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="cnames"> Country names</label></div>
+ <div class="row"><label><input type="checkbox" data-k="borders"> Borders</label></div>
+ <div class="hd">Directors</div>
+ <div class="row"><label><input type="checkbox" data-k="hex"> Hexagons</label><div class="sub"><span>strength</span><input type="range" data-k="hexK" min="20" max="100" step="5" aria-label="Hexagon strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="dots"> Birthplaces when zoomed in</label></div>
+ <div class="row"><label><input type="checkbox" data-k="shade"> Countries shaded by directors born</label></div>
+ <div class="row"><label><input type="checkbox" data-k="flows"> Flows to the country of work</label></div>
+ <button class="reset">Reset layers</button>
+</div>`;
+    return d; } });
+  map.addControl(new Ctl());
+  const box = map.getContainer(), btn = box.querySelector(".lyrBtn"), pan = box.querySelector(".lyrPanel");
+  btn.onclick = () => { const o = pan.hidden; pan.hidden = !o; btn.setAttribute("aria-expanded", o); };
+  const sync = () => pan.querySelectorAll("[data-k]").forEach(i => { const k = i.dataset.k; if (i.type === "checkbox") i.checked = LY[k]; else i.value = LY[k]; });
+  pan.querySelectorAll("[data-k]").forEach(i => i.addEventListener(i.type === "range" ? "input" : "change", () => {
+    const k = i.dataset.k; LY[k] = i.type === "checkbox" ? i.checked : (k === "base" ? i.value : +i.value);
+    if (k === "hillK") LY.hills = true; if (k === "labelK") LY.labels = true; if (k === "nameLvl") LY.names = true; if (k === "hexK") LY.hex = true;
+    sync(); saveLY(); if (k === "base") setTiles(); else applyLayers(); legend();
+  }));
+  pan.querySelector(".reset").onclick = () => { Object.assign(LY, LYDEF); saveLY(); sync(); setTiles(); legend(); };
+  window.syncLayers = sync;
+  sync();
+})();
+const Note = L.Control.extend({ options: { position: "bottomleft" }, onAdd() { const d = L.DomUtil.create("div", "mapnote"); d.id = "mapnote"; L.DomEvent.disableClickPropagation(d); return d; } });
+map.addControl(new Note());
+L.control.scale({ imperial: false, position: "bottomright" }).addTo(map);
+
+/* ---------- state and data ---------- */
+const S = { dec: null, g: "all", nt: 0, sel: null, place: null, hex: null, dir: null, playing: false };
+let P = null, PL = null, PIX = null;  // rows, places, place index -> rows
+const keep = r => (S.g === "all" || (S.g === "w" ? r[4] === 1 : r[4] === 0)) && (!S.nt || r[3] >= NOTABLE) && (S.dec == null || decOf(r[5]) === S.dec);
+let CNT = null;     // per place count under the filters
+function recount() {
+  if (!P) return; CNT = new Int32Array(PL.length);
+  for (const r of P) if (keep(r)) CNT[r[0]]++;
+}
+function filtLabel() { return [S.dec == null ? "all decades" : "debut " + decName(S.dec), S.g === "all" ? "" : S.g === "w" ? "women" : "men", S.nt ? "notable" : ""].filter(Boolean).join(", "); }
+
+/* ---------- countries ---------- */
+function countryCounts() { const c = {}; if (!P) return c; for (const r of P) if (keep(r)) { const i = PL[r[0]][3]; c[i] = (c[i] || 0) + 1; } return c; }
+let CC_N = {};
+function cStyle(f) {
+  const iso = f.properties.iso, bd = css("--border") || "#999", sel = iso === S.sel, n = CC_N[iso] || 0;
+  const on = LY.shade && n > 0;
+  return { color: sel ? css("--fg") : bd, weight: LY.borders ? (sel ? 2.4 : .6) : (sel ? 2 : 0), fillColor: on ? ramp(n / 10) : css("--land"), fillOpacity: on ? .45 : .12 };
+}
+const cLayer = L.geoJSON(WORLD, { pane: "fill", style: cStyle, onEachFeature: (f, l) => {
+  l.on("click", e => { L.DomEvent.stopPropagation(e); if (!hitAndPick(e.containerPoint)) pickCountry(f.properties.iso, false); });
+  l.on("mousemove", e => { const h = hitTip(e.containerPoint); map.getContainer().style.cursor = h ? "pointer" : ""; const r = map.getContainer().getBoundingClientRect(); showTip(h || cTip(f.properties.iso), r.left + e.containerPoint.x, r.top + e.containerPoint.y); });
+  l.on("mouseout", hideTip);
+} }).addTo(map);
+map.on("click", e => hitAndPick(e.containerPoint));
+function cTip(iso) { const n = CC_N[iso] || 0; return `<b>${esc(CN(iso))}</b><br>${fmt(n)} director${n === 1 ? "" : "s"} born here on the map (${esc(filtLabel())})`; }
+
+/* ---------- hexagons and birthplace circles on one canvas ---------- */
+let Z = -1, XY = null, HX = new Map(), VISP = [];
+const showDots = () => LY.dots && map.getZoom() >= 6;
+const hexR = () => small() ? 11 : 13;
+function hexKey(x, y, s) { // pointy-top axial rounding
+  const q = (Math.sqrt(3) / 3 * x - y / 3) / s, r = (2 / 3 * y) / s; let rx = Math.round(q), ry = Math.round(-q - r), rz = Math.round(r);
+  const dx = Math.abs(rx - q), dy = Math.abs(ry + q + r), dz = Math.abs(rz - r);
+  if (dx > dy && dx > dz) rx = -ry - rz; else if (dy <= dz) rz = -rx - ry;
+  return [rx, rz];
+}
+const hexCentre = (q, r, s) => [s * Math.sqrt(3) * (q + r / 2), s * 1.5 * r];
+const Hex = L.Layer.extend({
+  onAdd(m) { this._c = L.DomUtil.create("canvas", "dotcanvas"); m.getPane("pts").appendChild(this._c); m.on("moveend zoomend resize viewreset", this._reset, this); m.on("zoomstart", () => this._c.style.opacity = 0); this._reset(); },
+  onRemove(m) { L.DomUtil.remove(this._c); m.off("moveend zoomend resize viewreset", this._reset, this); },
+  _reset() { const s = map.getSize(), d = devicePixelRatio || 1; L.DomUtil.setPosition(this._c, map.containerPointToLayerPoint([0, 0])); this._c.width = s.x * d; this._c.height = s.y * d; this._c.style.width = s.x + "px"; this._c.style.height = s.y + "px"; this._c.style.opacity = 1; this.draw(); },
+  draw() {
+    if (!this._c) return; const ctx = this._c.getContext("2d"), d = devicePixelRatio || 1; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.clearRect(0, 0, this._c.width, this._c.height);
+    HX = new Map(); VISP = [];
+    if (!P || !CNT) return;
+    const z = map.getZoom(); if (z !== Z) { Z = z; XY = new Float32Array(PL.length * 2); PL.forEach((p, i) => { const q = map.project([p[1], p[0]], z); XY[2 * i] = q.x; XY[2 * i + 1] = q.y; }); }
+    const o = map.getPixelOrigin(), off = map.containerPointToLayerPoint([0, 0]), ox = o.x + off.x, oy = o.y + off.y, sz = map.getSize(), s = hexR(), dark = isDark();
+    const dots = showDots();
+    if (LY.hex && !dots) {
+      for (let i = 0; i < PL.length; i++) { const n = CNT[i]; if (!n) continue; const [q, r] = hexKey(XY[2 * i], XY[2 * i + 1], s); const k = q + "," + r; let h = HX.get(k); if (!h) { h = { q, r, n: 0, pl: [] }; HX.set(k, h); } h.n += n; h.pl.push(i); }
+      ctx.globalAlpha = LY.hexK / 100; ctx.lineWidth = .8; ctx.strokeStyle = dark ? "rgba(0,0,0,.35)" : "rgba(255,255,255,.7)";
+      for (const h of HX.values()) {
+        const [cx, cy] = hexCentre(h.q, h.r, s), x = cx - ox, y = cy - oy; if (x < -s || y < -s || x > sz.x + s || y > sz.y + s) continue;
+        ctx.beginPath(); for (let a = 0; a < 6; a++) { const t = Math.PI / 180 * (60 * a - 30); const px = x + (s - .6) * Math.cos(t), py = y + (s - .6) * Math.sin(t); a ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+        ctx.closePath(); ctx.fillStyle = ramp(h.n); ctx.fill(); ctx.stroke();
+        if (S.hex === h.q + "," + h.r) { ctx.globalAlpha = 1; ctx.lineWidth = 2.4; ctx.strokeStyle = dark ? "#fff" : "#000"; ctx.stroke(); ctx.globalAlpha = LY.hexK / 100; ctx.lineWidth = .8; ctx.strokeStyle = dark ? "rgba(0,0,0,.35)" : "rgba(255,255,255,.7)"; }
+      }
+      ctx.globalAlpha = 1;
+    }
+    if (dots) {
+      const idx = []; for (let i = 0; i < PL.length; i++) if (CNT[i]) { const x = XY[2 * i] - ox, y = XY[2 * i + 1] - oy; if (x > -20 && y > -20 && x < sz.x + 20 && y < sz.y + 20) idx.push(i); }
+      idx.sort((a, b) => CNT[b] - CNT[a]);
+      ctx.lineWidth = 1; ctx.strokeStyle = dark ? "rgba(0,0,0,.6)" : "rgba(255,255,255,.9)";
+      for (let k = idx.length - 1; k >= 0; k--) { const i = idx[k], n = CNT[i], rr = 3 + 2.2 * Math.sqrt(n); const x = XY[2 * i] - ox, y = XY[2 * i + 1] - oy;
+        ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.fillStyle = ramp(n); ctx.globalAlpha = .9; ctx.fill(); ctx.globalAlpha = 1; ctx.stroke(); VISP.push([i, x, y, rr]); }
+      if (S.place != null) { const i = S.place, x = XY[2 * i] - ox, y = XY[2 * i + 1] - oy; ctx.beginPath(); ctx.arc(x, y, 6 + 2.2 * Math.sqrt(CNT[i] || 1), 0, 7); ctx.strokeStyle = dark ? "#fff" : "#000"; ctx.lineWidth = 2.2; ctx.stroke(); }
+    }
+  }
+});
+const hexes = new Hex().addTo(map);
+function hexAt(cp) {
+  if (!HX.size) return null; const o = map.getPixelOrigin(), off = map.containerPointToLayerPoint([0, 0]);
+  const [q, r] = hexKey(cp.x + o.x + off.x, cp.y + o.y + off.y, hexR()); return HX.get(q + "," + r) || null;
+}
+function placeAt(cp) { let best = null, bd = 1e9; for (const v of VISP) { const d = Math.hypot(v[1] - cp.x, v[2] - cp.y); if (d <= v[3] + 3 && d < bd) { bd = d; best = v[0]; } } return best; }
+function hitTip(cp) {
+  if (showDots()) { const i = placeAt(cp); if (i == null) return null; return `<b>${esc(PL[i][2] || "(unnamed place)")}</b><br>${fmt(CNT[i])} director${CNT[i] === 1 ? "" : "s"} · ${esc(CN(PL[i][3]))}`; }
+  if (!LY.hex) return null; const h = hexAt(cp); if (!h) return null;
+  const top = h.pl.slice().sort((a, b) => CNT[b] - CNT[a]).slice(0, 3).map(i => esc(PL[i][2]) + " " + fmt(CNT[i])).join(", ");
+  return `<b>${fmt(h.n)} director${h.n === 1 ? "" : "s"}</b><br>${top}${h.pl.length > 3 ? ", ..." : ""}`;
+}
+function hitAndPick(cp) {
+  if (showDots()) { const i = placeAt(cp); if (i != null) { pickPlace(i, false); return true; } return false; }
+  if (!LY.hex) return false; const h = hexAt(cp); if (!h) return false; pickHex(h); return true;
+}
+
+/* ---------- flows ---------- */
+function flowCounts() { const c = new Map(); if (!P) return []; for (const r of P) { if (!keep(r) || !r[8]) continue; const b = PL[r[0]][3]; if (!b || !r[9]) continue; const k = b + ">" + r[8]; c.set(k, (c.get(k) || 0) + 1); } return [...c.entries()].sort((a, b) => b[1] - a[1]); }
+function arc(a, b) { const pts = [], dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy), nx = -dy / len, ny = dx / len, h = len * .18; for (let t = 0; t <= 1.0001; t += .05) { const m = 4 * t * (1 - t) * h; pts.push([a[1] + dy * t + ny * m, a[0] + dx * t + nx * m]); } return pts; }
+let FLOWSEL = null;
+function drawFlows() {
+  flowLayer.clearLayers(); if (!LY.flows || !P) return;
+  const fc = flowCounts().filter(([k]) => { const [a, b] = k.split(">"); return SITE.cpos[a] && SITE.cpos[b]; }).slice(0, 30);
+  if (!fc.length) return; const mx = fc[0][1], col = isDark() ? "#86A8D8" : FLOW;
+  fc.slice().reverse().forEach(([k, n]) => { const [a, b] = k.split(">"), A = SITE.cpos[a], B = SITE.cpos[b]; const hl = FLOWSEL && (FLOWSEL === k);
+    const line = L.polyline(arc(A, B), { pane: "flows", color: hl ? css("--hot") : col, weight: 1.2 + 9 * n / mx, opacity: hl ? .95 : .55, lineCap: "round" }).addTo(flowLayer);
+    line.on("mousemove", e => { const r = map.getContainer().getBoundingClientRect(); showTip(`<b>${esc(CN(a))} to ${esc(CN(b))}</b><br>${fmt(n)} director${n === 1 ? "" : "s"} (${esc(filtLabel())})`, r.left + e.containerPoint.x, r.top + e.containerPoint.y); });
+    line.on("mouseout", hideTip); line.on("click", e => { L.DomEvent.stopPropagation(e); pickFlow(a, b); });
+    L.circleMarker([B[1], B[0]], { pane: "flows", radius: 3 + 3 * n / mx, color: col, weight: 1, fillColor: col, fillOpacity: .9, interactive: false }).addTo(flowLayer); });
+}
+
+/* ---------- time ---------- */
+const decIdx = d => DECS.indexOf(d);
+function setDec(d) {
+  S.dec = d; const sl = document.getElementById("slider"); sl.value = d == null ? DECS.length - 1 : decIdx(d);
+  document.getElementById("allBtn").setAttribute("aria-pressed", d == null);
+  document.getElementById("yr").firstChild.nodeValue = d == null ? "All" : (d === 1900 ? "<1910" : d + "s");
+  update();
+}
+function update() {
+  recount(); CC_N = countryCounts(); let n = 0; if (CNT) for (const v of CNT) n += v;
+  document.getElementById("yrsub").textContent = P ? `${fmt(n)} on the map` : "loading";
+  cLayer.setStyle(cStyle); hexes.draw(); drawFlows(); sparkCursor(); side(); legend();
+}
+let timer = null;
+function play(on) {
+  S.playing = on; const b = document.getElementById("play");
+  b.innerHTML = on ? '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>' : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>';
+  b.setAttribute("aria-label", on ? "Pause" : "Play through the decades"); clearInterval(timer);
+  if (on) { setDec(DECS[0]); timer = setInterval(() => { const i = decIdx(S.dec); if (i >= DECS.length - 1) { play(false); return; } setDec(DECS[i + 1]); }, 1300); }
+}
+document.getElementById("play").onclick = () => play(!S.playing);
+document.getElementById("slider").addEventListener("input", e => { if (S.playing) play(false); setDec(DECS[+e.target.value]); });
+document.getElementById("allBtn").onclick = () => { if (S.playing) play(false); setDec(null); };
+document.querySelectorAll("#gRow .btn").forEach(b => b.onclick = () => { S.g = b.dataset.g; document.querySelectorAll("#gRow .btn").forEach(x => x.setAttribute("aria-pressed", x === b)); update(); });
+document.querySelectorAll("#nRow .btn").forEach(b => b.onclick = () => { S.nt = +b.dataset.n; document.querySelectorAll("#nRow .btn").forEach(x => x.setAttribute("aria-pressed", x === b)); update(); });
+
+/* sparkline: directors by debut decade, women's share as a line */
+let sparkSel = null;
+function spark() {
+  resp(document.getElementById("spark"), w => {
+    const box = document.getElementById("spark"), h = 58, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Directors by debut decade" }, box);
+    const rows = R.decades.rows, mx = Math.max(...rows.map(r => r.n_all)), bw = w / rows.length;
+    sparkSel = el("rect", { x: 0, y: 0, width: bw, height: h, fill: css("--hot"), opacity: .12 }, svg);
+    rows.forEach((r, i) => { el("rect", { x: i * bw + 2, y: 44 - 40 * r.n_all / mx, width: bw - 4, height: 40 * r.n_all / mx, fill: css("--muted"), opacity: .55 }, svg);
+      lbl(svg, i * bw + bw / 2, 56, r.dec === 1900 ? "<1910" : (w < 560 ? "'" + String(r.dec).slice(2) : r.dec + "s"), "lab s m", "middle"); });
+    svg.addEventListener("click", e => { const rr = svg.getBoundingClientRect(); const i = Math.min(rows.length - 1, Math.floor((e.clientX - rr.left) / rr.width * rows.length)); if (S.playing) play(false); setDec(DECS[i]); });
+    svg.addEventListener("mousemove", e => { const rr = svg.getBoundingClientRect(); const i = Math.min(rows.length - 1, Math.floor((e.clientX - rr.left) / rr.width * rows.length)); const r = rows[i]; showTip(`<b>Debut ${decName(r.dec)}</b><br>${fmt(r.n_all)} directors, ${fmt(r.n)} with a birth country`, e.clientX, e.clientY); });
+    svg.addEventListener("mouseleave", hideTip);
+    sparkSel._bw = bw; sparkCursor();
+  });
+}
+function sparkCursor() { if (!sparkSel) return; if (S.dec == null) { sparkSel.setAttribute("opacity", 0); return; } sparkSel.setAttribute("opacity", .14); sparkSel.setAttribute("x", decIdx(S.dec) * sparkSel._bw); }
+
+/* ---------- legend, side panel ---------- */
+function legend() {
+  const e = document.getElementById("legend");
+  let h = `<span>${showDots() ? "Directors born at each place" : "Directors born in each hexagon"}:</span>` + BINS.map((b, i) => `<span><i class="${showDots() ? "c" : "hx"}" style="background:${(isDark() ? RAMPD : RAMP)[i]}"></i>&nbsp;${fmt(b)}${i < BINS.length - 1 ? " to " + fmt(BINS[i + 1] - 1) : "+"}</span>`).join("");
+  if (LY.flows) h += `<span><span class="ln" style="border-color:${FLOW}"></span>flow to the main country of work (top 30)</span>`;
+  h += `<span>Showing: ${esc(filtLabel())}</span>`;
+  e.innerHTML = h;
+}
+function note(h) { document.getElementById("mapnote").innerHTML = h || ""; }
+function dirLi(r) { return `<li><span class="go" data-d="${esc(r[2])}">${esc(r[1] || r[2])}</span> <small>${r[5] ? "first film " + r[5] : ""}${r[4] === 1 ? " · woman" : ""}${r[3] >= NOTABLE ? " · " + r[3] + " sitelinks" : ""}</small></li>`; }
+function rowsAt(pls) { const s = new Set(pls), out = []; for (const r of P) if (s.has(r[0]) && keep(r)) out.push(r); return out; }
+function sexLine(rs) { const w = rs.filter(r => r[4] === 1).length, g = rs.filter(r => r[4] < 3).length; return g ? `${(100 * w / g).toFixed(0)}% women (of ${fmt(g)} with gender recorded)` : ""; }
+function side() {
+  const box = document.getElementById("side"); let h = "";
+  if (!P) { box.innerHTML = `<h4>Loading</h4><p class="sub">Loading ${fmt(R.source.n_pt)} birthplaces...</p>`; return; }
+  if (S.dir) {
+    const r = S.dir, p = PL[r[0]];
+    h = `<button class="back">Back</button><h4>Film director</h4><div class="big">${esc(r[1] || "(no English label)")}</div><table>
+<tr><td>Born</td><td>${r[6] || "year not recorded"}${p[2] ? ", " + esc(p[2]) : ""}</td></tr><tr><td>Country of birth</td><td><span class="go" data-c="${esc(p[3])}">${esc(CN(p[3]))}</span></td></tr>
+<tr><td>Gender</td><td>${GN[r[4]]}</td></tr><tr><td>First dated film</td><td>${r[5] || "none dated"}</td></tr><tr><td>Films in Wikidata</td><td>${fmt(r[7])}</td></tr>
+<tr><td>Films mainly from</td><td>${r[8] ? esc(CN(r[8])) + (r[9] ? " <small>(abroad)</small>" : "") : "not recorded"}</td></tr><tr><td>Sitelinks</td><td>${r[3]}</td></tr></table>
+<p>${wdlink(r[2], "Wikidata " + r[2])} · ${wdlink(p[4], "birthplace")}</p><p class="sub"><span class="go" data-p="${r[0]}">Everyone born in ${esc(p[2] || "this place")}</span></p>`;
+  } else if (S.place != null) {
+    const p = PL[S.place], rs = rowsAt([S.place]);
+    h = `<h4>Birthplace · ${esc(CN(p[3]))}</h4><div class="big">${esc(p[2] || "(unnamed place)")}</div><p class="sub">${fmt(rs.length)} director${rs.length === 1 ? "" : "s"} (${esc(filtLabel())}) · ${sexLine(rs)} · ${wdlink(p[4])}</p>`;
+    h += `<h4>Best known first (by sitelinks)</h4><ol>` + rs.slice(0, 40).map(dirLi).join("") + `</ol>` + (rs.length > 40 ? `<p class="sub">and ${fmt(rs.length - 40)} more.</p>` : "");
+    note(`<b>${esc(p[2])}</b>: ${fmt(rs.length)} directors`);
+  } else if (S.hex) {
+    const hx = HX.get(S.hex); if (!hx) { S.hex = null; return side(); }
+    const rs = rowsAt(hx.pl), pls = hx.pl.slice().sort((a, b) => CNT[b] - CNT[a]);
+    h = `<h4>This hexagon</h4><div class="big">${fmt(rs.length)} director${rs.length === 1 ? "" : "s"}</div><p class="sub">${esc(filtLabel())} · ${sexLine(rs)}</p><h4>Birthplaces</h4><ol>` +
+      pls.slice(0, 10).map(i => `<li><span class="go" data-p="${i}">${esc(PL[i][2] || "(unnamed)")}</span> <small>${fmt(CNT[i])}</small></li>`).join("") + `</ol>` + (pls.length > 10 ? `<p class="sub">and ${pls.length - 10} more places; zoom in to see them.</p>` : "") +
+      `<h4>Best known first (by sitelinks)</h4><ol>` + rs.slice(0, 25).map(dirLi).join("") + `</ol>`;
+    note(`<b>${fmt(rs.length)}</b> directors born in this hexagon`);
+  } else if (S.sel) {
+    const iso = S.sel, c = SITE.c[iso], n = CC_N[iso] || 0;
+    h = `<h4>${esc(SITE.cont[iso] || "Country")}</h4><div class="big">${esc(CN(iso))}</div>`;
+    if (!c) h += `<p class="sub">No directors born here in the data.</p>`;
+    else {
+      h += `<table><tr><td>Born here, on the map (${esc(filtLabel())})</td><td class="num">${fmt(n)}</td></tr><tr><td>Born here, all with this birth country</td><td class="num">${fmt(c.n)}</td></tr><tr><td>Notable (${NOTABLE}+ sitelinks)</td><td class="num">${fmt(c.nn)}</td></tr>
+<tr><td>Women, of those with gender recorded</td><td class="num">${c.w == null ? "n/a" : c.w.toFixed(0) + "%"}</td></tr><tr><td>Worked mainly abroad</td><td class="num">${c.ab == null ? "n/a" : c.ab.toFixed(0) + "%"}</td></tr><tr><td>Directors whose films are mainly from here</td><td class="num">${fmt(c.films)}</td></tr></table>`;
+      h += `<h4>Born here, by debut decade</h4>` + decBars(c);
+      if (c.dest.length) h += `<h4>Where those who left made films</h4><p>${c.dest.map(d => `${esc(d[0])} ${fmt(d[1])}`).join(", ")}</p>`;
+      if (c.inflow.length) h += `<h4>Born elsewhere, made films here</h4><p>${c.inflow.map(d => `${esc(d[0])} ${fmt(d[1])}`).join(", ")}</p>`;
+      h += `<h4>Best known</h4><ol>` + c.top.map(t => `<li><span class="go" data-d="${esc(t[1])}">${esc(t[0] || t[1])}</span> <small>${t[2]} sitelinks</small></li>`).join("") + `</ol>`;
+    }
+    note(`<b>${esc(CN(iso))}</b>: ${fmt(n)} directors on the map`);
+  } else {
+    let n = 0; for (const v of CNT) n += v;
+    const tc = Object.entries(CC_N).sort((a, b) => b[1] - a[1]).slice(0, 8);
+    h = `<h4>${esc(filtLabel())}</h4><div class="big">${fmt(n)} directors</div><p class="sub">born at ${fmt(CNT.filter(v => v > 0).length)} places</p><h4>Top birth countries</h4><ol>` + tc.map(([i, v]) => `<li><span class="go" data-c="${i}">${esc(CN(i))}</span> <small>${fmt(v)} (${(100 * v / n).toFixed(1)}%)</small></li>`).join("") + `</ol><p class="sub">Click a hexagon for the directors born there, a country for its numbers, or search a name.</p>`;
+    note("");
+  }
+  box.innerHTML = h;
+  const b = box.querySelector(".back"); if (b) b.onclick = () => { S.dir = null; side(); };
+  box.querySelectorAll("[data-c]").forEach(e => e.onclick = () => pickCountry(e.dataset.c, true));
+  box.querySelectorAll("[data-p]").forEach(e => e.onclick = () => pickPlace(+e.dataset.p, true));
+  box.querySelectorAll("[data-d]").forEach(e => e.onclick = () => pickDirector(e.dataset.d, true));
+}
+function decBars(c) {
+  const mx = Math.max(1, ...DECS.map(d => c.dec[d] || 0)), bw = 300 / DECS.length;
+  let s = `<svg viewBox="0 0 300 74" style="width:100%;height:auto" role="img" aria-label="Directors by debut decade">`;
+  DECS.forEach((d, i) => { const v = c.dec[d] || 0, bh = 52 * v / mx, x = i * bw + 2; s += `<rect x="${x}" y="${56 - bh}" width="${bw - 4}" height="${bh}" fill="${S.dec === d ? css("--hot") : css("--muted")}" opacity="${S.dec == null || S.dec === d ? .9 : .4}"><title>${decName(d)}: ${v}</title></rect>`; if (i % 3 === 1) s += `<text x="${x}" y="70" class="lab s m">${d}s</text>`; });
+  return s + `</svg>`;
+}
+function toMap() { if (small()) document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "start" }); }
+const FIT = { USA: [[24, -125], [50, -66]], FRA: [[41.3, -5.2], [51.2, 9.6]], NOR: [[57.9, 4.5], [71.2, 31]], RUS: [[41, 27], [70, 140]], NLD: [[50.7, 3.3], [53.6, 7.3]], CHN: [[18, 73], [53.6, 135]], CHL: [[-56, -76], [-17.5, -66]], NZL: [[-47.5, 166], [-34, 179]], ESP: [[35.8, -9.5], [43.9, 4.4]], PRT: [[36.9, -9.6], [42.2, -6.1]], CAN: [[42, -140], [62, -52]] };
+function fitIso(iso) { const f = WORLD.features.find(x => x.properties.iso === iso); if (FIT[iso]) return map.fitBounds(FIT[iso]); if (f) return map.fitBounds(L.geoJSON(f).getBounds(), { padding: [10, 10], maxZoom: 7 }); const g = SITE.cpos[iso]; if (g) map.setView([g[1], g[0]], 7); }
+function clearSel() { S.sel = null; S.place = null; S.hex = null; S.dir = null; }
+function pickCountry(iso, move) { clearSel(); S.sel = iso; if (move) { fitIso(iso); toMap(); } cLayer.setStyle(cStyle); hexes.draw(); side(); }
+function pickHex(h) { clearSel(); S.hex = h.q + "," + h.r; hexes.draw(); side(); }
+function pickPlace(i, move) {
+  clearSel(); S.place = i; const p = PL[i];
+  if (move) { map.setView([p[1], p[0]], Math.max(map.getZoom(), 8)); toMap(); }
+  hexes.draw(); side();
+}
+function pickDirector(q, move) {
+  const r = P.find(x => x[2] === q); if (!r) return; clearSel(); S.place = r[0]; S.dir = r; const p = PL[r[0]];
+  if (!keep(r)) { S.g = "all"; S.nt = 0; document.querySelectorAll("#gRow .btn").forEach(x => x.setAttribute("aria-pressed", x.dataset.g === "all")); document.querySelectorAll("#nRow .btn").forEach(x => x.setAttribute("aria-pressed", x.dataset.n === "0")); setDec(null); }
+  if (move) { map.setView([p[1], p[0]], Math.max(map.getZoom(), 8)); toMap(); }
+  L.popup({ maxWidth: 260 }).setLatLng([p[1], p[0]]).setContent(`<b>${esc(r[1] || r[2])}</b><br>Born ${r[6] || ""} in ${esc(p[2])}, ${esc(CN(p[3]))}${r[5] ? "<br>First dated film " + r[5] : ""}`).openOn(map);
+  hexes.draw(); side();
+}
+function pickFlow(a, b) {
+  FLOWSEL = a + ">" + b; drawFlows(); clearSel();
+  const rs = P.filter(r => keep(r) && PL[r[0]][3] === a && r[8] === b);
+  document.getElementById("side").innerHTML = `<h4>Flow</h4><div class="big">${esc(CN(a))} to ${esc(CN(b))}</div><p class="sub">${fmt(rs.length)} directors born in ${esc(CN(a))} whose films are mainly from ${esc(CN(b))} (${esc(filtLabel())}).</p><h4>Best known first</h4><ol>` + rs.slice(0, 30).map(dirLi).join("") + `</ol>`;
+  document.querySelectorAll("#side [data-d]").forEach(e => e.onclick = () => pickDirector(e.dataset.d, true));
+}
+(function focusRow() {
+  const row = document.getElementById("focusRow");
+  const F = [["Europe", [[35, -12], [62, 35]]], ["North America", [[14, -128], [56, -60]]], ["Hollywood", [[33.6, -118.8], [34.4, -117.8]]], ["Paris", [[48.6, 2], [49.1, 2.7]]], ["South Asia", [[5, 62], [36, 95]]], ["East Asia", [[20, 100], [46, 146]]], ["Middle East", [[24, 26], [42, 62]]], ["Africa", [[-35, -18], [37, 52]]], ["South America", [[-56, -82], [13, -34]]], ["World", null]];
+  F.forEach(([n, b]) => { const x = document.createElement("button"); x.className = "btn"; x.textContent = n; x.onclick = () => { if (!b) { clearSel(); map.setView([32, 8], small() ? 1 : 2); cLayer.setStyle(cStyle); side(); } else map.fitBounds(b); toMap(); }; row.appendChild(x); });
+})();
+
+/* ---------- search: directors, birthplaces, countries ---------- */
+(function search() {
+  const inp = document.getElementById("q"), sug = document.getElementById("sug"); let opts = [], k = -1;
+  const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  let NP = null, NR = null;
+  function build(q) {
+    const nq = norm(q); if (nq.length < 2) return [];
+    const out = [];
+    Object.keys(SITE.cname).forEach(iso => { const n = CN(iso); if (SITE.c[iso] && norm(n).includes(nq)) out.push({ t: "c", n, iso, s: norm(n).startsWith(nq) ? 6 : 2 }); });
+    if (P) {
+      if (!NP) { NP = PL.map(p => norm(p[2] || "")); NR = P.map(r => norm(r[1] || "")); const c = new Int32Array(PL.length); P.forEach(r => c[r[0]]++); NP.cnt = c; }
+      let m = 0; for (let i = 0; i < PL.length; i++) if (NP[i].includes(nq)) { out.push({ t: "p", n: PL[i][2], i, s: (NP[i].startsWith(nq) ? 2.5 : 1) + Math.min(NP.cnt[i], 400) / 100 }); if (++m > 300) break; }
+      m = 0; for (let i = 0; i < P.length; i++) if (NR[i].includes(nq)) { out.push({ t: "d", n: P[i][1], r: P[i], s: (NR[i].startsWith(nq) || NR[i].includes(" " + nq) ? 2.5 : 1) + Math.min(P[i][3], 100) / 25 }); if (++m > 300) break; }
+    }
+    return out.sort((a, b) => b.s - a.s).slice(0, 12);
+  }
+  const lab = o => o.t === "c" ? `${esc(o.n)} <span>country</span>` : o.t === "p" ? `${esc(o.n)} <span>birthplace, ${esc(CN(PL[o.i][3]))} · ${fmt(NP.cnt[o.i])}</span>` : `${esc(o.n)} <span>director, born ${o.r[6] || ""} ${esc(PL[o.r[0]][2])}</span>`;
+  const show = () => { sug.innerHTML = opts.map((o, i) => `<li role="option" aria-selected="${i === k}" data-i="${i}">${lab(o)}</li>`).join(""); sug.style.display = opts.length ? "block" : "none"; };
+  const choose = o => { sug.style.display = "none"; inp.value = o.n; inp.blur(); if (o.t === "c") pickCountry(o.iso, true); else if (o.t === "p") pickPlace(o.i, true); else pickDirector(o.r[2], true); };
+  inp.addEventListener("input", () => { opts = build(inp.value); k = -1; show(); });
+  inp.addEventListener("keydown", e => { if (e.key === "ArrowDown") { k = Math.min(opts.length - 1, k + 1); show(); e.preventDefault(); } else if (e.key === "ArrowUp") { k = Math.max(0, k - 1); show(); e.preventDefault(); } else if (e.key === "Enter" && opts.length) { choose(opts[Math.max(0, k)]); } else if (e.key === "Escape") { sug.style.display = "none"; } });
+  sug.addEventListener("click", e => { const li = e.target.closest("li"); if (li) choose(opts[+li.dataset.i]); });
+  document.addEventListener("click", e => { if (!e.target.closest(".searchbox")) sug.style.display = "none"; });
+})();
+map.on("zoomend moveend", () => { placeNames(); legend(); });
+
+/* ---------- charts ---------- */
+function hbars(box, rows, opts) {
+  resp(box, (w, sm) => {
+    const maxLab = Math.max(...rows.map(r => String(r.lab ?? r.v).length)), lw = sm ? Math.min(140, w * .42) : Math.min(210, w * .4), rh = 26, h = rows.length * rh + 10, x0 = lw, x1 = w - 10 - maxLab * 7.4, max = opts.max || Math.max(...rows.map(r => r.v)) || 1;
+    const svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": opts.aria }, box);
+    rows.forEach((r, i) => {
+      const y = 4 + i * rh, bw = Math.max(r.v > 0 ? 2 : 0, (x1 - x0) * r.v / max);
+      if (r.gap) el("line", { x1: 0, x2: w, y1: y + 1, y2: y + 1, stroke: css("--border"), "stroke-dasharray": "3 3" }, svg);
+      const cut = sm ? 18 : 28;
+      const t = lbl(svg, x0 - 8, y + 16, r.n.length > cut ? r.n.slice(0, cut - 1) + "." : r.n, "lab", "end");
+      const b = el("rect", { x: x0, y: y + 3, width: bw, height: rh - 9, fill: r.c, rx: 2 }, svg);
+      lbl(svg, x0 + bw + 6, y + 16, r.lab ?? fmt(r.v), "lab b");
+      [b, t].forEach(e => { if (r.tip) { e.addEventListener("mousemove", ev => showTip(r.tip, ev.clientX, ev.clientY)); e.addEventListener("mouseleave", hideTip); } if (r.click) { e.style.cursor = "pointer"; e.addEventListener("click", r.click); } });
+    });
+  });
+}
+function lines(box, series, opts) {
+  resp(box, (w, sm) => {
+    const h = sm ? 250 : 300, m = { l: 44, r: sm ? 54 : 110, t: 12, b: 28 }, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": opts.aria }, box);
+    const xs = opts.xs, X = i => m.l + i / (xs.length - 1) * (w - m.l - m.r), mx = opts.max, Y = v => h - m.b - v / mx * (h - m.t - m.b);
+    for (let v = 0; v <= mx + 1e-9; v += opts.step) { el("line", { x1: m.l, x2: w - m.r, y1: Y(v), y2: Y(v), stroke: css("--rule") }, svg); lbl(svg, m.l - 6, Y(v) + 4, v + "%", "lab s m", "end"); }
+    xs.forEach((d, i) => { if (i % (sm ? 2 : 1) === 0) lbl(svg, X(i), h - 10, sm ? "'" + String(d).slice(2) : d + "s", "lab s m", "middle"); });
+    const ends = [];
+    series.forEach(s => {
+      const pts = s.v.map((v, i) => v == null ? null : [X(i), Y(v)]).filter(Boolean);
+      el("path", { d: "M" + pts.map(p => p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" L"), fill: "none", stroke: s.c, "stroke-width": s.w || 2.4, "stroke-dasharray": s.dash || "", "stroke-linejoin": "round" }, svg);
+      s.v.forEach((v, i) => { if (v == null) return; const c = el("circle", { cx: X(i), cy: Y(v), r: 3.4, fill: s.c, stroke: css("--card"), "stroke-width": 1 }, svg);
+        c.addEventListener("mousemove", ev => showTip(`<b>${esc(s.n)}</b>, ${xs[i]}s<br>${v.toFixed(1)}%${s.tipx ? s.tipx(i) : ""}`, ev.clientX, ev.clientY)); c.addEventListener("mouseleave", hideTip); });
+      const last = pts[pts.length - 1]; ends.push({ y: last[1], s });
+    });
+    ends.sort((a, b) => a.y - b.y); let prev = -99; ends.forEach(e => { const y = Math.max(e.y + 4, prev + 13); prev = y; lbl(svg, w - m.r + 6, y, sm ? e.s.short || e.s.n : e.s.n, "lab s").setAttribute("fill", e.s.c); });
+  });
+}
+function stackChart() {
+  const D = R.decades.rows;
+  resp(document.getElementById("stackChart"), (w, sm) => {
+    const h = sm ? 260 : 320, m = { l: 40, r: 8, t: 8, b: 28 }, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Stacked shares of directors by continent of birth and debut decade" }, document.getElementById("stackChart"));
+    const bw = (w - m.l - m.r) / D.length, Y = v => (h - m.t - m.b) * v / 100;
+    [0, 25, 50, 75, 100].forEach(v => { const y = h - m.b - Y(v); el("line", { x1: m.l, x2: w - m.r, y1: y, y2: y, stroke: css("--rule") }, svg); lbl(svg, m.l - 5, y + 4, v + "%", "lab s m", "end"); });
+    D.forEach((d, i) => {
+      let y = h - m.b; const x = m.l + i * bw + 1.5;
+      CONT.forEach(([k, c]) => { const v = d[k + "_pct"] || 0; if (!v) return; const hh = Y(v); y -= hh; const r = el("rect", { x, y, width: bw - 3, height: hh, fill: c }, svg);
+        r.addEventListener("mousemove", ev => showTip(`<b>Debut ${decName(d.dec)}</b>: ${fmt(d.n)} directors<br>${CONT.map(([kk]) => `${esc(kk)} ${(d[kk + "_pct"] || 0).toFixed(1)}%`).join("<br>")}`, ev.clientX, ev.clientY)); r.addEventListener("mouseleave", hideTip); });
+      lbl(svg, x + bw / 2 - 1.5, h - 10, d.dec === 1900 ? "<1910" : (sm ? "'" + String(d.dec).slice(2) : d.dec + "s"), "lab s m", "middle");
+    });
+  });
+  document.getElementById("contLegend").innerHTML = CONT.map(([k, c]) => `<span><i style="background:${c}"></i>${esc(k)}</span>`).join("");
+}
+function charts() {
+  // cities
+  const cityDraw = mode => { const box = document.getElementById("cityChart");
+    const rows = (mode === "n" ? R.areas.top.slice(0, 15) : R.areas.per_capita.slice(0, 15)).map(a => ({ n: a.name, v: mode === "n" ? a.n : a.per100k, lab: mode === "n" ? fmt(a.n) : a.per100k.toFixed(1), c: mode === "n" ? "#A3202E" : "#D69A1A",
+      tip: `<b>${esc(a.name)}</b>, ${esc(CN(a.iso))}<br>${fmt(a.n)} directors · ${a.per100k.toFixed(1)} per 100,000<br>${fmt(a.notable)} notable${a.w_pct != null ? " · " + a.w_pct.toFixed(0) + "% women" : ""}` }));
+    redraws.length = redraws.length; box.innerHTML = ""; hbars(box, rows, { aria: "Directors born in each city" }); };
+  document.querySelectorAll("#cityMode .btn").forEach(b => b.onclick = () => { document.querySelectorAll("#cityMode .btn").forEach(x => x.setAttribute("aria-pressed", x === b)); cityDraw(b.dataset.m); });
+  cityDraw("n");
+  const ctyDraw = mode => { const box = document.getElementById("ctyChart");
+    const rows = (mode === "all" ? R.countries.top.slice(0, 15).map(c => ({ n: c.name, v: c.n, lab: `${fmt(c.n)} (${c.pct.toFixed(1)}%)`, c: CC[SITE.cont[c.iso]] || "#888", tip: `<b>${esc(c.name)}</b><br>${fmt(c.n)} directors, ${c.w_pct.toFixed(0)}% women<br>${fmt(c.notable)} notable` }))
+      : R.countries.top_notable.slice(0, 15).map(c => ({ n: c.name, v: c.n, lab: `${fmt(c.n)} (${c.pct.toFixed(1)}%)`, c: CC[SITE.cont[c.iso]] || "#888" })));
+    box.innerHTML = ""; hbars(box, rows, { aria: "Directors by country of birth" }); };
+  document.querySelectorAll("#ctyMode .btn").forEach(b => b.onclick = () => { document.querySelectorAll("#ctyMode .btn").forEach(x => x.setAttribute("aria-pressed", x === b)); ctyDraw(b.dataset.m); });
+  ctyDraw("all");
+  stackChart();
+  const D = R.decades.rows.filter(r => r.dec >= 1910), xs = D.map(r => r.dec);
+  const RS = [["USA", "United States", "#A3202E"], ["FRA", "France", "#2F5D8C"], ["ITA", "Italy", "#3E8E5E"], ["IND", "India", "#D69A1A"], ["KOR", "South Korea", "#7A4E9E"], ["IRN", "Iran", "#2A9BA8"], ["NGA", "Nigeria", "#8A6A12"]];
+  lines(document.getElementById("riseChart"), RS.map(([i, n, c]) => ({ n, short: i, c, v: D.map(r => r.c_pct[i]), tipx: k => `<br>${fmt(D[k].c[i])} directors` })), { xs, max: 35, step: 5, aria: "Share of directors born in selected countries by debut decade" });
+  document.getElementById("riseLegend").innerHTML = RS.map(([i, n, c]) => `<span><span class="ln" style="border-color:${c}"></span>${esc(n)}</span>`).join("");
+  // flows
+  hbars(document.getElementById("flowChart"), R.migration.flows.slice(0, 12).map(f => ({ n: `${f.from_name} to ${f.to_name}`.replace("United Kingdom", "UK").replace(/United States/g, "US"), v: f.n, c: "#2F5D8C",
+    tip: `<b>${esc(f.from_name)} to ${esc(f.to_name)}</b><br>${fmt(f.n)} directors`, click: () => { LY.flows = true; saveLY(); if (window.syncLayers) syncLayers(); applyLayers(); legend(); document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); setTimeout(() => { map.setView([38, -20], small() ? 1 : 2); pickFlow(f.from, f.to); }, 300); } })), { aria: "Largest flows of directors from birth country to country of work" });
+  document.getElementById("showFlows").onclick = () => { LY.flows = true; saveLY(); if (window.syncLayers) syncLayers(); applyLayers(); legend(); document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); setTimeout(() => map.setView([38, -20], small() ? 1 : 2), 300); };
+  const U = R.migration.us_by_dec.filter(r => r.dec >= 1910);
+  lines(document.getElementById("usChart"), [{ n: "Born abroad", c: "#2F5D8C", v: U.map(r => r.pct), tipx: k => `<br>${fmt(U[k].abroad)} of ${fmt(U[k].n)}` }], { xs: U.map(r => r.dec), max: 30, step: 10, aria: "Share of directors of mainly American films born abroad, by debut decade" });
+  // women
+  const W = R.women.by_dec.filter(r => r.dec >= 1910);
+  lines(document.getElementById("womenChart"), [{ n: "All directors", short: "All", c: WCOL, v: W.map(r => r.pct), tipx: k => `<br>${fmt(W[k].w)} of ${fmt(W[k].n)}` }, { n: "Notable", short: "Notable", c: "#D69A1A", dash: "5 4", v: W.map(r => r.pct_notable), tipx: k => `<br>of ${fmt(W[k].n_notable)} notable` }], { xs: W.map(r => r.dec), max: 45, step: 15, aria: "Women's share of directors by debut decade" });
+  document.getElementById("womenLegend").innerHTML = `<span><span class="ln" style="border-color:${WCOL}"></span>All directors</span><span><span class="ln" style="border-color:#D69A1A;border-top-style:dashed"></span>Notable (${NOTABLE}+ sitelinks)</span>`;
+  hbars(document.getElementById("wcChart"), R.women.top.map(r => ({ n: r.name, v: r.pct, lab: r.pct.toFixed(1) + "%", c: WCOL, tip: `<b>${esc(r.name)}</b><br>${fmt(r.n)} directors with gender recorded` }))
+    .concat(R.women.bottom.slice(-8).map((r, i) => ({ n: r.name, v: r.pct, lab: r.pct.toFixed(1) + "%", c: "#B7A9C2", gap: i === 0, tip: `<b>${esc(r.name)}</b><br>${fmt(r.n)} directors with gender recorded` }))), { aria: "Women's share of directors by country of birth" });
+  const CV = R.coverage.by_film_country.slice().sort((a, b) => b.bp_pct - a.bp_pct);
+  hbars(document.getElementById("covChart"), CV.slice(0, 10).concat(CV.slice(-10)).map((c, i) => Object.assign(cvRow(c), { gap: i === 10 })), { aria: "Share of directors with a known birthplace by main film country", max: 100 });
+  function cvRow(c) { return { n: c.name, v: c.bp_pct, lab: c.bp_pct.toFixed(0) + "%", c: c.iso === "NGA" ? "#A3202E" : "#67626C", tip: `<b>${esc(c.name)}</b><br>${fmt(c.n)} directors whose films are mainly from here` }; }
+  // prolific table
+  const t = document.getElementById("proTable");
+  t.innerHTML = `<thead><tr><th>Director</th><th class="num">Films</th><th>Years</th><th>Born in</th></tr></thead><tbody>` + R.prolific.top.slice(0, 20).map(p => `<tr class="click" data-q="${esc(p.q)}"><td>${esc(p.n)}</td><td class="num">${fmt(p.nf)}</td><td>${p.debut || ""} to ${p.last || ""}</td><td>${esc(p.name || "not recorded")}</td></tr>`).join("") + `</tbody>`;
+  t.querySelectorAll("tr[data-q]").forEach(r => r.onclick = () => { if (!P) return; document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); setTimeout(() => pickDirector(r.dataset.q, true), 300); });
+}
+
+/* ---------- start ---------- */
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; setTiles(); legend(); redraws.forEach(f => f()); hexes.draw(); };
+charts(); spark(); setTiles(); legend(); side(); placeNames();
+fetch("data/points.json").then(r => r.json()).then(j => { P = j.rows; PL = j.places; Z = -1; update(); });
+</script>
+/*FULLSCREEN*/
+</body>
+</html>

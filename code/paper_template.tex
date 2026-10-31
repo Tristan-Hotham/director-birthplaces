@@ -1,0 +1,164 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\newfontfamily\headfont{Inter}[UprightFont=*-ExtraBold,BoldFont=*-ExtraBold,Extension=.otf,Path=/usr/share/fonts/opentype/inter/]
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{graphicx,booktabs,float,caption,array,xcolor,longtable}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\setstretch{1.05}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\titleformat{\section}{\headfont\Large}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\headfont\large}{\thesubsection}{0.8em}{}
+\captionsetup{font=small,labelfont=bf}
+\urlstyle{same}
+\hypersetup{pdftitle={Where Every Film Director Is From},pdfauthor={Tristan Hotham}}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries Where Every Film Director Is From\par}
+\vspace{0.4em}
+{\large The birthplaces of {{source.n_iso|int}} film directors in Wikidata,\\by city, country, debut decade, gender and country of work\par}
+\vspace{1.2em}
+{\large Tristan Hotham\par}
+\vspace{0.3em}
+{\small Independent researcher\\
+ORCID: 0000-0003-4931-9349\\
+DOI: \href{https://doi.org/{{meta.doi}}}{https://doi.org/{{meta.doi}}}\par}
+\vspace{0.8em}
+2026
+\end{center}
+
+\begin{quote}
+\small
+\begin{center}\textbf{Abstract}\end{center}
+Where are film directors born, and how has that changed? I use Wikidata, the open knowledge base behind Wikipedia, to map the birthplaces of everyone it records as the director of a film. Of {{source.n|int}} directors, {{source.n_iso|int}} ({{source.iso_pct|pc}}) have a birth country and {{source.n_pt|int}} a birthplace with coordinates, in {{source.n_countries|int}} present-day countries. The United States accounts for {{countries.us_pct|pc}} of directors with a birth country and {{countries.us_notable_pct|pc}} of notable ones (those with {{meta.notable|int}} or more sitelinks). Grouping birthplaces into city areas, New York ({{areas.top.0.n|int}}) and Paris ({{areas.top.1.n|int}}) lead; per head of present population, Prague ({{areas.per_capita.0.per100k|f1}} per 100,000) and Copenhagen ({{areas.per_capita.1.per100k|f1}}). By debut decade, the share born in Europe or North America falls from {{decades.eu_na_early_pct|pc}} for directors who debuted by the 1950s to {{decades.eu_na_late_pct|pc}} for those who debuted since 2000, while Asia's rises from {{decades.asia_early_pct|pc}} to {{decades.asia_late_pct|pc}}. {{migration.pct|pc}} of directors made their films mainly in a country other than their birth country; the largest flow is from the United Kingdom to the United States ({{migration.flows.0.n|int}} directors). Women are {{women.low_dec.pct|f1}}\% of directors who debuted in the 1920s and {{women.d2020.pct|pc}} of those who debuted in the 2020s. Coverage is very uneven: a birthplace is recorded for {{source.notable_bp_pct|f1}}\% of notable directors but {{source.sl1_bp_pct|pc}} of those with at most one sitelink, and for {{coverage.nga_bp_pct|pc}} of directors whose films are mainly Nigerian. The atlas maps the open record of film, not every film-maker.
+
+\textbf{Keywords:} film directors; cinema history; birthplaces; migration; gender; Wikidata; open data; mapping
+\end{quote}
+
+\section{Introduction}
+Film history is usually told through national cinemas, studios and movements. Yet film-making has always been mobile: Hollywood was built in part by directors from Europe \citep{petrie}, and new industries in India, South Korea, Iran and Nigeria \citep{haynes} have produced directors in large numbers. A simple question cuts across these stories: where were the people who directed films born?
+
+Wikidata \citep{wikidata} offers a way to ask it at scale. It records tens of thousands of film directors, many with a place and date of birth, and links them to films with release dates and countries of origin. Studies of notable people's birth and death places have shown how much structure such data hold, and how much they reflect the biases of the sources \citep{schich}. This paper maps directors' birthplaces by city, country and debut decade, compares birth country with the country of a director's films, and tracks the share of women. It pairs the analysis with an interactive atlas (\url{{{meta.page}}}).
+
+The contribution is descriptive. Wikidata is not a census of film-makers. Its coverage depends on which film databases have been imported and which people have Wikipedia articles, and its records of gender follow those of Wikipedia, where women are known to be under-represented \citep{wagner}. I report coverage alongside every result.
+
+\section{Data}
+\textbf{Directors.} A query through the QLever SPARQL endpoint \citep{qlever}, retrieved in {{meta.retrieved}}, returned every item that is the director (P57) of at least one item that is an instance of film (Q11424), with its English label, place of birth (P19), that place's coordinates (P625) and country (P17), date of birth (P569), gender (P21), number of sitelinks and number of films directed. Because each combination of values is a row, the result has {{source.n_rows|int}} rows; after dropping {{source.n_blank_rows|int}} rows for directors recorded only as unknown values, it covers {{source.n|int}} directors. The query asks only for directors of films, so it includes actors, musicians and artists who directed a single film and a few bands credited with concert films. {{source.n_nolabel|int}} directors have no English label in the extract.
+
+\textbf{Films.} A second query returned {{source.n_links|int}} director credits on {{source.n_films|int}} film items, with each film's publication date (P577) and country of origin (P495). One line of the result was missing a line break and was repaired.
+
+\textbf{Geography.} Natural Earth \citep{naturalearth} countries (1:10m for assigning points, 1:50m for display) and populated places, with population estimates. All Wikidata content is CC0 and Natural Earth is public domain.
+
+{{TABLE_PIPELINE}}
+
+\section{Methods}
+\subsection{Birthplaces and birth countries}
+A director's birthplace is the first place of birth in the result ({{source.n_multi_bp|int}} directors have more than one) and its point is that place's coordinates. {{source.n_country_bp|int}} birthplaces are themselves countries (for example `United States'); these give a country but no point. The birth country is the present-day Natural Earth country that the point falls in, else the birthplace's Wikidata country matched to Natural Earth by Wikidata identifier. Where both are known they agree for {{source.agree_pct|pc}} of {{source.n_agree_checked|int}} directors; most differences are historical states recorded as the country of a place.
+
+\subsection{City areas and per-head rates}
+Wikidata often records a district (Brooklyn, a Paris arrondissement, Neuilly-sur-Seine) rather than a city. To compare cities I assign each birthplace point to the nearest Natural Earth populated place of one million people or more within 30 km, merging any such place that lies within 30 km of a larger one (Howrah into Kolkata, Yokohama into Tokyo). {{source.in_area_pct|pc}} of points fall in one of {{source.n_areas|int}} city areas. Per-head rates divide by Natural Earth's present-day metropolitan population, and are shown only for cities with {{areas.per_capita_min_n|int}} or more directors. They are a rough guide: most directors were born decades ago, when cities were smaller and in different proportion to each other.
+
+\subsection{Debut decade and country of work}
+A director's debut year is the earliest publication year (1880 to 2026) of any film credited to them; {{source.debut_pct|pc}} have one. Debut decades before 1910 are pooled. A director's main film country is the country of origin with the largest share of their films, each film's weight split equally between its countries of origin. Films credited to former states are assigned to a principal present-day successor, and when testing whether a director worked abroad a former state counts for all its successors (the Soviet Union for Russia, Ukraine, Georgia and the others; Yugoslavia, Czechoslovakia, the German states and British India likewise), so that a Ukrainian-born Soviet director is not counted as a migrant. A director worked abroad if their birth country is not their main film country, which needs both a birth country and a film with a country of origin ({{migration.n|int}} directors).
+
+\subsection{Gender and notability}
+Women and trans women are counted as women and men and trans men as men; {{women.o_n|int}} directors have another gender recorded. Shares are among directors with a recorded gender ({{source.gender_pct|pc}}). Notable directors are those with {{meta.notable|int}} or more sitelinks ({{source.n_notable|int}} directors, {{notable.pct|pc}}), a measure of attention on Wikipedia and its sister projects, not of artistic standing.
+
+\section{Results}
+\subsection{The map}
+Figure~\ref{fig:map} shows all {{source.n_pt|int}} birthplace points in hexagons. They are densest in Europe, the north-eastern United States, California, India, Japan and Korea, and sparse across Africa, Central Asia and much of South America. Europe accounts for {{countries.europe_pct|pc}} of directors with a birth country, North America {{countries.by_cont.1.pct|pc}}, Asia {{countries.by_cont.2.pct|pc}}, South America {{countries.by_cont.3.pct|pc}}, Africa {{countries.africa_pct|f1}}\% and Oceania {{countries.by_cont.5.pct|f1}}\%. The maps of women and of notable directors (Figure~\ref{fig:wn}) have the same broad shape, with notable directors concentrated even more strongly in the United States.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_map.png}
+\caption{Birthplaces of {{source.n_pt|int}} film directors in Wikidata, counted in hexagons (Equal Earth projection).}\label{fig:map}\end{figure}
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_women_notable_maps.png}
+\caption{Birthplaces of women directors (left) and of notable directors, with {{meta.notable|int}} or more sitelinks (right).}\label{fig:wn}\end{figure}
+
+\subsection{Cities}
+As recorded in Wikidata, the birthplace with most directors is New York City ({{places.top.0.n|int}}), then Rome ({{places.top.1.n|int}}), London ({{places.top.2.n|int}}) and Prague ({{places.top.3.n|int}}). Grouped into city areas (Figure~\ref{fig:cities}, Table~\ref{tab:cities}), New York ({{areas.top.0.n|int}}) and Paris ({{areas.top.1.n|int}}) lead by a wide margin; Paris gains most from grouping, because many Parisians are recorded by arrondissement. The ten largest city areas account for {{areas.top10_pct|pc}} of all birthplace points. Per head of present population the leaders are Prague, Copenhagen, Munich, Stockholm and Rome, while the largest cities of Asia, Latin America and Africa have very low rates: Tokyo {{areas.tokyo.per100k|f1}}, Mumbai {{areas.mumbai.per100k|f1}} and Kolkata {{areas.kolkata.per100k|f1}} per 100,000, against New York's {{areas.newyork.per100k|f1}}.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_cities.png}
+\caption{City areas (birthplaces within 30 km of a city of a million or more) with most directors, and with most per 100,000 present-day residents (cities with {{areas.per_capita_min_n|int}}+ directors).}\label{fig:cities}\end{figure}
+
+{{TABLE_CITIES}}
+
+\subsection{Countries}
+The United States is the birth country of {{countries.top.0.n|int}} directors ({{countries.us_pct|pc}}), followed by Germany, France, Italy and India (Figure~\ref{fig:countries}, Table~\ref{tab:countries}); the five together account for {{countries.top5_pct|pc}}. Among notable directors the United States accounts for {{countries.us_notable_pct|pc}}, and France and the United Kingdom rise above Germany. Germany, the Czech Republic and Denmark rank higher among all directors than among notable ones, a sign of systematic import of their national film records.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_countries.png}
+\caption{Directors by country of birth: all directors with a birth country, and notable directors. Colours: continent.}\label{fig:countries}\end{figure}
+
+{{TABLE_COUNTRIES}}
+
+\subsection{The shift by debut decade}
+Figure~\ref{fig:shift} shows directors' continents of birth by debut decade. Europe accounts for about three fifths of each decade's directors from the 1910s to the 1960s, then falls to around half; North America's share is highest in the 1910s ({{decades.rows.1.North America_pct|f1}}\%) and lowest in the 1950s and 1960s; Asia grows from {{decades.rows.1.Asia_pct|f1}}\% in the 1910s to {{decades.rows.11.Asia_pct|f1}}\% in the 2010s. Among countries (Figure~\ref{fig:rise}), the United States falls from {{decades.rows.1.c_pct.USA|f1}}\% of directors who debuted in the 1910s to {{decades.rows.11.c_pct.USA|f1}}\% in the 2010s, India rises from {{decades.ind.early_pct|f1}}\% of those who debuted by the 1950s to {{decades.ind.late_pct|f1}}\% since 2000, South Korea from {{decades.kor.early_pct|f1}}\% to {{decades.kor.late_pct|f1}}\% and Iran from {{decades.irn.early_pct|f1}}\% to {{decades.irn.late_pct|f1}}\%. Nigeria, home of one of the world's most productive film industries \citep{haynes}, barely registers ({{decades.nga.late_pct|f1}}\% since 2000), a gap in the record discussed below.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_shift.png}
+\caption{Continent of birth of directors, by the decade of their first dated film.}\label{fig:shift}\end{figure}
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_rise.png}
+\caption{Share of each debut decade's directors born in selected countries.}\label{fig:rise}\end{figure}
+
+\subsection{Directors who worked abroad}
+{{migration.pct|pc}} of {{migration.n|int}} directors made their films mainly in a country other than the one they were born in. The share is remarkably stable, between about 14\% and 21\% in every decade from the 1910s. The largest flows (Figure~\ref{fig:flows}, Table~\ref{tab:flows}) are from the United Kingdom and Canada to the United States, from Austria, Poland and Switzerland to Germany, from China to Hong Kong and from Algeria to France. The countries that send the largest shares of their directors abroad are small neighbours of large film industries: Slovakia ({{migration.emigrant.0.pct|pc}}, mostly to the Czech Republic), Austria ({{migration.austria.pct|pc}}) and Switzerland, and also China ({{migration.emigrant.1.pct|pc}}, mostly to Hong Kong) and the United Kingdom ({{migration.emigrant.4.pct|pc}}). Of {{migration.us_n|int}} directors whose films are mainly American, {{migration.us_pct|pc}} were born abroad, peaking at {{migration.us_1930.pct|pc}} for those who debuted in the 1930s, in line with accounts of European directors in Hollywood \citep{petrie}.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_flows.png}
+\caption{The largest flows of directors between countries around the North Atlantic, from birth country to main film country.}\label{fig:flows}\end{figure}
+
+{{TABLE_FLOWS}}
+
+\subsection{Women}
+Women are {{women.pct|f1}}\% of directors with a recorded gender. The share by debut decade (Figure~\ref{fig:women}, Table~\ref{tab:women}) starts with a handful of silent-era pioneers, Alice Guy-Blaché first among them, falls to {{women.low_dec.pct|f1}}\% in the 1920s and stays below 5\% until the 1970s, then rises to {{women.d1970.pct|f1}}\% in the 1970s, {{women.d2010.pct|f1}}\% in the 2010s and {{women.d2020.pct|f1}}\% in the 2020s so far. Among notable directors the share is higher in recent decades ({{women.d2020.pct_notable|f1}}\% in the 2020s), partly because recent notable `directors' include actors and musicians who directed one film. These figures sit well above industry counts of women directing the highest-grossing American films \citep{lauzen}, because Wikidata includes documentaries, short films and smaller national cinemas. By birth country, the highest shares are for directors born in Canada ({{women.top.0.pct|f1}}\%), Switzerland ({{women.top.1.pct|f1}}\%) and the Netherlands ({{women.top.2.pct|f1}}\%), and among the lowest are India ({{women.india.pct|f1}}\%) and Japan ({{women.japan.pct|f1}}\%); these mix decades, so countries with mostly recent directors look better.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_women.png}
+\caption{Women's share of directors by debut decade, for all directors and notable directors.}\label{fig:women}\end{figure}
+
+{{TABLE_WOMEN}}
+
+\subsection{Prolific directors}
+Half of all directors have {{prolific.median|int}} film in Wikidata, and {{prolific.n1_pct|pc}} exactly one; {{prolific.n50|int}} have fifty or more. The most prolific are silent and studio-era directors of short and series films: Louis Feuillade ({{prolific.top.0.nf|int}} films), Lau Lauritzen Sr. ({{prolific.top.1.nf|int}}), Sam Newfield ({{prolific.top.2.nf|int}}), William Beaudine ({{prolific.top.3.nf|int}}) and Richard Thorpe ({{prolific.top.4.nf|int}}). The most prolific woman is Alice Guy-Blaché ({{prolific.top_w.0.nf|int}}).
+
+\subsection{Coverage}
+Birthplace coverage is the main limitation (Figure~\ref{fig:cov}). Notable directors almost always have a birthplace ({{source.notable_bp_pct|f1}}\%), directors with at most one sitelink only {{source.sl1_bp_pct|pc}}. By main film country, coverage ranges from over 80\% for Hungary, Russia, Italy and Iran to about a third for Canada, Denmark and Nigeria ({{coverage.nga_bp_pct|pc}} of {{coverage.nga_n|int}} directors). The share of directors with a birth country also falls for recent debut decades, from {{coverage.by_dec.5.bp_pct|pc}} for the 1950s to {{coverage.by_dec.11.bp_pct|pc}} for the 2010s, as bulk imports of recent films add names without biographies.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_coverage.png}
+\caption{Share of directors with a known birthplace, by main film country (countries with 350 or more directors).}\label{fig:cov}\end{figure}
+
+\section{Discussion}
+The open record reproduces several familiar features of film history: the early dominance of France, the United States and Germany; the long importance of European-born directors in Hollywood; the growth of Indian, Korean and Iranian cinema; and the slow, late rise of women behind the camera. It also adds texture that national histories rarely show, such as the concentration of directors in a few great cities and the steady one-in-seven share of directors who worked mainly in another country.
+
+Every one of these findings is shaped by coverage. A country's number of directors in Wikidata depends on whether its film database has been imported, and whether the import included birthplaces; Prague's and Copenhagen's high per-head rates and Nigeria's near absence are in large part facts about the record. Sitelinks, used here to define notable directors, measure attention on Wikipedia and favour celebrities who directed a single film. The safest comparisons are within the data over time, such as women's share by decade, and even these are affected by which recent films have been added.
+
+\section{Limitations}
+First, Wikidata is incomplete and uneven, and {{source.bp_pct|pc}} of directors have a birthplace. Second, the population is defined by Wikidata's film class and director property, which include short films and documentaries and exclude television, and the people include non-professional directors. Third, birth countries use present-day borders. Fourth, the debut year is the earliest dated film in Wikidata, which may be later than a director's real debut. Fifth, a main film country splits co-productions equally and treats former states through a hand-made table of successors. Sixth, gender is as recorded, mostly binary, and missing for {{women.u_pct|pc}} of directors. Seventh, city areas use a fixed 30 km radius and present-day populations. Finally, all counts are for one retrieval in {{meta.retrieved}}.
+
+\section{Conclusion}
+Two open queries are enough to map where tens of thousands of film directors were born, how that geography moved from Europe and North America towards Asia, which directors left home to make films, and how long it took for women to appear in numbers. The same data show clearly where the record is thin. The atlas lets readers explore both.
+
+\section*{Data and code availability}
+The interactive atlas is at \url{{{meta.page}}}. Data and code are at \url{{{meta.repo}}} and archived with this paper at \url{https://doi.org/{{meta.doi}}}. Derived data are released under CC BY 4.0 and code under the MIT licence.
+
+\section*{AI statement}
+I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.
+
+\begin{thebibliography}{9}
+\bibitem[Bast and Buchhold(2017)]{qlever} Bast, H. and Buchhold, B. (2017) QLever: a query engine for efficient SPARQL+text search. \emph{Proceedings of the 2017 ACM Conference on Information and Knowledge Management}, 647 to 656. \url{https://qlever.cs.uni-freiburg.de/}
+\bibitem[Haynes(2016)]{haynes} Haynes, J. (2016) \emph{Nollywood: The Creation of Nigerian Film Genres}. Chicago: University of Chicago Press.
+\bibitem[Lauzen(2024)]{lauzen} Lauzen, M. M. (2024) \emph{The Celluloid Ceiling}. San Diego: Center for the Study of Women in Television and Film, San Diego State University.
+\bibitem[Natural Earth(2026)]{naturalearth} Natural Earth (2026) Admin 0 countries and populated places. Public domain. \url{https://www.naturalearthdata.com/}
+\bibitem[Petrie(2002)]{petrie} Petrie, G. (2002) \emph{Hollywood Destinies: European Directors in America, 1922 to 1931}. Revised edition. Detroit: Wayne State University Press.
+\bibitem[Schich et al.(2014)]{schich} Schich, M., Song, C., Ahn, Y.-Y., Mirsky, A., Martino, M., Barab\'asi, A.-L. and Helbing, D. (2014) A network framework of cultural history. \emph{Science}, 345(6196), 558 to 562.
+\bibitem[Vrandečić and Krötzsch(2014)]{wikidata} Vrandečić, D. and Krötzsch, M. (2014) Wikidata: a free collaborative knowledgebase. \emph{Communications of the ACM}, 57(10), 78 to 85.
+\bibitem[Wagner et al.(2016)]{wagner} Wagner, C., Graells-Garrido, E., Garcia, D. and Menczer, F. (2016) Women through the glass ceiling: gender asymmetries in Wikipedia. \emph{EPJ Data Science}, 5, 5.
+\end{thebibliography}
+\end{document}
